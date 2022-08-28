@@ -13,7 +13,6 @@ const ToggleTheme = () => {
 
   const { changeTheme, isDarkTheme } = useTheme();
 
-  console.log(isDarkTheme)
   return (
     <Switch
       onChange={changeTheme}

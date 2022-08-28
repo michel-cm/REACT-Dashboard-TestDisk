@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 60px;
+    height: 100vh;
     background-color: ${props => props.theme.colors.primary};
     color: #FFF;
     display: flex;
-    
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 40px;
+    padding: 40px 40px;
+    width: 6vw;
 
-    @media (min-width:961px) {
+    @media (max-width:961px) {
         display: none;
     }
 `;
