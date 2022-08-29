@@ -1,7 +1,7 @@
 import ToggleTheme from "../ToggleTheme";
-import * as C from "./styles";
+import * as C from "./styled";
 
-const Header = () => {
+export const Header = () => {
   return (
     <C.Container>
       <h5>Logo</h5>
@@ -10,4 +10,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+

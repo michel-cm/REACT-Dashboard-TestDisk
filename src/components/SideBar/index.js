@@ -1,13 +1,23 @@
 import ToggleTheme from "../ToggleTheme";
-import * as C from "./styles";
+import * as C from "./styled";
 
-const Header = () => {
+import { Link } from "react-router-dom";
+
+export const SideBar = () => {
   return (
     <C.Container>
       <h5>Logo</h5>
+
+      <Link to={"/"}>
+        Home
+      </Link>
+      <Link to={"/questionario"}>
+        Questionario
+      </Link>
+
       <ToggleTheme />
     </C.Container>
   );
 };
 
-export default Header;
+

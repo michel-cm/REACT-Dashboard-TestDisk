@@ -11,6 +11,10 @@ export const Container = styled.div`
     padding: 40px 40px;
     width: 6vw;
 
+    a {
+        color: #FFF;
+    }
+
     @media (max-width:961px) {
         display: none;
     }

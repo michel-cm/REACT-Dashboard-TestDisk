@@ -1,16 +1,22 @@
 import React from "react";
 import { AplicationRouters } from "./AplicationRouters";
-import GlobalStyle from "./styles/global";
+import GlobalStyle, { AppContainer } from "./styles/global";
 
 import { ThemeContextProvider } from "./contexts/ThemeContext";
+
+import { ListQuestionsTestContextProvider } from "./contexts/ListQuestionsTestContext";
 
 function App() {
   return (
     <>
-      <ThemeContextProvider>
-        <GlobalStyle />
-        <AplicationRouters />
-      </ThemeContextProvider>
+      <ListQuestionsTestContextProvider>
+        <ThemeContextProvider>
+          <AppContainer>
+            <GlobalStyle />
+            <AplicationRouters />
+          </AppContainer>
+        </ThemeContextProvider>
+      </ListQuestionsTestContextProvider>
     </>
   );
 }
