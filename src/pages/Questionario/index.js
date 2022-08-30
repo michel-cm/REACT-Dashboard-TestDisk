@@ -11,36 +11,36 @@ export const Questionario = () => {
 
   return (
     <C.Container>
+      <C.AreaCardsResume>
+        <C.CardTotalQuestions value={"#2261BC"}>
+          <div>
+            <p>Total Questões</p>
+            <C.LineCard2></C.LineCard2>
+            <span>26</span>
+          </div>
+        </C.CardTotalQuestions>
+        <C.CardTotalQuestions value={"#3AB04D"}>
+          <div>
+            <p>Ativas</p>
+            <C.LineCard2></C.LineCard2>
+            <span>26</span>
+          </div>
+        </C.CardTotalQuestions>
+        <C.CardTotalQuestions value={"#FC5A5A"}>
+          <div>
+            <p>Desativadas</p>
+            <C.LineCard2></C.LineCard2>
+            <span>26</span>
+          </div>
+        </C.CardTotalQuestions>
 
-    <C.AreaCardsResume>
-      <C.CardTotalQuestions>       
-        <p>Total Questões</p>
-          <C.LineCard2>            
-          </C.LineCard2>
-          <span>26</span>
-      </C.CardTotalQuestions>
-      <C.CardTotalQuestions>       
-        <p>Total Questões</p>
-          <C.LineCard2>            
-          </C.LineCard2>
-          <span>26</span>
-      </C.CardTotalQuestions>
-      <C.CardTotalQuestions>       
-        <p>Total Questões</p>
-          <C.LineCard2>            
-          </C.LineCard2>
-          <span>26</span>
-      </C.CardTotalQuestions>
-    
-    </C.AreaCardsResume>
+      </C.AreaCardsResume>
 
-    <C.AreaAddQuestion>
-      
-    </C.AreaAddQuestion>
+      {/* ---------------------------------------- */}
 
-    <C.AreaSearch>
+      <C.AreaAddQuestion></C.AreaAddQuestion>
 
-    </C.AreaSearch>
+      <C.AreaSearch></C.AreaSearch>
 
       <C.TestArea>
         <C.TesteListQuestions>

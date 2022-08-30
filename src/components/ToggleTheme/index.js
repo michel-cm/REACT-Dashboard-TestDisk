@@ -22,8 +22,8 @@ const ToggleTheme = () => {
       height={10}
       width={40}
       handleDiameter={15}
-      offColor={shade(0.2, colors.primary)}
-      onColor={colors.secundary}
+      offColor={shade(0.4, colors.backgroundAside)}
+      onColor="#ED3237"
     />
   );
 };
