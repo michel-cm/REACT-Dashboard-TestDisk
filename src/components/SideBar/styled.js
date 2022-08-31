@@ -10,12 +10,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 48px 0px;
+  position: fixed;
+  
 
   transition: all 0.3s ease 0s;
 
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.textAside};
+    width: 100%;
   }
 
   @media (max-width: 961px) {
@@ -43,7 +46,7 @@ export const MenuItem = styled.div`
   align-items: center; 
   padding-left: 20px;
   margin-bottom: 8px;
-  cursor: pointer;
+  
 
   &&.selected {
     background-color: ${(props) => props.color};

@@ -1,4 +1,5 @@
 import * as C from "./styled";
+import IconSearch from '../../assets/search.png'
 
 import { useEffect, useState } from "react";
 
@@ -33,15 +34,21 @@ export const Questionario = () => {
             <span>26</span>
           </div>
         </C.CardTotalQuestions>
-
       </C.AreaCardsResume>
 
       {/* ---------------------------------------- */}
 
-      <C.AreaAddQuestion></C.AreaAddQuestion>
 
-      <C.AreaSearch></C.AreaSearch>
 
+      <C.AreaSearchAndAdd>
+        <button className="button">ADICIONAR NOVA QUESTÃO</button>
+
+        <C.SearchInput placeholder="Digite alguma questão" /><img src={IconSearch} />
+      </C.AreaSearchAndAdd>
+
+
+
+      {/* ---------------------------------------- */}
       <C.TestArea>
         <C.TesteListQuestions>
           {testListQuestions.map((question, index) => {

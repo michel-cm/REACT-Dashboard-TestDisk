@@ -13,6 +13,19 @@ export default createGlobalStyle`
         color: ${(props) => props.theme.colors.text};
         font-family: sans-serif;     
     }
+
+    .button {
+      background-color: #FC5A5A;
+      color: #F8F8F8;
+      padding: 18px 9px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+    .button:hover {
+      opacity: 0.9;
+    }
 `;
 
 export const AppContainer = styled.div`
