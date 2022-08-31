@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 
   img {
-    width: 80px;
+    width: 70px;
   }
 `;
 
@@ -31,6 +31,7 @@ export const AreaMenuItems = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 80px;
 
     p {        
         padding: 16px;
@@ -40,10 +41,20 @@ export const AreaMenuItems = styled.div`
 export const MenuItem = styled.div`
   display: flex;
   align-items: center; 
-  padding-left: 24px;
+  padding-left: 20px;
   margin-bottom: 8px;
+  cursor: pointer;
+
+  &&.selected {
+    background-color: ${(props) => props.color};
+  }
+
+  &&:hover {
+    background-color: ${(props) => props.color}; 
+  }
+  
   img {
-    width: 24px;
+    width: 20px;
     
   }
 `;

@@ -2,15 +2,10 @@ import { shade } from "polished";
 
 import Switch from "react-switch";
 
-import { ThemeContext } from "styled-components";
-import { useContext } from "react";
-
 import { useTheme } from "../../hooks/useTheme";
 
-
 const ToggleTheme = () => {
-  const { colors } = useContext(ThemeContext);
-
+  
   const { changeTheme, isDarkTheme } = useTheme();
 
   return (
@@ -22,8 +17,8 @@ const ToggleTheme = () => {
       height={10}
       width={40}
       handleDiameter={15}
-      offColor={shade(0.4, colors.backgroundAside)}
-      onColor="#ED3237"
+      offColor={shade(0.4, '#ED3237')}
+      onColor={shade(0.2, '#222')}
     />
   );
 };
