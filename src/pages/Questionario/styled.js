@@ -4,22 +4,24 @@ export const Container = styled.div`
   height: 100vh;
   padding: 40px 25px;
   margin-left: 200px;
+  width: 100%;
 `;
 
 export const AreaCardsResume = styled.div`
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px 60px;
+  width: 100%;
 `;
 
 export const CardTotalQuestions = styled.div`
-  background-color: #333;
+ background-color: ${(props) => props.theme.colors.primary};
   display: flex;
   align-items: center;
-  width: 260px;  
- 
+  width: 260px;
+  box-shadow:0 5px 15px 0 rgba(0,0,0,.2);
 
   div {
     display: flex;
@@ -58,13 +60,12 @@ export const AreaSearchAndAdd = styled.div`
 
   img {
     margin-left: -50px;
-    width: 20px;   
+    width: 20px;
   }
   img:hover {
     cursor: pointer;
     opacity: 0.8;
   }
-   
 `;
 
 export const SearchInput = styled.input`
@@ -73,15 +74,39 @@ export const SearchInput = styled.input`
   border-radius: 5px;
   width: 300px;
   height: 50px;
-  background-color: #FFF;
+  background-color: #fff;
   outline: 0;
   padding: 0px 60px 0px 16px;
 
   font-size: 16px;
+  box-shadow:0 5px 15px 0 rgba(0,0,0,.2);
 `;
 
-export const TestArea = styled.div`
-  background-color: red;
+export const TestArea = styled.div``;
+
+export const AreaAccordion = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  cursor: pointer;
+  box-shadow:0 5px 15px 0 rgba(0,0,0,.2);
+  padding: 3px 10px 3px 10px;
+  width: 200px;
+  margin-bottom: 16px;
+  border-radius: 0px 25px 25px 0;
+  transition: all 0.2s ease 0s; 
+  background-color: ${(props) => props.theme.colors.primary};
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
-export const TesteListQuestions = styled.div``;
+export const ArrowIcon = styled.img`
+  transform: rotate(${(props) => (props.show ? "90deg" : "0deg")});
+  
+`;
+
+export const TesteListQuestions = styled.div`
+    
+`;

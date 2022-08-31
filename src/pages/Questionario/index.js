@@ -1,5 +1,6 @@
 import * as C from "./styled";
-import IconSearch from '../../assets/search.png'
+import IconSearch from '../../assets/actions/search.png'
+import iconArrowRight from '../../assets/actions/arrowRight.png'
 
 import { useEffect, useState } from "react";
 
@@ -7,6 +8,12 @@ import { useListQuestionsTest } from "../../hooks/useListQuestionsTest";
 
 export const Questionario = () => {
   const { testListQuestions, getAlQuestions } = useListQuestionsTest();
+
+  const [ areaQuestionsActiveShow, setAreaQuestionsActiveShow] = useState(true);
+
+  function handleShowAreaQuestionsActive() {
+      setAreaQuestionsActiveShow(!areaQuestionsActiveShow)
+  }
 
   console.log(testListQuestions);
 
@@ -50,9 +57,16 @@ export const Questionario = () => {
 
       {/* ---------------------------------------- */}
       <C.TestArea>
+        <C.AreaAccordion onClick={handleShowAreaQuestionsActive}>
+            <h3>Questões Ativas</h3> 
+            <C.ArrowIcon src={iconArrowRight} show={areaQuestionsActiveShow} />            
+        </C.AreaAccordion>
         <C.TesteListQuestions>
-          {testListQuestions.map((question, index) => {
+          
+          {areaQuestionsActiveShow ?          
+          testListQuestions.map((question, index) => {
             return (
+
               <div key={index}>
                 <h1>{question.title}</h1>
                 <p>{question.a}</p>
@@ -61,7 +75,7 @@ export const Questionario = () => {
                 <p>{question.d}</p>
               </div>
             );
-          })}
+          }) : <div>...</div> }
         </C.TesteListQuestions>
       </C.TestArea>
     </C.Container>
