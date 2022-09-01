@@ -1,27 +1,6 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 
-export const Container = styled.div`
-width: 100%;
-height: fit-content;
-`
-
-export const AreaCardsResume = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px 20px;
-  width: 100%;
-`;
-
-export const AreaSearchAndAdd = styled.div`
-  padding: 80px 0px 40px 0px;
-  display: flex;
-  align-items: center;
-
-`;
-
-export const AreaAccordion = styled.div`
+export const Container = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,6 +13,9 @@ export const AreaAccordion = styled.div`
   transition: all 0.2s ease 0s;
   background-color: ${(props) => props.theme.colors.primary};
   font-size: 12px;
+  border: none;
+  color:  ${(props) => props.theme.colors.text};
+
   &:hover {
     opacity: 0.8;
   }
@@ -49,4 +31,3 @@ export const AreaAccordion = styled.div`
 export const ArrowIcon = styled.img`
   transform: rotate(${(props) => (props.show ? "90deg" : "0deg")});
 `;
-
