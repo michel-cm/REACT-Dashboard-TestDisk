@@ -20,15 +20,6 @@ export const AreaSearchAndAdd = styled.div`
   padding: 60px 0px;
   display: flex;
   align-items: center;
-
-  img {
-    margin-left: -50px;
-    width: 20px;
-  }
-  img:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
 `;
 
 export const TestArea = styled.div``;

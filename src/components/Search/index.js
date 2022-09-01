@@ -1,17 +1,19 @@
 import * as C from "./Styled";
-import IconSearchB from "../../assets/actions/searchb.png";
-import IconSearchW from "../../assets/actions/searchw.png";
+
+import { BsSearch } from "react-icons/bs";
 
 import { useTheme } from "../../hooks/useTheme";
+import { toColorString } from "polished";
 
 export const Search = (props) => {
-
-    const { isDarkTheme } = useTheme();
+  const { isDarkTheme } = useTheme();
 
   return (
-    <>
+    <C.AreaInput>
       <C.SearchInput placeholder={props.placeholder} type="search" />
-      <img src={isDarkTheme ? IconSearchW : IconSearchB} alt="icon lupa"/>
-    </>
+      <C.IconSearch>
+        <BsSearch />
+      </C.IconSearch>
+    </C.AreaInput>
   );
 };

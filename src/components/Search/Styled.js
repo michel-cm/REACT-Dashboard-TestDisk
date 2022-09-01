@@ -13,3 +13,12 @@ export const SearchInput = styled.input`
   font-size: 15px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 `;
+
+export const AreaInput = styled.div`
+  display: flex;
+  align-items: center;  
+`;
+
+export const IconSearch = styled.div`
+  margin-left: -50px;
+`;
