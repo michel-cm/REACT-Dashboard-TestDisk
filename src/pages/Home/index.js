@@ -1,6 +1,7 @@
 import * as C from "./styled";
 import { Card } from "./Card";
-import { TableAreaUsers } from "./TableAreaUsers/Index";
+import { TableAreaUsers } from "./TableAreaUsers";
+import { Search } from "../../components/Search";
 
 const Home = () => {
   return (
@@ -19,8 +20,13 @@ const Home = () => {
 
       {/*FAZER AREA GRAFICO ...*/}
 
+      <C.AreaSearchAndAdd>
+        <button class="button">Enviar novo teste</button>
+
+        <Search placeholder="Digite o nome do candidato"/>
+      </C.AreaSearchAndAdd>
+
       <TableAreaUsers />
-    
     </C.Container>
   );
 };

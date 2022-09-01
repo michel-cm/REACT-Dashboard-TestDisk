@@ -2,7 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  margin: 60px auto;
+  margin: 0 auto;
+
+  & {
+    @media screen and (min-width: 1300px) {
+        width: 80%;
+        margin: 0 0;
+  }
+  }
 
   .container-table100 {
     width: 100%;

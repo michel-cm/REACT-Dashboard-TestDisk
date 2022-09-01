@@ -31,20 +31,6 @@ export const AreaSearchAndAdd = styled.div`
   }
 `;
 
-export const SearchInput = styled.input`
-  margin-left: 32px;
-  border: 0;
-  border-radius: 5px;
-  width: 300px;
-  height: 50px;
-  background-color: #fff;
-  outline: 0;
-  padding: 0px 60px 0px 16px;
-
-  font-size: 16px;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
-`;
-
 export const TestArea = styled.div``;
 
 export const AreaAccordion = styled.div`

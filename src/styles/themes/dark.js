@@ -4,6 +4,7 @@ export default {
     colors: {
         primary: '#333',
         secundary: '#6969FD',
+        input: '#333',
 
         background: '#1C1C1C',
         backgroundAside: '#333',

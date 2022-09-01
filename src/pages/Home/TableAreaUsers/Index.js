@@ -1,6 +1,8 @@
 import * as C from "./Styled";
 
-import IconDelete from "../../../assets/actions/delete.png";
+import IconDeleteB from "../../../assets/actions/deleteb.png";
+import IconStarB from "../../../assets/actions/favoritob.png";
+import IconSeeB from "../../../assets/actions/seeb.png";
 
 export const TableAreaUsers = () => {
   return (
@@ -13,6 +15,7 @@ export const TableAreaUsers = () => {
               <div class="cell">E-mail</div>
               <div class="cell">Predominancia</div>
               <div class="cell">Data</div>
+              <div class="cell"></div>
               <div class="cell"></div>
               <div class="cell"></div>
             </div>
@@ -34,7 +37,7 @@ export const TableAreaUsers = () => {
                 <a href="#">
                   <img
                     className=" icon iconSee"
-                    src={IconDelete}
+                    src={IconSeeB}
                     alt="icon see"
                   />{" "}
                 </a>               
@@ -43,7 +46,16 @@ export const TableAreaUsers = () => {
                 <a href="#">
                   <img
                     className=" icon iconSee"
-                    src={IconDelete}
+                    src={IconDeleteB}
+                    alt="icon see"
+                  />{" "}
+                </a>               
+              </div>
+              <div class="cell iconsLista" data-title="Ações">
+                <a href="#">
+                  <img
+                    className=" icon iconSee"
+                    src={IconStarB}
                     alt="icon see"
                   />{" "}
                 </a>               

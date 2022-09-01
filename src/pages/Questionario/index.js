@@ -1,9 +1,9 @@
 import * as C from "./styled";
-import IconSearch from "../../assets/actions/search.png";
 import iconArrowRight from "../../assets/actions/arrowRight.png";
 import plusWhite from "../../assets/actions/pluswhite.png";
 
 import { Card } from "./Card";
+import { Search } from "../../components/Search";
 
 import { useEffect, useState } from "react";
 
@@ -41,7 +41,7 @@ export const Questionario = () => {
       <C.AreaSearchAndAdd>
         <button className="button">ADICIONAR NOVA QUESTÃO</button>
 
-        <C.SearchInput placeholder="Digite alguma questão" type="search"/>
+        <Search placeholder="Digite alguma questão"/>
       </C.AreaSearchAndAdd>
 
       {/* ---------------------------------------- */}
