@@ -1,7 +1,6 @@
 import * as C from "./styled";
 import { Card } from "./Card";
 import { TableAreaUsers } from "./TableAreaUsers/index";
-import { Search } from "../../components/Search";
 import { Button } from "../../components/Button";
 
 const Home = () => {
@@ -17,14 +16,10 @@ const Home = () => {
           value={5}
           dominancia="C"
         />
-      </C.AreaCardsResume>
-
-     
+      </C.AreaCardsResume>     
 
       <C.AreaSearchAndAdd>
-        <Button />
-
-        <Search placeholder="Digite o nome do candidato"/>
+        <Button />       
       </C.AreaSearchAndAdd>
 
       <TableAreaUsers />

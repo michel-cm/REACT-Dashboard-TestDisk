@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  margin: 0 auto;  
-
+  margin: 0 auto;
+  
   & {
     @media screen and (min-width: 1300px) {
         width: 80%;
@@ -21,6 +21,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 60px;
   }
 
   .wrap-table100 {
