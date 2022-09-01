@@ -3,7 +3,7 @@ import IconSearch from "../../assets/actions/search.png";
 import iconArrowRight from "../../assets/actions/arrowRight.png";
 import plusWhite from "../../assets/actions/pluswhite.png";
 
-import { CardPrimary } from "../../components/CardPrimary";
+import { Card } from "./Card";
 
 import { useEffect, useState } from "react";
 
@@ -31,9 +31,9 @@ export const Questionario = () => {
       <C.AreaCardsResume>
         
 
-       <CardPrimary title={"Total Questões"} color={"#2261BC"} value={25}/>
-       <CardPrimary title={"Questões Ativas"} color={"#3AB04D"} value={20}/>
-       <CardPrimary title={"Questões Pausadas"} color={"#FC5A5A"} value={5}/>
+       <Card title={"Total Questões"} color={"#2261BC"} value={25}/>
+       <Card title={"Questões Ativas"} color={"#3AB04D"} value={20}/>
+       <Card title={"Questões Pausadas"} color={"#FC5A5A"} value={5}/>
       </C.AreaCardsResume>
 
       {/* ---------------------------------------- */}

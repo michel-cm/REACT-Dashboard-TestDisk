@@ -4,9 +4,10 @@ export const CardTotalQuestions = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
   align-items: center;
-  width: 28%;
-  min-width: 180px;
+  width: 22%;
+  min-width: 190px;
   max-width: 300px;
+  padding-right: 4px;
  
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 
@@ -18,18 +19,18 @@ export const CardTotalQuestions = styled.div`
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   span {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
   }
 
   &&::before {
     content: "";
     width: 6px;
-    height: 100px;
+    height: 90px;
     background-color: ${(props) => props.value};
   }
 `;

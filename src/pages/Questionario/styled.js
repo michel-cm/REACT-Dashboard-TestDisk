@@ -10,7 +10,7 @@ export const AreaCardsResume = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px 60px;
+  gap: 20px 40px;
   width: 100%;
  
 `;
