@@ -1,5 +1,7 @@
 import * as C from "./Styled";
 
+import IconDelete from "../../../assets/actions/delete.png";
+
 export const TableAreaUsers = () => {
   return (
     <C.Container>
@@ -11,6 +13,7 @@ export const TableAreaUsers = () => {
               <div class="cell">E-mail</div>
               <div class="cell">Predominancia</div>
               <div class="cell">Data</div>
+              <div class="cell"></div>
               <div class="cell"></div>
             </div>
 
@@ -27,9 +30,23 @@ export const TableAreaUsers = () => {
               <div class="cell" data-title="Data">
                 29/08/2022
               </div>
+              <div class="cell " data-title="Ações">
+                <a href="#">
+                  <img
+                    className=" icon iconSee"
+                    src={IconDelete}
+                    alt="icon see"
+                  />{" "}
+                </a>               
+              </div>
               <div class="cell iconsLista" data-title="Ações">
-                <a href="#"> VER </a>
-                <a href="#"> EXCLUIR </a>
+                <a href="#">
+                  <img
+                    className=" icon iconSee"
+                    src={IconDelete}
+                    alt="icon see"
+                  />{" "}
+                </a>               
               </div>
             </div>
           </div>

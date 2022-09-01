@@ -20,8 +20,7 @@ const Home = () => {
       {/*FAZER AREA GRAFICO ...*/}
 
       <TableAreaUsers />
-
-      
+    
     </C.Container>
   );
 };

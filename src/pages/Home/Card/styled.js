@@ -5,7 +5,7 @@ export const Card = styled.div`
   display: flex;
   align-items: center;
   width: 22%;
-  min-width: 190px;
+  min-width: 180px;
   max-width: 300px;
   padding-right: 4px;
 

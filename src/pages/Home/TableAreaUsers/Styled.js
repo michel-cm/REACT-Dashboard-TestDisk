@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  margin: 0 auto;
+  margin: 60px auto;
 
   .container-table100 {
     width: 100%;
@@ -14,11 +14,10 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 33px 30px;
   }
 
   .wrap-table100 {
-    width: 95%;
+    width: 100%;
     border-radius: 0px;
     overflow: hidden;
   }
@@ -68,7 +67,6 @@ export const Container = styled.div`
       font-weight: unset !important;
 
       margin-bottom: 13px;
-      content: attr(data-title);
       min-width: 98px;
       display: block;
     }
@@ -131,7 +129,6 @@ export const Container = styled.div`
 
   .row:hover {
     background-color: #ececff;
-    cursor: pointer;
   }
   .row:nth-child(1):hover {
     background-color: #5a9bfc;
@@ -172,8 +169,8 @@ export const Container = styled.div`
     }
   }
 
-  .iconslista {
-    display: flex;
-    justify-content: space-evenly;
+  .icon {
+    width: 18px;
+    margin-right: 16px;
   }
 `;
