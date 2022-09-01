@@ -2,11 +2,8 @@ import * as C from "./Styled";
 
 import { BsSearch } from "react-icons/bs";
 
-import { useTheme } from "../../hooks/useTheme";
-import { toColorString } from "polished";
-
 export const Search = (props) => {
-  const { isDarkTheme } = useTheme();
+  
 
   return (
     <C.AreaInput>

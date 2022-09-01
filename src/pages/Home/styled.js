@@ -5,10 +5,6 @@ width: 100%;
 height: fit-content;
 `
 
-export const Titulo = styled.h1`
-
-`;
-
 export const AreaCardsResume = styled.div`
   display: flex;
   align-items: center;
@@ -23,13 +19,5 @@ export const AreaSearchAndAdd = styled.div`
   display: flex;
   align-items: center;
 
-  img {
-    margin-left: -50px;
-    width: 20px;
-  }
-  img:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
 `;
 

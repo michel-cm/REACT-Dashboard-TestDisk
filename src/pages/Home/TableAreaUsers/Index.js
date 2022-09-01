@@ -21,40 +21,40 @@ export const TableAreaUsers = () => {
             </div>
 
             <div class="row">
-              <div class="cell" data-title="Nome">
+              <div class="cell" >
                 Michel Corrêa Martins
               </div>
-              <div class="cell" data-title="E-mail">
+              <div class="cell" >
                 michel-cm15@hotmail.com
               </div>
-              <div class="cell" data-title="Predominancia">
+              <div class="cell" >
                 Condescendente
               </div>
-              <div class="cell" data-title="Data">
+              <div class="cell">
                 29/08/2022
               </div>
-              <div class="cell " data-title="Ações">
+              <div class="cell " >
                 <a href="#">
                   <img
-                    className=" icon iconSee"
+                    class=" icon iconSee"
                     src={IconSeeB}
                     alt="icon see"
                   />{" "}
                 </a>               
               </div>
-              <div class="cell iconsLista" data-title="Ações">
+              <div class="cell iconsLista" >
                 <a href="#">
                   <img
-                    className=" icon iconSee"
+                    class=" icon iconSee"
                     src={IconDeleteB}
                     alt="icon see"
                   />{" "}
                 </a>               
               </div>
-              <div class="cell iconsLista" data-title="Ações">
+              <div class="cell iconsLista" >
                 <a href="#">
                   <img
-                    className=" icon iconSee"
+                    class=" icon iconSee"
                     src={IconStarB}
                     alt="icon see"
                   />{" "}

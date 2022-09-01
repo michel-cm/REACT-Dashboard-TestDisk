@@ -2,10 +2,11 @@ import * as C from "./styled";
 import { Card } from "./Card";
 import { TableAreaUsers } from "./TableAreaUsers";
 import { Search } from "../../components/Search";
+import { Button } from "../../components/Button";
 
 const Home = () => {
   return (
-    <C.Container className="MainContentPadingAndMargin">
+    <C.Container className={"MainContentPadingAndMargin"}>
       <C.AreaCardsResume>
         <Card title={"Dominantes"} color={"#FC5A5A"} value={5} dominancia="D" />
         <Card title={"Influentes"} color={"#E2992B"} value={5} dominancia="I" />
@@ -18,10 +19,10 @@ const Home = () => {
         />
       </C.AreaCardsResume>
 
-      {/*FAZER AREA GRAFICO ...*/}
+     
 
       <C.AreaSearchAndAdd>
-        <button class="button">Enviar novo teste</button>
+        <Button />
 
         <Search placeholder="Digite o nome do candidato"/>
       </C.AreaSearchAndAdd>

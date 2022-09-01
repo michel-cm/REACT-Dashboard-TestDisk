@@ -4,6 +4,7 @@ import plusWhite from "../../assets/actions/pluswhite.png";
 
 import { Card } from "./Card";
 import { Search } from "../../components/Search";
+import { Button } from "../../components/Button";
 
 import { useEffect, useState } from "react";
 
@@ -39,7 +40,7 @@ export const Questionario = () => {
       {/* ---------------------------------------- */}
 
       <C.AreaSearchAndAdd>
-        <button className="button">ADICIONAR NOVA QUESTÃO</button>
+      <Button />
 
         <Search placeholder="Digite alguma questão"/>
       </C.AreaSearchAndAdd>
