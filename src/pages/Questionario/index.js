@@ -1,6 +1,9 @@
 import * as C from "./styled";
-import IconSearch from '../../assets/actions/search.png'
-import iconArrowRight from '../../assets/actions/arrowRight.png'
+import IconSearch from "../../assets/actions/search.png";
+import iconArrowRight from "../../assets/actions/arrowRight.png";
+import plusWhite from "../../assets/actions/pluswhite.png";
+
+import { CardPrimary } from "../../components/CardPrimary";
 
 import { useEffect, useState } from "react";
 
@@ -9,75 +12,94 @@ import { useListQuestionsTest } from "../../hooks/useListQuestionsTest";
 export const Questionario = () => {
   const { testListQuestions, getAlQuestions } = useListQuestionsTest();
 
-  const [ areaQuestionsActiveShow, setAreaQuestionsActiveShow] = useState(true);
+  const [areaQuestionsActiveShow, setAreaQuestionsActiveShow] = useState(true);
+  const [areaQuestionsDisableShow, setAreaQuestionsDisableShow] =
+    useState(true);
 
   function handleShowAreaQuestionsActive() {
-      setAreaQuestionsActiveShow(!areaQuestionsActiveShow)
+    setAreaQuestionsActiveShow(!areaQuestionsActiveShow);
+  }
+
+  function handleShowAreaQuestionsDisable() {
+    setAreaQuestionsDisableShow(!areaQuestionsDisableShow);
   }
 
   console.log(testListQuestions);
 
   return (
-    <C.Container>
+    <C.Container className="MainContentPadingAndMargin">
       <C.AreaCardsResume>
-        <C.CardTotalQuestions value={"#2261BC"}>
-          <div>
-            <p>Total Questões</p>
-            <C.LineCard2></C.LineCard2>
-            <span>26</span>
-          </div>
-        </C.CardTotalQuestions>
-        <C.CardTotalQuestions value={"#3AB04D"}>
-          <div>
-            <p>Ativas</p>
-            <C.LineCard2></C.LineCard2>
-            <span>26</span>
-          </div>
-        </C.CardTotalQuestions>
-        <C.CardTotalQuestions value={"#FC5A5A"}>
-          <div>
-            <p>Desativadas</p>
-            <C.LineCard2></C.LineCard2>
-            <span>26</span>
-          </div>
-        </C.CardTotalQuestions>
+        
+
+       <CardPrimary title={"Total Questões"} color={"#2261BC"} value={25}/>
+       <CardPrimary title={"Questões Ativas"} color={"#3AB04D"} value={20}/>
+       <CardPrimary title={"Questões Pausadas"} color={"#FC5A5A"} value={5}/>
       </C.AreaCardsResume>
 
       {/* ---------------------------------------- */}
 
-
-
       <C.AreaSearchAndAdd>
         <button className="button">ADICIONAR NOVA QUESTÃO</button>
 
-        <C.SearchInput placeholder="Digite alguma questão" /><img src={IconSearch} />
+        <C.SearchInput placeholder="Digite alguma questão" type="search"/>
       </C.AreaSearchAndAdd>
-
-
 
       {/* ---------------------------------------- */}
       <C.TestArea>
         <C.AreaAccordion onClick={handleShowAreaQuestionsActive}>
-            <h3>Questões Ativas</h3> 
-            <C.ArrowIcon src={iconArrowRight} show={areaQuestionsActiveShow} />            
+          <h3>Questões Ativas</h3>
+          <C.ArrowIcon src={iconArrowRight} show={areaQuestionsActiveShow} />
         </C.AreaAccordion>
         <C.TesteListQuestions>
-          
-          {areaQuestionsActiveShow ?          
-          testListQuestions.map((question, index) => {
-            return (
-
-              <div key={index}>
-                <h1>{question.title}</h1>
-                <p>{question.a}</p>
-                <p>{question.b}</p>
-                <p>{question.c}</p>
-                <p>{question.d}</p>
-              </div>
-            );
-          }) : <div>...</div> }
+          {areaQuestionsActiveShow ? (
+            testListQuestions.map((question, index) => {
+              return (
+                <C.CardQuestion key={index}>
+                  <C.AreaTitle>
+                    <h3>
+                      {index + 1} - {question.title}
+                    </h3>
+                  </C.AreaTitle>
+                  <p>{question.a}</p>
+                  <p>{question.b}</p>
+                  <p>{question.c}</p>
+                  <p>{question.d}</p>
+                </C.CardQuestion>
+              );
+            })
+          ) : (
+            <div>...</div>
+          )}
         </C.TesteListQuestions>
       </C.TestArea>
+
+      <C.TestAreaQuestionsDisable>
+        <C.AreaAccordion onClick={handleShowAreaQuestionsDisable}>
+          <h3>Questões Desativadas</h3>
+          <C.ArrowIcon src={iconArrowRight} show={areaQuestionsDisableShow} />
+        </C.AreaAccordion>
+        <C.TesteListQuestions>
+          {areaQuestionsDisableShow ? (
+            testListQuestions.map((question, index) => {
+              return (
+                <C.CardQuestion key={index}>
+                  <C.AreaTitle>
+                    <h3>
+                      {index + 1} - {question.title}
+                    </h3>
+                  </C.AreaTitle>
+                  <p>{question.a}</p>
+                  <p>{question.b}</p>
+                  <p>{question.c}</p>
+                  <p>{question.d}</p>
+                </C.CardQuestion>
+              );
+            })
+          ) : (
+            <div>...</div>
+          )}
+        </C.TesteListQuestions>
+      </C.TestAreaQuestionsDisable>
     </C.Container>
   );
 };

@@ -7,7 +7,7 @@ export default {
 
         background: '#1C1C1C',
         backgroundAside: '#333',
-        text: '#F2F2F2',
+        text: '#F8F8F8',
         textAside: '#F2F2F2'
     },
 }

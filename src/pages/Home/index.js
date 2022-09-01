@@ -5,7 +5,67 @@ const Home = () => {
 
   
   return (
-    <C.Container>      
+    <C.Container className="MainContentPadingAndMargin">      
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
+      <C.Titulo>Home</C.Titulo>
       <C.Titulo>Home</C.Titulo>
     </C.Container>
   );

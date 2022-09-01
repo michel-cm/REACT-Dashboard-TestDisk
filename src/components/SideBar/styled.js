@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100vh;
-  width: 200px;
+  width: 150px;
   background-color: ${(props) => props.theme.colors.backgroundAside};
   color: #fff;
   display: flex;
@@ -34,7 +34,7 @@ export const AreaMenuItems = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 
     p {        
         padding: 16px;
@@ -44,9 +44,9 @@ export const AreaMenuItems = styled.div`
 export const MenuItem = styled.div`
   display: flex;
   align-items: center; 
-  padding-left: 20px;
+  padding-left: 12px;
   margin-bottom: 8px;
-  
+  font-size: 12px;
 
   &&.selected {
     background-color: ${(props) => props.color};
