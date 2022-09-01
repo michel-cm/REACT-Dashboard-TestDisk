@@ -1,6 +1,6 @@
 import * as C from "./styled";
 import { Card } from "./Card";
-import { TableAreaUsers } from "./TableAreaUsers";
+import { TableAreaUsers } from "./TableAreaUsers/index";
 import { Search } from "../../components/Search";
 import { Button } from "../../components/Button";
 

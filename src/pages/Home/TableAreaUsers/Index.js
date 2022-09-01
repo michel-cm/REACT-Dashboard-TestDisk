@@ -1,4 +1,4 @@
-import * as C from "./Styled";
+import * as C from "./styled";
 
 import IconDeleteB from "../../../assets/actions/deleteb.png";
 import IconStarB from "../../../assets/actions/favoritob.png";
@@ -34,31 +34,31 @@ export const TableAreaUsers = () => {
                 29/08/2022
               </div>
               <div className="cell " >
-                <a href="#">
+               
                   <img
                     className=" icon iconSee"
                     src={IconSeeB}
                     alt="icon see"
-                  />{" "}
-                </a>               
+                  />
+                              
               </div>
               <div className="cell iconsLista" >
-                <a href="#">
+               
                   <img
                     className=" icon iconSee"
                     src={IconDeleteB}
                     alt="icon see"
-                  />{" "}
-                </a>               
+                  />
+
               </div>
               <div className="cell iconsLista" >
-                <a href="#">
+               
                   <img
                     className=" icon iconSee"
                     src={IconStarB}
                     alt="icon see"
-                  />{" "}
-                </a>               
+                  />
+
               </div>
             </div>
           </div>

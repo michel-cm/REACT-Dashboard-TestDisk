@@ -21,4 +21,10 @@ export const AreaInput = styled.div`
 
 export const IconSearch = styled.div`
   margin-left: -50px;
+  cursor: pointer;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
 `;

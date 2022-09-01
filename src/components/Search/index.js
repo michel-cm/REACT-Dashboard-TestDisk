@@ -1,4 +1,4 @@
-import * as C from "./Styled";
+import * as C from "./styled";
 
 import { BsSearch } from "react-icons/bs";
 
