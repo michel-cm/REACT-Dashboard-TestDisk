@@ -1,11 +1,10 @@
 import * as C from "./styled";
 import { Card } from "./Card";
-import { TableAreaUsers } from "./TableAreaUsers/index";
+import { TableAreaUsers } from "../../components/TableAreaUsers";
 import { Search } from "../../components/Search";
 import { Button } from "../../components/Button";
 import { Accordion } from "../../components/Accordion";
 
-import iconArrowRight from "../../assets/actions/arrowRight.png";
 import { useState } from "react";
 
 export const Candidatos = () => {
@@ -40,7 +39,6 @@ export const Candidatos = () => {
         title="Banco de Talentos"
       />
       {areaBancoTalents ? <TableAreaUsers /> : <div></div>}
-
     </C.Container>
   );
 };

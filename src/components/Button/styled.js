@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-     
+      margin-right: 24px;
       background-color: #FC5A5A;
       color: #F8F8F8;
-      padding: 18px 16px;
+      padding: 18px 36px;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;

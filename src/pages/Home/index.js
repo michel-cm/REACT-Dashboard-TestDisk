@@ -1,6 +1,6 @@
 import * as C from "./styled";
 import { Card } from "./Card";
-import { TableAreaUsers } from "./TableAreaUsers/index";
+import { TableAreaUsers } from "../../components/TableAreaUsers";
 import { Button } from "../../components/Button";
 
 const Home = () => {

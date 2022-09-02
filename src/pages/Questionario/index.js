@@ -21,29 +21,27 @@ export const Questionario = () => {
   return (
     <C.Container className="MainContentPadingAndMargin">
       <C.AreaCardsResume>
-        
-
-       <Card title={"Total Questões"} color={"#2261BC"} value={25}/>
-       <Card title={"Questões Ativas"} color={"#3AB04D"} value={20}/>
-       <Card title={"Questões Pausadas"} color={"#FC5A5A"} value={5}/>
+        <Card title={"Total Questões"} color={"#2261BC"} value={25} />
+        <Card title={"Questões Ativas"} color={"#3AB04D"} value={20} />
+        <Card title={"Questões Pausadas"} color={"#FC5A5A"} value={5} />
       </C.AreaCardsResume>
 
       {/* ---------------------------------------- */}
 
       <C.AreaSearchAndAdd>
-      <Button />
+        <Button />
 
-        <Search placeholder="Digite alguma questão"/>
+        <Search placeholder="Digite alguma questão" />
       </C.AreaSearchAndAdd>
 
       {/* ---------------------------------------- */}
       <C.TestArea>
-      <Accordion
-        color="#3AB04D"
-        state={areaQuestionsActiveShow}
-        setState={setAreaQuestionsActiveShow}
-        title="Questões Desativadas"
-      />
+        <Accordion
+          color="#3AB04D"
+          state={areaQuestionsActiveShow}
+          setState={setAreaQuestionsActiveShow}
+          title="Questões Desativadas"
+        />
         <C.TesteListQuestions>
           {areaQuestionsActiveShow ? (
             testListQuestions.map((question, index) => {
@@ -68,14 +66,12 @@ export const Questionario = () => {
       </C.TestArea>
 
       <C.TestAreaQuestionsDisable>
-      
-
         <Accordion
-        color="#FC5A5A"
-        state={areaQuestionsDisableShow}
-        setState={setAreaQuestionsDisableShow}
-        title="Questões Desativadas"
-      />
+          color="#FC5A5A"
+          state={areaQuestionsDisableShow}
+          setState={setAreaQuestionsDisableShow}
+          title="Questões Desativadas"
+        />
 
         <C.TesteListQuestions>
           {areaQuestionsDisableShow ? (
