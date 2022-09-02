@@ -8,9 +8,9 @@ export const Accordion = ({state, setState, title, color}) => {
    
 
     return (
-    <C.Container value={color}>
+    <C.Container value={color} onClick={()=> setState(!state)}>
       <h3>{title}</h3>
-      <C.ArrowIcon src={iconArrowRight} show={state} onClick={()=> setState(!state)}/>
+      <C.ArrowIcon src={iconArrowRight} show={state} />
     </C.Container>
   );
 };

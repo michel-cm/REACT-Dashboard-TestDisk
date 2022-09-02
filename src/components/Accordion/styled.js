@@ -10,7 +10,7 @@ export const Container = styled.button`
   width: 260px;
   margin-bottom: 16px;
   border-radius: 0px 50px 50px 0;
-  transition: all 0.2s ease 0s;
+  transition: all 0.1s ease 0s;
   background-color: ${(props) => props.theme.colors.primary};
   font-size: 12px;
   border: none;

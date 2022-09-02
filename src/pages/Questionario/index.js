@@ -9,6 +9,7 @@ import { Button } from "../../components/Button";
 import { useEffect, useState } from "react";
 
 import { useListQuestionsTest } from "../../hooks/useListQuestionsTest";
+import { Accordion } from "../../components/Accordion";
 
 export const Questionario = () => {
   const { testListQuestions, getAlQuestions } = useListQuestionsTest();
@@ -16,16 +17,6 @@ export const Questionario = () => {
   const [areaQuestionsActiveShow, setAreaQuestionsActiveShow] = useState(true);
   const [areaQuestionsDisableShow, setAreaQuestionsDisableShow] =
     useState(true);
-
-  function handleShowAreaQuestionsActive() {
-    setAreaQuestionsActiveShow(!areaQuestionsActiveShow);
-  }
-
-  function handleShowAreaQuestionsDisable() {
-    setAreaQuestionsDisableShow(!areaQuestionsDisableShow);
-  }
-
-  console.log(testListQuestions);
 
   return (
     <C.Container className="MainContentPadingAndMargin">
@@ -47,10 +38,12 @@ export const Questionario = () => {
 
       {/* ---------------------------------------- */}
       <C.TestArea>
-        <C.AreaAccordion onClick={handleShowAreaQuestionsActive}>
-          <h3>Questões Ativas</h3>
-          <C.ArrowIcon src={iconArrowRight} show={areaQuestionsActiveShow} />
-        </C.AreaAccordion>
+      <Accordion
+        color="#3AB04D"
+        state={areaQuestionsActiveShow}
+        setState={setAreaQuestionsActiveShow}
+        title="Questões Desativadas"
+      />
         <C.TesteListQuestions>
           {areaQuestionsActiveShow ? (
             testListQuestions.map((question, index) => {
@@ -75,10 +68,15 @@ export const Questionario = () => {
       </C.TestArea>
 
       <C.TestAreaQuestionsDisable>
-        <C.AreaAccordion onClick={handleShowAreaQuestionsDisable}>
-          <h3>Questões Desativadas</h3>
-          <C.ArrowIcon src={iconArrowRight} show={areaQuestionsDisableShow} />
-        </C.AreaAccordion>
+      
+
+        <Accordion
+        color="#FC5A5A"
+        state={areaQuestionsDisableShow}
+        setState={setAreaQuestionsDisableShow}
+        title="Questões Desativadas"
+      />
+
         <C.TesteListQuestions>
           {areaQuestionsDisableShow ? (
             testListQuestions.map((question, index) => {
