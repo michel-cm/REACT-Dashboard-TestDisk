@@ -2,6 +2,7 @@ export default {
     title: 'light',
 
     colors: {
+        solid: '#000',
         primary: '#333',
         secundary: '#6969FD',
         input: '#333',

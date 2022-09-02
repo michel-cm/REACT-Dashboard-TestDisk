@@ -23,6 +23,7 @@ const Home = () => {
       </C.AreaSearchAndAdd>
 
       <TableAreaUsers />
+    
     </C.Container>
   );
 };

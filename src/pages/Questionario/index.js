@@ -28,8 +28,7 @@ export const Questionario = () => {
 
       {/* ---------------------------------------- */}
 
-      <C.AreaSearchAndAdd>
-        <Button />
+      <C.AreaSearchAndAdd>     
 
         <Search placeholder="Digite alguma questão" />
       </C.AreaSearchAndAdd>

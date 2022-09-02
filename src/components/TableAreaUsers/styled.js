@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   margin: 0 auto;  
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+
 
   & {
     @media screen and (min-width: 1300px) {
@@ -44,11 +46,11 @@ export const Container = styled.div`
 
   .row {
     display: table-row;
-    background: #fff;
+    background: ${(props) => props.theme.colors.primary};
   }
 
   .row.header {
-    color: #ffffff;
+    
     background: #5a9bfc;
   }
 
@@ -91,20 +93,20 @@ export const Container = styled.div`
   }
 
   .row .cell {
-    font-family: Poppins-Regular;
-    font-size: 15px;
-    color: #666666;
+    
+    font-size: 13px;
+    color: ${(props) => props.theme.colors.text};
     line-height: 1.2;
     font-weight: unset !important;
 
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f2f2f2;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid ${(props) => props.theme.colors.background};
   }
 
   .row.header .cell {
-    font-family: Poppins-Regular;
-    font-size: 18px;
+    
+    font-size: 15px;
     color: #fff;
     line-height: 1.2;
     font-weight: unset !important;
@@ -136,7 +138,7 @@ export const Container = styled.div`
   }
 
   .row:hover {
-    background-color: #ececff;
+    background-color:  ${(props) => props.theme.colors.background};
   }
   .row:nth-child(1):hover {
     background-color: #5a9bfc;
@@ -163,7 +165,7 @@ export const Container = styled.div`
     }
 
     .row .cell {
-      font-family: Poppins-Regular;
+      
       font-size: 18px;
       color: #555555;
       line-height: 1.2;
@@ -187,4 +189,14 @@ export const Container = styled.div`
     opacity: 0.5;
   }
 
+`;
+
+export const AreaIcon = styled.div` 
+  display: inline-block;
+  cursor: pointer;
+  padding: 4px; 
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;

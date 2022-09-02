@@ -4,6 +4,10 @@ import IconDeleteB from "../../assets/actions/deleteb.png";
 import IconStarB from "../../assets/actions/favoritob.png";
 import IconSeeB from "../../assets/actions/seeb.png";
 
+import { BsFillEyeFill } from "react-icons/bs";
+import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillStarFill } from "react-icons/bs";
+
 export const TableAreaUsers = () => {
   return (
     <C.Container>
@@ -20,47 +24,243 @@ export const TableAreaUsers = () => {
               <div className="cell"></div>
             </div>
 
+
             <div className="row">
-              <div className="cell" >
-                Michel Corrêa Martins
-              </div>
-              <div className="cell" >
-                michel-cm15@hotmail.com
-              </div>
-              <div className="cell" >
-                Condescendente
-              </div>
-              <div className="cell">
-                29/08/2022
-              </div>
-              <div className="cell " >
-               
-                  <img
-                    className=" icon iconSee"
-                    src={IconSeeB}
-                    alt="icon see"
+              <div className="cell">Michel Corrêa Martins</div>
+              <div className="cell">michel-cm15@hotmail.com</div>
+              <div className="cell">Condescendente</div>
+              <div className="cell">29/08/2022</div>
+              <div className="cell ">
+                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillEyeFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
                   />
-                              
+                </C.AreaIcon>
               </div>
-              <div className="cell iconsLista" >
-               
-                  <img
-                    className=" icon iconSee"
-                    src={IconDeleteB}
-                    alt="icon see"
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillTrashFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
                   />
-
+                </C.AreaIcon>
               </div>
-              <div className="cell iconsLista" >
-               
-                  <img
-                    className=" icon iconSee"
-                    src={IconStarB}
-                    alt="icon see"
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillStarFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,                    
+                    }}
                   />
-
+                </C.AreaIcon>
               </div>
             </div>
+            <div className="row">
+              <div className="cell">Michel Corrêa Martins</div>
+              <div className="cell">michel-cm15@hotmail.com</div>
+              <div className="cell">Condescendente</div>
+              <div className="cell">29/08/2022</div>
+              <div className="cell ">
+                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillEyeFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillTrashFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillStarFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,                    
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+            </div>
+            <div className="row">
+              <div className="cell">Michel Corrêa Martins</div>
+              <div className="cell">michel-cm15@hotmail.com</div>
+              <div className="cell">Condescendente</div>
+              <div className="cell">29/08/2022</div>
+              <div className="cell ">
+                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillEyeFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillTrashFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillStarFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,                    
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+            </div>
+            <div className="row">
+              <div className="cell">Michel Corrêa Martins</div>
+              <div className="cell">michel-cm15@hotmail.com</div>
+              <div className="cell">Condescendente</div>
+              <div className="cell">29/08/2022</div>
+              <div className="cell ">
+                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillEyeFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillTrashFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillStarFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,                    
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+            </div>
+            <div className="row">
+              <div className="cell">Michel Corrêa Martins</div>
+              <div className="cell">michel-cm15@hotmail.com</div>
+              <div className="cell">Condescendente</div>
+              <div className="cell">29/08/2022</div>
+              <div className="cell ">
+                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillEyeFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillTrashFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillStarFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,                    
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+            </div>
+            <div className="row">
+              <div className="cell">Michel Corrêa Martins</div>
+              <div className="cell">michel-cm15@hotmail.com</div>
+              <div className="cell">Condescendente</div>
+              <div className="cell">29/08/2022</div>
+              <div className="cell ">
+                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillEyeFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillTrashFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+              <div className="cell iconsLista">
+              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                  <BsFillStarFill
+                    style={{
+                      fontSize: "16px",
+                      cursor: "pointer",
+                      opacity: 0.75,                    
+                    }}
+                  />
+                </C.AreaIcon>
+              </div>
+            </div>
+
+            
           </div>
         </div>
       </div>
