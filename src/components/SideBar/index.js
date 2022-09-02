@@ -23,7 +23,6 @@ export const SideBar = () => {
 
   function handleCurrentPathName() {
     setPathName(window.location.pathname);
-
   }
 
 
@@ -32,7 +31,7 @@ export const SideBar = () => {
   }, [isDarkTheme]);
 
   return (
-    <C.Container>
+    <C.Container remove={pathName === '/login'}>
       <img src={logo} alt="logo"/>
       <C.AreaMenuItems>
         {menu.map((item, index) => {

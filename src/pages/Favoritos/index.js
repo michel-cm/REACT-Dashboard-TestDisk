@@ -8,7 +8,7 @@ import { Search } from "../../components/Search";
 
 export const Favoritos = () => {
   // TEMP
-  const data = [];
+  const data = [1];
 
   if (data.length > 0) {
     return (

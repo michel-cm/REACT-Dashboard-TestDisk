@@ -39,7 +39,7 @@ export const Questionario = () => {
           color="#3AB04D"
           state={areaQuestionsActiveShow}
           setState={setAreaQuestionsActiveShow}
-          title="Questões Desativadas"
+          title="Questões Ativas"
         />
         <C.TesteListQuestions>
           {areaQuestionsActiveShow ? (

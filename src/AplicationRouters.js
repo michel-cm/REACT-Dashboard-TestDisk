@@ -6,6 +6,7 @@ import { Candidatos } from "./pages/Candidatos";
 import { Header } from "./components/Header";
 import { SideBar } from "./components/SideBar";
 import { Favoritos } from "./pages/Favoritos";
+import { Login } from "./pages/Login";
 
 export const AplicationRouters = () => (
   <>
@@ -17,6 +18,7 @@ export const AplicationRouters = () => (
         <Route exact path="/questionario" element={<Questionario />}></Route>
         <Route exact path="/candidatos" element={<Candidatos />}></Route>
         <Route exact path="/favoritos" element={<Favoritos />}></Route>
+        <Route exact path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   </>
