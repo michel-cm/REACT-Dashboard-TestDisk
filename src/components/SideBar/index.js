@@ -25,13 +25,13 @@ export const SideBar = () => {
     setPathName(window.location.pathname);
   }
 
-
   useEffect(() => {
     isDarkTheme === 'dark' ? setColorHover(shade(0.2, '#222')) : setColorHover(shade(0.4, '#ED3237'));
   }, [isDarkTheme]);
+  
 
   return (
-    <C.Container remove={pathName === '/login'}>
+    <C.Container>
       <img src={logo} alt="logo"/>
       <C.AreaMenuItems>
         {menu.map((item, index) => {

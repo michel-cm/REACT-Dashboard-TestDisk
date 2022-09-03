@@ -6,39 +6,45 @@ import { Button } from "../../components/Button";
 import { Accordion } from "../../components/Accordion";
 
 import { useState } from "react";
+import { SideBar } from "../../components/SideBar";
+import { Header } from "../../components/Header";
 
 export const Candidatos = () => {
   const [areaAllCandidates, setAreaAllCandidates] = useState(true);
   const [areaBancoTalents, setAreaBancoTalents] = useState(true);
 
   return (
-    <C.Container className={"MainContentPadingAndMargin"}>
-      <C.AreaCardsResume>
-        <Card title={"Total Candidatos"} color={"#2261BC"} value={5} />
-        <Card title={"Banco de Talentos"} color={"#E2992B"} value={5} />
-      </C.AreaCardsResume>
+    <C.Container>
+      <SideBar />
+      <Header />
+      <C.MainContent className={"MainContentPadingAndMargin"}>
+        <C.AreaCardsResume>
+          <Card title={"Total Candidatos"} color={"#2261BC"} value={5} />
+          <Card title={"Banco de Talentos"} color={"#E2992B"} value={5} />
+        </C.AreaCardsResume>
 
-      <C.AreaSearchAndAdd>
-        <Button />
+        <C.AreaSearchAndAdd>
+          <Button />
 
-        <Search placeholder="Digite o nome do candidato" />
-      </C.AreaSearchAndAdd>
+          <Search placeholder="Digite o nome do candidato" />
+        </C.AreaSearchAndAdd>
 
-      <Accordion
-        color="#2261BC"
-        state={areaAllCandidates}
-        setState={setAreaAllCandidates}
-        title="Todos Candidatos"
-      />
-      {areaAllCandidates ? <TableAreaUsers /> : <div></div>}
-
-      <Accordion
-        color="#E2992B"
-        state={areaBancoTalents}
-        setState={setAreaBancoTalents}
-        title="Banco de Talentos"
-      />
-      {areaBancoTalents ? <TableAreaUsers /> : <div></div>}
+        <Accordion
+          color="#2261BC"
+          state={areaAllCandidates}
+          setState={setAreaAllCandidates}
+          title="Todos Candidatos"
+        />
+        {areaAllCandidates ? <TableAreaUsers /> : <div></div>}
+        
+        <Accordion
+          color="#E2992B"
+          state={areaBancoTalents}
+          setState={setAreaBancoTalents}
+          title="Banco de Talentos"
+        />
+        {areaBancoTalents ? <TableAreaUsers /> : <div></div>}
+      </C.MainContent>
     </C.Container>
   );
 };

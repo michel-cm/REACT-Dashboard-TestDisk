@@ -11,7 +11,6 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 48px 0px;
   position: fixed;
-  display: ${(props) => props.remove ? 'none' : 'flex'};
 
   transition: all 0.3s ease 0s;
 

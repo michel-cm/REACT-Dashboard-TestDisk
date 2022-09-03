@@ -9,7 +9,7 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 
-import { database } from "../services/firebase";
+import { database } from "./firebase";
 
 export const Api = {
   getAllQuestions: async () => {

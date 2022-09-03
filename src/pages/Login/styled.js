@@ -20,12 +20,12 @@ export const AreaAccount = styled.div`
   align-items: center;
   text-align: center;
   background-color: #fff;
-  padding: 32px;
+  padding: 64px 32px;
   border-radius: 10px;
 
   box-shadow: -13px 7px 33px -9px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: -13px 7px 33px -9px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: -13px 7px 33px -9px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -13px 7px 33px -9px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -13px 7px 33px -9px rgba(0, 0, 0, 0.2);
 `;
 
 export const Logo = styled.img`

@@ -31,7 +31,7 @@ export const TableAreaUsers = () => {
               <div className="cell">Condescendente</div>
               <div className="cell">29/08/2022</div>
               <div className="cell ">
-                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                <C.AreaIcon > 
                   <BsFillEyeFill
                     style={{
                       fontSize: "16px",
@@ -42,7 +42,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillTrashFill
                     style={{
                       fontSize: "16px",
@@ -53,7 +53,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillStarFill
                     style={{
                       fontSize: "16px",
@@ -70,7 +70,7 @@ export const TableAreaUsers = () => {
               <div className="cell">Condescendente</div>
               <div className="cell">29/08/2022</div>
               <div className="cell ">
-                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                <C.AreaIcon > 
                   <BsFillEyeFill
                     style={{
                       fontSize: "16px",
@@ -81,7 +81,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillTrashFill
                     style={{
                       fontSize: "16px",
@@ -92,7 +92,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillStarFill
                     style={{
                       fontSize: "16px",
@@ -109,7 +109,7 @@ export const TableAreaUsers = () => {
               <div className="cell">Condescendente</div>
               <div className="cell">29/08/2022</div>
               <div className="cell ">
-                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                <C.AreaIcon > 
                   <BsFillEyeFill
                     style={{
                       fontSize: "16px",
@@ -120,7 +120,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillTrashFill
                     style={{
                       fontSize: "16px",
@@ -131,7 +131,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillStarFill
                     style={{
                       fontSize: "16px",
@@ -148,7 +148,7 @@ export const TableAreaUsers = () => {
               <div className="cell">Condescendente</div>
               <div className="cell">29/08/2022</div>
               <div className="cell ">
-                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+                <C.AreaIcon > 
                   <BsFillEyeFill
                     style={{
                       fontSize: "16px",
@@ -159,7 +159,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillTrashFill
                     style={{
                       fontSize: "16px",
@@ -170,7 +170,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
               <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
+              <C.AreaIcon > 
                   <BsFillStarFill
                     style={{
                       fontSize: "16px",
@@ -181,84 +181,7 @@ export const TableAreaUsers = () => {
                 </C.AreaIcon>
               </div>
             </div>
-            <div className="row">
-              <div className="cell">Michel Corrêa Martins</div>
-              <div className="cell">michel-cm15@hotmail.com</div>
-              <div className="cell">Condescendente</div>
-              <div className="cell">29/08/2022</div>
-              <div className="cell ">
-                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
-                  <BsFillEyeFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
-                  <BsFillTrashFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
-                  <BsFillStarFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,                    
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-            </div>
-            <div className="row">
-              <div className="cell">Michel Corrêa Martins</div>
-              <div className="cell">michel-cm15@hotmail.com</div>
-              <div className="cell">Condescendente</div>
-              <div className="cell">29/08/2022</div>
-              <div className="cell ">
-                <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
-                  <BsFillEyeFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
-                  <BsFillTrashFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon onClick={'fazer acao nessa div e nao no icon'}> 
-                  <BsFillStarFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,                    
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-            </div>
+          
 
             
           </div>

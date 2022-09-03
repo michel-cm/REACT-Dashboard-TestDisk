@@ -9,6 +9,7 @@ export const Container = styled.button`
   padding-right: 8px;
   width: 260px;
   margin-bottom: 16px;
+  margin-top: 32px;
   border-radius: 0px 50px 50px 0;
   transition: all 0.1s ease 0s;
   background-color: ${(props) => props.theme.colors.primary};

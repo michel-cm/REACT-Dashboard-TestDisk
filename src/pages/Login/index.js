@@ -1,11 +1,34 @@
 import * as C from "./styled";
-
 import logo from "../../assets/Giro-Agro-logo.png";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+
+import { useNavigate } from "react-router-dom";
+
+const ADM = "admin@giroagro.com";
 
 export const Login = () => {
-  const [email, setEmail] = useState("");  
+  
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { user, loginWithEmail } = useAuth();
+  const navigate = useNavigate();
+
+
+  const handleLoginEmail = async (e) => {
+    e.preventDefault();
+    if (!user) {
+      await loginWithEmail(email, password).then(() => navigate("/"));
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
+
 
   return (
     <C.Container>
@@ -22,7 +45,10 @@ export const Login = () => {
             type={"password"}
             placeholder="Senha"
           ></C.Passoword>
-          <C.ButtonSubmitEmail onClick={"handleLoginEmail"} type="submit">
+          <C.ButtonSubmitEmail
+            onClick={handleLoginEmail}
+            type="submit"
+          >
             ENTRAR
           </C.ButtonSubmitEmail>
         </C.FormArea>
