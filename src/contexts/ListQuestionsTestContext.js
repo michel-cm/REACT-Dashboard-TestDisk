@@ -7,8 +7,7 @@ export const ListQuestionsTestContextProvider = ({ children }) => {
   const [testListQuestions, setTestListQuestions] = useState([]);
 
   const getAllQuestions = useCallback(() => {    
-     Api.getAllQuestions().then((data) => {
-      console.log('setando questoes')
+     Api.getAllQuestions().then((data) => {     
       setTestListQuestions(data);
     });
   },[])

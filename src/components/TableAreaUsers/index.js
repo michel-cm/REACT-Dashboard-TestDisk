@@ -7,9 +7,14 @@ import IconSeeB from "../../assets/actions/seeb.png";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsFillStarFill } from "react-icons/bs";
+import { useEffect } from "react";
 
-export const TableAreaUsers = () => {
-  return (
+import { formatDate } from "../../helpers/dateFilter"; 
+
+export const TableAreaUsers = (props) => {
+  const listCandidates = props.candidates;
+
+    return (
     <C.Container>
       <div className="container-table100">
         <div className="wrap-table100">
@@ -18,172 +23,55 @@ export const TableAreaUsers = () => {
               <div className="cell">Nome</div>
               <div className="cell">E-mail</div>
               <div className="cell">Predominancia</div>
-              <div className="cell">Data</div>
+              <div className="cell">Data </div>
               <div className="cell"></div>
               <div className="cell"></div>
               <div className="cell"></div>
             </div>
 
-
-            <div className="row">
-              <div className="cell">Michel Corrêa Martins</div>
-              <div className="cell">michel-cm15@hotmail.com</div>
-              <div className="cell">Condescendente</div>
-              <div className="cell">29/08/2022</div>
-              <div className="cell ">
-                <C.AreaIcon > 
-                  <BsFillEyeFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillTrashFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillStarFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,                    
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-            </div>
-            <div className="row">
-              <div className="cell">Michel Corrêa Martins</div>
-              <div className="cell">michel-cm15@hotmail.com</div>
-              <div className="cell">Condescendente</div>
-              <div className="cell">29/08/2022</div>
-              <div className="cell ">
-                <C.AreaIcon > 
-                  <BsFillEyeFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillTrashFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillStarFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,                    
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-            </div>
-            <div className="row">
-              <div className="cell">Michel Corrêa Martins</div>
-              <div className="cell">michel-cm15@hotmail.com</div>
-              <div className="cell">Condescendente</div>
-              <div className="cell">29/08/2022</div>
-              <div className="cell ">
-                <C.AreaIcon > 
-                  <BsFillEyeFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillTrashFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillStarFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,                    
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-            </div>
-            <div className="row">
-              <div className="cell">Michel Corrêa Martins</div>
-              <div className="cell">michel-cm15@hotmail.com</div>
-              <div className="cell">Condescendente</div>
-              <div className="cell">29/08/2022</div>
-              <div className="cell ">
-                <C.AreaIcon > 
-                  <BsFillEyeFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillTrashFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-              <div className="cell iconsLista">
-              <C.AreaIcon > 
-                  <BsFillStarFill
-                    style={{
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      opacity: 0.75,                    
-                    }}
-                  />
-                </C.AreaIcon>
-              </div>
-            </div>
-          
-
-            
+            {listCandidates.length > 0 &&
+              listCandidates.map((candidate, index) => (
+               
+                <div className="row" key={index}>
+                  <div className="cell">{candidate.name}</div>
+                  <div className="cell">{candidate.email}</div>
+                  <div className="cell">{candidate.predominancia ? candidate.predominancia : '-'}</div>
+                  <div className="cell">{formatDate(candidate.tempoStart.toDate())}</div>
+                  <div className="cell ">
+                    <C.AreaIcon>
+                      <BsFillEyeFill
+                        style={{
+                          fontSize: "16px",
+                          cursor: "pointer",
+                          opacity: 0.75,
+                        }}
+                      />
+                    </C.AreaIcon>
+                  </div>
+                  <div className="cell iconsLista">
+                    <C.AreaIcon>
+                      <BsFillTrashFill
+                        style={{
+                          fontSize: "16px",
+                          cursor: "pointer",
+                          opacity: 0.75,
+                        }}
+                      />
+                    </C.AreaIcon>
+                  </div>
+                  <div className="cell iconsLista">
+                    <C.AreaIcon>
+                      <BsFillStarFill
+                        style={{
+                          fontSize: "16px",
+                          cursor: "pointer",
+                          opacity: 0.75,
+                        }}
+                      />
+                    </C.AreaIcon>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

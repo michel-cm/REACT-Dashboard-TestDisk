@@ -7,12 +7,16 @@ import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 
 import { useAuth } from "../../hooks/useAuth";
+import { useCandidatesTests } from "../../hooks/useCandidatesTests";
+
 import { useNavigate } from "react-router-dom";
+
+
 
 const Home = () => {
   const { user } = useAuth();
 
-  console.log(user);
+  const { listCandidadtes } = useCandidatesTests();  
 
   const navigate = useNavigate();
 
@@ -53,7 +57,7 @@ const Home = () => {
           <Button />
         </C.AreaSearchAndAdd>
 
-        <TableAreaUsers />
+        <TableAreaUsers candidates={listCandidadtes}/>
       </C.MainContent>
     </C.Container>
   );

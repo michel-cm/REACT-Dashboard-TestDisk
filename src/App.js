@@ -8,18 +8,22 @@ import { ListQuestionsTestContextProvider } from "./contexts/ListQuestionsTestCo
 
 import { AuthContextProvider } from "./contexts/AuthContext";
 
+import { CandidatesTestsContextProvider } from "./contexts/CandidatesTestsContext";
+
 function App() {
   return (
     <>
       <AuthContextProvider>
-        <ListQuestionsTestContextProvider>
-          <ThemeContextProvider>
-            <AppContainer>
-              <GlobalStyle />
-              <AplicationRouters />
-            </AppContainer>
-          </ThemeContextProvider>
-        </ListQuestionsTestContextProvider>
+        <CandidatesTestsContextProvider>
+          <ListQuestionsTestContextProvider>
+            <ThemeContextProvider>
+              <AppContainer>
+                <GlobalStyle />
+                <AplicationRouters />
+              </AppContainer>
+            </ThemeContextProvider>
+          </ListQuestionsTestContextProvider>
+        </CandidatesTestsContextProvider>
       </AuthContextProvider>
     </>
   );

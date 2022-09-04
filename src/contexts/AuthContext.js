@@ -22,11 +22,10 @@ export function AuthContextProvider(props) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        const { name, uid, email } = user;
+        const { uid, email } = user;
 
         setUser({
-          id: uid,
-          name,
+          id: uid,          
           email: email,
         });
       }
