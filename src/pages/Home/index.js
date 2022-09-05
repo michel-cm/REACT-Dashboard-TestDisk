@@ -54,7 +54,7 @@ const Home = () => {
         </C.AreaCardsResume>
 
         <C.AreaSearchAndAdd>
-          <Button />
+         {/** removido */}
         </C.AreaSearchAndAdd>
 
         <TableAreaUsers candidates={listCandidadtes}/>

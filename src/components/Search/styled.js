@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SearchInput = styled.input`  
+export const SearchInput = styled.input`
   border: 0;
   border-radius: 5px;
   width: 280px;
@@ -8,6 +8,7 @@ export const SearchInput = styled.input`
   background-color: ${(props) => props.theme.colors.input};
   outline: 0;
   padding: 0px 60px 0px 16px;
+  color: ${(props) => props.theme.colors.text};
 
   font-size: 15px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
@@ -15,7 +16,7 @@ export const SearchInput = styled.input`
 
 export const AreaInput = styled.div`
   display: flex;
-  align-items: center;  
+  align-items: center;
 `;
 
 export const IconSearch = styled.div`
