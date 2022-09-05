@@ -1,7 +1,7 @@
 import * as C from './styled';
 
-export const Button = () => {
+export const Button = ({title, fn}) => {
     return (
-        <C.Button>Enviar novo teste</C.Button>
+        <C.Button onClick={fn}>{title}</C.Button>
     );
 }
