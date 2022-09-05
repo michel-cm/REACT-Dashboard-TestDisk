@@ -73,7 +73,7 @@ export const TableAreaUsers = (props) => {
                           fontSize: "16px",
                           cursor: "pointer",
                           opacity: 0.75,
-                          color: `${candidate.favorite ? 'yellow' : '#F8F8F8'}`,
+                          color: `${candidate.favorite ? '#E2992B' : '#F8F8F8'}`,
                         }}
                        
                       />

@@ -20,10 +20,11 @@ export const AreaCardsResume = styled.div`
   flex-wrap: wrap;
   gap: 20px 20px;
   width: 100%;
+  margin-bottom: 64px;
 `;
 
 export const AreaSearchAndAdd = styled.div`
-  padding: 80px 0px 30px 0px;
+  padding: -10px 0px 30px 0px;
   display: flex;
   align-items: center;
 `;

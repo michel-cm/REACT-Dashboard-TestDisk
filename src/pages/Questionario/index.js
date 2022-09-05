@@ -12,6 +12,7 @@ import { useListQuestionsTest } from "../../hooks/useListQuestionsTest";
 import { Accordion } from "../../components/Accordion";
 import { SideBar } from "../../components/SideBar";
 import { Header } from "../../components/Header";
+import { PieChart } from "../../components/PieChart";
 
 export const Questionario = () => {
   const { testListQuestions, getAlQuestions } = useListQuestionsTest();
@@ -32,7 +33,7 @@ export const Questionario = () => {
         </C.AreaCardsResume>
 
         {/* ---------------------------------------- */}
-
+      
         <C.AreaSearchAndAdd>
           <Search placeholder="Digite alguma questão" />
         </C.AreaSearchAndAdd>

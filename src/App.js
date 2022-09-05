@@ -11,6 +11,7 @@ import { AuthContextProvider } from "./contexts/AuthContext";
 import { CandidatesTestsContextProvider } from "./contexts/CandidatesTestsContext";
 
 import { ConfigsContextProvider } from "./contexts/ConfigsContext";
+import { QtdPredominanciasContextProvider } from "./contexts/QtdPredominanciasContext";
 
 function App() {
   return (
@@ -19,12 +20,14 @@ function App() {
         <CandidatesTestsContextProvider>
           <ListQuestionsTestContextProvider>
             <ConfigsContextProvider>
-              <ThemeContextProvider>
-                <AppContainer>
-                  <GlobalStyle />
-                  <AplicationRouters />
-                </AppContainer>
-              </ThemeContextProvider>
+              <QtdPredominanciasContextProvider>
+                <ThemeContextProvider>
+                  <AppContainer>
+                    <GlobalStyle />
+                    <AplicationRouters />
+                  </AppContainer>
+                </ThemeContextProvider>
+              </QtdPredominanciasContextProvider>
             </ConfigsContextProvider>
           </ListQuestionsTestContextProvider>
         </CandidatesTestsContextProvider>

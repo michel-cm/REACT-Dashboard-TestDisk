@@ -6,9 +6,8 @@ export const CandidatesTestsContext = createContext();
 export const CandidatesTestsContextProvider = ({ children }) => {
   const [listCandidadtes, setListCandidadtes] = useState([]);
 
-   
   const getAllCandidatesAndTestes = useCallback(() => {
-    Api.getAllCandidatesTests().then((data) => {      
+    Api.getAllCandidatesTests().then((data) => {
       setListCandidadtes(data);
     });
   }, []);
@@ -17,14 +16,14 @@ export const CandidatesTestsContextProvider = ({ children }) => {
     if (listCandidadtes.length === 0) {
       getAllCandidatesAndTestes();
     }
-  }, [listCandidadtes]);  
+  }, []);
 
   async function updateFavoriteCandidate(idUser, value) {
-   await Api.updateFavoriteCandidate(idUser, value).then(async () => {
-   await Api.getAllCandidatesTests().then((data) => {      
-      setListCandidadtes(data);
+    await Api.updateFavoriteCandidate(idUser, value).then(async () => {
+      await Api.getAllCandidatesTests().then((data) => {
+        setListCandidadtes(data);
+      });
     });
-   })
   }
 
   return (
@@ -32,7 +31,7 @@ export const CandidatesTestsContextProvider = ({ children }) => {
       value={{
         listCandidadtes,
         getAllCandidatesAndTestes,
-        updateFavoriteCandidate
+        updateFavoriteCandidate,
       }}
     >
       {children}

@@ -1,22 +1,26 @@
 import * as C from "./styled";
 import { Card } from "./Card";
 import { TableAreaUsers } from "../../components/TableAreaUsers";
-import { Button } from "../../components/Button";
 import { useEffect } from "react";
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 
 import { useAuth } from "../../hooks/useAuth";
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
+import { useQtdPredominancias } from "../../hooks/useQtdPredominancias";
 
 import { useNavigate } from "react-router-dom";
-
-
+import { PieChart } from "../../components/PieChart";
+import { useState } from "react";
 
 const Home = () => {
   const { user } = useAuth();
 
-  const { listCandidadtes } = useCandidatesTests();  
+  const { listCandidadtes } = useCandidatesTests();
+
+  const { predominancias } = useQtdPredominancias();
+
+  const [chart, setChart] = useState(false);
 
   const navigate = useNavigate();
 
@@ -24,10 +28,18 @@ const Home = () => {
     if (!user) {
       navigate("/login");
     }
-  }, [user]);
+  }, []);
+
+  useEffect(() => {
+    if (listCandidadtes.length > 0) {
+      setChart(true);
+    } else {
+      setChart(false);
+    }
+  }, [listCandidadtes]);
 
   return (
-    <C.Container >
+    <C.Container>
       <SideBar />
       <Header />
       <C.MainContent className={"MainContentPadingAndMargin"}>
@@ -35,29 +47,29 @@ const Home = () => {
           <Card
             title={"Dominantes"}
             color={"#FC5A5A"}
-            value={5}
+            value={predominancias.dominantes}
             dominancia="D"
           />
           <Card
             title={"Influentes"}
             color={"#E2992B"}
-            value={5}
+            value={predominancias.influentes}
             dominancia="I"
           />
-          <Card title={"Estáveis"} color={"#3AB04D"} value={5} dominancia="S" />
+          <Card title={"Estáveis"} color={"#3AB04D"} value={predominancias.estaveis} dominancia="S" />
           <Card
             title={"Condescendentes"}
             color={"#2261BC"}
-            value={5}
+            value={predominancias.condescendentes}
             dominancia="C"
           />
         </C.AreaCardsResume>
-
+        {chart && <PieChart />}
         <C.AreaSearchAndAdd>
-         {/** removido */}
+          {/** removido */}         
         </C.AreaSearchAndAdd>
 
-        <TableAreaUsers candidates={listCandidadtes}/>
+        <TableAreaUsers candidates={listCandidadtes} />
       </C.MainContent>
     </C.Container>
   );
