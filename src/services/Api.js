@@ -44,6 +44,7 @@ export const Api = {
       candidates.push({
         name: data.nome,
         email: data.email,
+        favorite: data.favorite,
         finalizado: data.finalizado,
         idUser: data.idUser,
         predominancia: data.predominancia,
@@ -79,11 +80,16 @@ export const Api = {
   updateConfig: async (timer, msg) => {
     timer = timer * 60;
     const testRef = doc(database, "configuracaoGiro", IDDOCCONFIGGIRO);
-    await updateDoc(testRef, {   
-        
+    await updateDoc(testRef, {
       timerTeste: timer,
       mensagemEmail: msg,
-    })
-    },
+    });
+  },
 
+  updateFavoriteCandidate: async (idUser, value) => {
+    const candidateRef = doc(database, "testes", idUser);
+    await updateDoc(candidateRef, {
+      favorite: value,
+    });
+  },
 };

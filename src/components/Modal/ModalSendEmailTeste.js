@@ -15,23 +15,16 @@ export const ModalSendEmailTeste = ({ setModal, msg }) => {
           <p onClick={handleCloseModal}>X</p>{" "}
         </C.AreaClose>
         <C.Title>Enviar Questionário para:</C.Title>
-        <form action={`https://formsubmit.co/${email}`} method="POST">
-        <input
-            type="hidden"
-            required            
-            name="email"
-            value="giroagroadm@gmail.com"
-           
-          />
-          <input
+        
+        <form action={`mailto:${email}`} method="POST" encType="text/plain">             
+             <input
             type="email"
+            name="email"
             required
             placeholder="Email do candidato"           
             onChange={e => setEmail(e.target.value)}
           />
-          <input type="hidden" name="_next" value="http://localhost:3000/candidatos" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_subject" value="GiroAgro-Questionário"></input>
+         
 
           <label htmlFor="message">Mensagem corpo do email:</label>
           <textarea

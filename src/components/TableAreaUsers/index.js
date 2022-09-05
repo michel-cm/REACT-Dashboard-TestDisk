@@ -9,10 +9,15 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { BsFillStarFill } from "react-icons/bs";
 import { useEffect } from "react";
 
+import { useCandidatesTests } from "../../hooks/useCandidatesTests";
+
 import { formatDate } from "../../helpers/dateFilter"; 
+import { useState } from "react";
 
 export const TableAreaUsers = (props) => {
   const listCandidates = props.candidates;
+  
+  const { updateFavoriteCandidate } = useCandidatesTests(); 
 
     return (
     <C.Container>
@@ -60,13 +65,17 @@ export const TableAreaUsers = (props) => {
                     </C.AreaIcon>
                   </div>
                   <div className="cell iconsLista">
-                    <C.AreaIcon>
+                    <C.AreaIcon  onClick={async () => await updateFavoriteCandidate(candidate.idUser, !candidate.favorite).then(()=>{
+                         !candidate.favorite ? alert(`${candidate.name} salvo nos Favoritos`) : alert(`${candidate.name} removido dos Favoritos`)
+                        })}>
                       <BsFillStarFill
                         style={{
                           fontSize: "16px",
                           cursor: "pointer",
                           opacity: 0.75,
+                          color: `${candidate.favorite ? 'yellow' : '#F8F8F8'}`,
                         }}
+                       
                       />
                     </C.AreaIcon>
                   </div>

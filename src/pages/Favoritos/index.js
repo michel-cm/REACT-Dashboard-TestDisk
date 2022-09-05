@@ -7,28 +7,54 @@ import { Search } from "../../components/Search";
 import { SideBar } from "../../components/SideBar";
 import { Header } from "../../components/Header";
 
-export const Favoritos = () => {
-  // TEMP
-  const data = [];
+import { useCandidatesTests } from "../../hooks/useCandidatesTests";
+import { useState } from "react";
+import { useEffect } from "react";
 
-  if (data.length > 0) {
+export const Favoritos = () => {
+  const { listCandidadtes } = useCandidatesTests();
+
+  const [search, setSearch] = useState("");
+  const filteredListCandidates =
+  search.length > 0
+    ? listCandidadtes.filter((candidate) => candidate.name.toLowerCase().includes(search))
+    : [];
+
+  const [ListCandidatesFavorites, setListCandidatesFavorites] =
+    useState(listCandidadtes.length > 0 &&  listCandidadtes.filter((candidate) => candidate.favorite === true));
+
+  useEffect(() => {
+    if (listCandidadtes.length > 0) {
+      setListCandidatesFavorites(
+        listCandidadtes.filter((candidate) => candidate.favorite === true)
+      );
+    }
+  }, [listCandidadtes]);
+
+  if (ListCandidatesFavorites.length > 0) {
     return (
       <C.Container>
         <SideBar />
         <Header />
         <C.MainContent className={"MainContentPadingAndMargin"}>
           <C.TitleBancoTalentos>Banco de Talentos</C.TitleBancoTalentos>
-          <Search placeholder="Digite o nome do candidato" />
-          <TableAreaUsers />
+          <Search 
+          placeholder="Digite o nome do candidato" 
+          state={search}
+          setSearch={setSearch}
+          />
+          {search.length === 0 ? (
+          <TableAreaUsers candidates={ListCandidatesFavorites} />
+          ) : <TableAreaUsers candidates={filteredListCandidates} />}
         </C.MainContent>
       </C.Container>
     );
   } else {
     return (
-      <C.MainContent >
+      <C.MainContent>
         <SideBar />
         <Header />
-        <C.AreaNoUsersFavorites >
+        <C.AreaNoUsersFavorites>
           <C.ContentNoUsersFavorites>
             <C.titleAreaNoUsers>
               Nenhum candidato encontrado...

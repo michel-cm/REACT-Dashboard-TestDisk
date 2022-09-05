@@ -6,6 +6,7 @@ export const CandidatesTestsContext = createContext();
 export const CandidatesTestsContextProvider = ({ children }) => {
   const [listCandidadtes, setListCandidadtes] = useState([]);
 
+   
   const getAllCandidatesAndTestes = useCallback(() => {
     Api.getAllCandidatesTests().then((data) => {      
       setListCandidadtes(data);
@@ -18,11 +19,20 @@ export const CandidatesTestsContextProvider = ({ children }) => {
     }
   }, [listCandidadtes]);  
 
+  async function updateFavoriteCandidate(idUser, value) {
+   await Api.updateFavoriteCandidate(idUser, value).then(async () => {
+   await Api.getAllCandidatesTests().then((data) => {      
+      setListCandidadtes(data);
+    });
+   })
+  }
+
   return (
     <CandidatesTestsContext.Provider
       value={{
         listCandidadtes,
         getAllCandidatesAndTestes,
+        updateFavoriteCandidate
       }}
     >
       {children}
