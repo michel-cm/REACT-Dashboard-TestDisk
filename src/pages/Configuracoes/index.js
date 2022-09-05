@@ -3,29 +3,13 @@ import * as C from "./styled";
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 import { Button } from "../../components/Button";
-import { useState } from "react";
-import { Api } from "../../services/Api";
-import { useEffect } from "react";
+
+import { useConfigs } from "../../hooks/useConfigs";
+
 
 export const Configuracoes = () => {
-  const [timer, setTimer] = useState();
-  const [msg, setMsg] = useState();
 
-  useEffect(() => {
-    if (!timer || !msg)
-      Api.getConfigs().then((data) => {
-        setTimer(data[0].timer / 60);
-        setMsg(data[0].msg);
-      });
-  }, [timer, msg]);
-
- async function handleSaveConfig() {
-    await Api.updateConfig(timer, msg).then(() => {
-        alert('Configurações salvas com sucesso')
-    }).catch(() => {
-        console.log('erro update configuracaoGiro')
-    });
- }
+  const { timer,setTimer, msg, setMsg, handleSaveConfig} = useConfigs();
 
   return (
     <C.Container>

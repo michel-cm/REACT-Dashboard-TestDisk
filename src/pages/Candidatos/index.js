@@ -8,21 +8,34 @@ import { Accordion } from "../../components/Accordion";
 import { useState } from "react";
 import { SideBar } from "../../components/SideBar";
 import { Header } from "../../components/Header";
+import { ModalSendEmailTeste } from "../../components/Modal/ModalSendEmailTeste";
 
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
+
+import { useConfigs } from "../../hooks/useConfigs";
+
 
 export const Candidatos = () => {
   const [areaAllCandidates, setAreaAllCandidates] = useState(true);
   const [areaBancoTalents, setAreaBancoTalents] = useState(true);
 
+  const [modal, setModal] = useState(false);
+
   const { listCandidadtes } = useCandidatesTests();
 
   const [search, setSearch] = useState("");
+
+  const { msg } = useConfigs();
+
 
   const filteredListCandidates =
     search.length > 0
       ? listCandidadtes.filter((candidate) => candidate.name.toLowerCase().includes(search))
       : [];
+
+  function handleModalSendEmail() {
+    setModal(true);
+  }
 
   return (
     <C.Container>
@@ -35,7 +48,7 @@ export const Candidatos = () => {
         </C.AreaCardsResume>
 
         <C.AreaSearchAndAdd>
-          <Button title="Enviar novo Teste" />
+          <Button title="Enviar novo Teste" fn={handleModalSendEmail}/>
 
           <Search
             placeholder="Digite o nome do candidato"
@@ -79,7 +92,14 @@ export const Candidatos = () => {
             )}
           </>
         )}
+     
       </C.MainContent>
+      {modal && (
+        <ModalSendEmailTeste
+          setModal={setModal}  
+          msg={msg}        
+        />
+      )}
     </C.Container>
   );
 };
