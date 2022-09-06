@@ -20,7 +20,7 @@ export const AreaCardsResume = styled.div`
   flex-wrap: wrap;
   gap: 20px 20px;
   width: 100%;
-  margin-bottom: 64px;
+  margin-bottom: 34px;
 `;
 
 export const AreaSearchAndAdd = styled.div`

@@ -11,24 +11,26 @@ import { formatDate } from "../../helpers/dateFilter";
 import { useState } from "react";
 
 import { ModalConfirm } from "../ModalConfirm";
+import { useTheme } from "../../hooks/useTheme";
 
 export const TableAreaUsers = (props) => {
   const listCandidates = props.candidates;
 
   const { updateFavoriteCandidate } = useCandidatesTests();
 
-  const [modalConfirmDelet, setModalonfirmDelet] = useState(false);
+ 
+  const [modalConfirmDelet, setModalConfirmDelet] = useState(false);
 
   const [ id, setId] = useState('')
 
   function getIdUser(id) {
     setId(id);
-    setModalonfirmDelet(true)  
+    setModalConfirmDelet(true)  
   }
 
   return (
     <C.Container>
-      {modalConfirmDelet && <ModalConfirm setModal={setModalonfirmDelet} id={id}/> }
+      {modalConfirmDelet && <ModalConfirm setModal={setModalConfirmDelet} id={id}/> }
       <div className="container-table100">
         <div className="wrap-table100">
           <div className="table">
@@ -88,11 +90,11 @@ export const TableAreaUsers = (props) => {
                     >
                       <BsFillStarFill
                         style={{
-                          fontSize: "16px",
+                          fontSize: "16px",                          
                           cursor: "pointer",
                           opacity: 0.75,
                           color: `${
-                            candidate.favorite ? "#E2992B" : "#F8F8F8"
+                            candidate.favorite ? "#E2992B" :"#a6a6a6"
                           }`,
                         }}
                       />

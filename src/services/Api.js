@@ -19,15 +19,17 @@ const auth = getAuth();
 const user = auth.currentUser;
 
 export const Api = {
+
   getAllQuestions: async () => {
     console.log("req: getAllQuestions()");
 
     const list = [];
 
-    let results = await database.collection("questions").get();
+    let results = await getDocs(collection(database, 'questions'));
     results.forEach((result) => {
       let data = result.data();
       list.push({
+        id: result.id,
         title: data.title,
         a: data.a,
         b: data.b,
@@ -37,6 +39,55 @@ export const Api = {
       });
     });
     return list;
+  },
+
+  
+  addNewQuestion: async(question) => {
+    await database
+    .collection("questions")
+    .doc()
+    .set(
+      { 
+        title: question.title,
+        a : question.a,
+        b: question.b,
+        c: question.c,
+        d: question.d,
+        active: question.active
+      },
+      { merge: true }
+    );
+  },
+
+  updateQuestion: async (question, id) => {    
+    console.log('boraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    const questionRef = doc(database, "questions", id);
+    await updateDoc(questionRef, {
+      title: question.title,
+      a : question.a,
+      b: question.b,
+      c: question.c,
+      d: question.d,
+      active: question.active
+    });
+  },
+  
+  disableQuestion: async(id) => {
+    await database
+    .collection("questions")
+    .doc(id)
+    .set(
+      {        
+        active: false
+      },
+      { merge: true }
+    );
+  },
+
+  deleteQuestion: async (id) => {
+    await deleteDoc(doc(database, "questions", id)).catch(() => {
+      alert('eroor')
+    })
   },
 
   getAllCandidatesTests: async () => {
@@ -104,22 +155,5 @@ export const Api = {
       alert('eroor')
     })
   },
-
-  addNewQuestion: async(question) => {
-    await database
-    .collection("questions")
-    .doc()
-    .set(
-      { 
-        title: question.title,
-        a : question.a,
-        b: question.b,
-        c: question.c,
-        d: question.d,
-        active: question.active
-      },
-      { merge: true }
-    );
-  }
 
 };

@@ -197,6 +197,6 @@ export const AreaIcon = styled.div`
   padding: 4px; 
 
   &:hover {
-    opacity: 0.5;
+    opacity: 0.85;
   }
 `;

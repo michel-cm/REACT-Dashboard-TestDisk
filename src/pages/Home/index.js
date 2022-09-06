@@ -17,6 +17,8 @@ import { ModalFeedback } from "../../components/ModalFeedback";
 const Home = () => {
   const { user } = useAuth();
 
+  const [ showPieChart, setShowPieChart] = useState(false)
+
   const { listCandidadtes } = useCandidatesTests();
 
   const { predominancias } = useQtdPredominancias();
@@ -28,6 +30,12 @@ const Home = () => {
       navigate("/login");
     }
   }, []);
+
+  useEffect(() => {
+    if (listCandidadtes.length > 0) {
+          setShowPieChart(true)
+    }
+  },[listCandidadtes])
 
   return (
     <C.Container>
@@ -60,7 +68,7 @@ const Home = () => {
             dominancia="C"
           />
         </C.AreaCardsResume>
-        {listCandidadtes.length > 0 && <PieChart />}
+        {showPieChart > 0 && <PieChart />}
         <C.AreaSearchAndAdd>{/** removido */}</C.AreaSearchAndAdd>
         <TableAreaUsers candidates={listCandidadtes} />
       </C.MainContent>

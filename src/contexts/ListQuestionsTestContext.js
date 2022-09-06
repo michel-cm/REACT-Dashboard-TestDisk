@@ -38,11 +38,21 @@ export const ListQuestionsTestContextProvider = ({ children }) => {
     }
   }, [testListQuestions]);
 
+  function getQuestion(id) {
+    let result = [];
+    result = testListQuestions.filter((question) => 
+      question.id == id
+    )
+    return result;
+  }
+
   return (
     <ListQuestionsTestContext.Provider
       value={{
         testListQuestions,
         getAllQuestions,
+
+        getQuestion,
 
         testListQuestionsActive,
         testListQuestionsDisable

@@ -1,26 +1,28 @@
 import * as C from "./styled";
-import iconArrowRight from "../../assets/actions/arrowRight.png";
-import plusWhite from "../../assets/actions/pluswhite.png";
+
+import { BsListUl } from "react-icons/bs";
 
 import { Card } from "./Card";
 import { Search } from "../../components/Search";
 import { Button } from "../../components/Button";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useListQuestionsTest } from "../../hooks/useListQuestionsTest";
 import { Accordion } from "../../components/Accordion";
 import { SideBar } from "../../components/SideBar";
 import { Header } from "../../components/Header";
-import { PieChart } from "../../components/PieChart";
-import { ModalAddNewQuestion } from "../../components/ModalAddNewQuestion";
+
+import { ModalAddNewQuestion } from "./ModalAddNewQuestion";
+import { ModalSetings } from "./ModalSetings";
+import { ModalUpdateQuestion } from "./ModalUpdateQuestion";
 
 export const Questionario = () => {
   const {
     testListQuestions,
     testListQuestionsActive,
     testListQuestionsDisable,
-    getAllQuestions
+    getAllQuestions,
   } = useListQuestionsTest();
 
   const [areaQuestionsActiveShow, setAreaQuestionsActiveShow] = useState(true);
@@ -28,11 +30,19 @@ export const Questionario = () => {
     useState(true);
 
   const [modalNewQuestion, setModalNewQuestion] = useState(false);
+  const [modalSetings, setModalSetings] = useState(false);
+  const [modalUpdateQuestionShow, setModalUpdateQuestionShow] = useState(false);
 
   const [search, setSearch] = useState("");
 
+  const [idQuestion, setIdQuestion] = useState("");
+
   function handleModalNewQuestion() {
     setModalNewQuestion(true);
+  }
+
+  function handleModalUpdateQuestion() {
+    setModalUpdateQuestionShow(true);
   }
 
   const filteredListQuestions =
@@ -47,7 +57,28 @@ export const Questionario = () => {
       <SideBar />
       <Header />
       <C.MainContent className="MainContentPadingAndMargin">
-        { modalNewQuestion && <ModalAddNewQuestion setModal={setModalNewQuestion} updateListQuestions={ getAllQuestions}/>}
+        {modalSetings && (
+          <ModalSetings
+            setModal={setModalSetings}
+            idQuestion={idQuestion}
+            fnUpdateListQuestion={getAllQuestions}
+            setModalUpdateQuestion={setModalUpdateQuestionShow}
+          />
+        )}
+
+        {modalNewQuestion && (
+          <ModalAddNewQuestion
+            setModal={setModalNewQuestion}
+            updateListQuestions={getAllQuestions}
+          />
+        )}
+        {modalUpdateQuestionShow && (
+          <ModalUpdateQuestion
+            id={idQuestion.id}
+            setModal={setModalUpdateQuestionShow}
+            updateListQuestions={getAllQuestions}
+          />
+        )}
         <C.AreaCardsResume>
           <Card
             title={"Total Questões"}
@@ -74,22 +105,29 @@ export const Questionario = () => {
             state={search}
             setSearch={setSearch}
           />
-          <Button title={"Adicionar nova questão"} fn={handleModalNewQuestion} /> 
+          <Button
+            title={"Adicionar nova questão"}
+            fn={handleModalNewQuestion}
+          />
         </C.AreaSearchAndAdd>
 
         {search.length > 0 ? (
           <>
             <C.TestArea>
-            <C.AreaFiltered>
-              <h3>Filtrando</h3>
-              <div></div>
-            </C.AreaFiltered>
+              <C.AreaFiltered>
+                <h3>Filtrando</h3>
+                <div></div>
+              </C.AreaFiltered>
               <div>
                 {filteredListQuestions.map((question, index) => {
                   return (
                     <C.CardQuestion key={index}>
                       <C.AreaTitle>
-                        <h3 style={{color: question.active ? "#F8F8F8" : "#D04E4E"}}>
+                        <h3
+                          style={{
+                            color: question.active ? "#F8F8F8" : "#D04E4E",
+                          }}
+                        >
                           {index + 1} - {question.title}
                         </h3>
                       </C.AreaTitle>
@@ -121,6 +159,21 @@ export const Questionario = () => {
                           <h3>
                             {index + 1} - {question.title}
                           </h3>
+                          <C.AreaSetingsQuestion
+                            onClick={() => {
+                              setIdQuestion({
+                                id: question.id,
+                                index: index,
+                              });
+                              setModalSetings(true);
+                            }}
+                          >
+                            <BsListUl
+                              style={{
+                                fontSize: "20px",
+                              }}
+                            />
+                          </C.AreaSetingsQuestion>
                         </C.AreaTitle>
                         <p>{question.a}</p>
                         <p>{question.b}</p>
@@ -152,6 +205,21 @@ export const Questionario = () => {
                           <h3>
                             {index + 1} - {question.title}
                           </h3>
+                          <C.AreaSetingsQuestion
+                            onClick={() => {
+                              setIdQuestion({
+                                id: question.id,
+                                index: index,
+                              });
+                              setModalSetings(true);
+                            }}
+                          >
+                            <BsListUl
+                              style={{
+                                fontSize: "20px",
+                              }}
+                            />
+                          </C.AreaSetingsQuestion>
                         </C.AreaTitle>
                         <p>{question.a}</p>
                         <p>{question.b}</p>
