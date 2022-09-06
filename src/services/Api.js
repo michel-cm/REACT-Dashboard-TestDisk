@@ -1,3 +1,4 @@
+import { deleteUser, getAuth } from "firebase/auth";
 import "firebase/compat/firestore";
 import {
   doc,
@@ -7,11 +8,15 @@ import {
   addDoc,
   updateDoc,
   arrayUnion,
+  deleteDoc,
 } from "firebase/firestore";
 
 import { database, firebase } from "./firebase";
 
 const IDDOCCONFIGGIRO = "RR3QwMBMngLk66XUkNEX";
+
+const auth = getAuth();
+const user = auth.currentUser;
 
 export const Api = {
   getAllQuestions: async () => {
@@ -28,6 +33,7 @@ export const Api = {
         b: data.b,
         c: data.c,
         d: data.d,
+        active: data.active,
       });
     });
     return list;
@@ -42,7 +48,7 @@ export const Api = {
       let data = result.data();
 
       candidates.push({
-        name: data.nome,
+        name: data.name,
         email: data.email,
         favorite: data.favorite,
         finalizado: data.finalizado,
@@ -92,4 +98,28 @@ export const Api = {
       favorite: value,
     });
   },
+
+  deletUser: async (id) => {
+    await deleteDoc(doc(database, "testes", id)).catch(() => {
+      alert('eroor')
+    })
+  },
+
+  addNewQuestion: async(question) => {
+    await database
+    .collection("questions")
+    .doc()
+    .set(
+      { 
+        title: question.title,
+        a : question.a,
+        b: question.b,
+        c: question.c,
+        d: question.d,
+        active: question.active
+      },
+      { merge: true }
+    );
+  }
+
 };

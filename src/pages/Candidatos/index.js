@@ -8,29 +8,28 @@ import { Accordion } from "../../components/Accordion";
 import { useState } from "react";
 import { SideBar } from "../../components/SideBar";
 import { Header } from "../../components/Header";
-import { ModalSendEmailTeste } from "../../components/Modal/ModalSendEmailTeste";
+import { ModalSendEmailTeste } from "../../components/ModalSendEmailTeste";
 
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 
 import { useConfigs } from "../../hooks/useConfigs";
 
-
 export const Candidatos = () => {
   const [areaAllCandidates, setAreaAllCandidates] = useState(true);
-  const [areaBancoTalents, setAreaBancoTalents] = useState(true);
 
   const [modal, setModal] = useState(false);
 
-  const { listCandidadtes } = useCandidatesTests();
+  const { listCandidadtes, ListCandidatesFavorites } = useCandidatesTests();
 
   const [search, setSearch] = useState("");
 
   const { msg } = useConfigs();
 
-
   const filteredListCandidates =
     search.length > 0
-      ? listCandidadtes.filter((candidate) => candidate.name.toLowerCase().includes(search))
+      ? listCandidadtes.filter((candidate) =>
+          candidate.name.toLowerCase().includes(search)
+        )
       : [];
 
   function handleModalSendEmail() {
@@ -43,12 +42,12 @@ export const Candidatos = () => {
       <Header />
       <C.MainContent className={"MainContentPadingAndMargin"}>
         <C.AreaCardsResume>
-          <Card title={"Total Candidatos"} color={"#2261BC"} value={5} />
-          <Card title={"Banco de Talentos"} color={"#E2992B"} value={5} />
+          <Card title={"Total Candidatos"} color={"#2261BC"} value={listCandidadtes && listCandidadtes.length} />
+          <Card title={"Banco de Talentos"} color={"#E2992B"} value={ListCandidatesFavorites && ListCandidatesFavorites.length} />
         </C.AreaCardsResume>
 
         <C.AreaSearchAndAdd>
-          <Button title="Enviar novo Teste" fn={handleModalSendEmail}/>
+          <Button title="Enviar novo Teste" fn={handleModalSendEmail} />
 
           <Search
             placeholder="Digite o nome do candidato"
@@ -59,9 +58,9 @@ export const Candidatos = () => {
 
         {search.length > 0 ? (
           <>
-            <C.AreaFiltered>                          
+            <C.AreaFiltered>
               <h3>Filtrando</h3>
-              <div></div>        
+              <div></div>
             </C.AreaFiltered>
             <TableAreaUsers candidates={filteredListCandidates} />
           </>
@@ -78,28 +77,10 @@ export const Candidatos = () => {
             ) : (
               <div></div>
             )}
-
-            <Accordion
-              color="#E2992B"
-              state={areaBancoTalents}
-              setState={setAreaBancoTalents}
-              title="Banco de Talentos"
-            />
-            {areaBancoTalents ? (
-              <TableAreaUsers candidates={listCandidadtes} />
-            ) : (
-              <div></div>
-            )}
           </>
         )}
-     
       </C.MainContent>
-      {modal && (
-        <ModalSendEmailTeste
-          setModal={setModal}  
-          msg={msg}        
-        />
-      )}
+      {modal && <ModalSendEmailTeste setModal={setModal} msg={msg} />}
     </C.Container>
   );
 };

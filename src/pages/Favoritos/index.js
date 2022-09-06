@@ -9,10 +9,9 @@ import { Header } from "../../components/Header";
 
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 import { useState } from "react";
-import { useEffect } from "react";
 
 export const Favoritos = () => {
-  const { listCandidadtes } = useCandidatesTests();
+  const { listCandidadtes, ListCandidatesFavorites } = useCandidatesTests();
 
   const [search, setSearch] = useState("");
   const filteredListCandidates =
@@ -20,16 +19,6 @@ export const Favoritos = () => {
     ? listCandidadtes.filter((candidate) => candidate.name.toLowerCase().includes(search))
     : [];
 
-  const [ListCandidatesFavorites, setListCandidatesFavorites] =
-    useState(listCandidadtes.length > 0 &&  listCandidadtes.filter((candidate) => candidate.favorite === true));
-
-  useEffect(() => {
-    if (listCandidadtes.length > 0) {
-      setListCandidatesFavorites(
-        listCandidadtes.filter((candidate) => candidate.favorite === true)
-      );
-    }
-  }, [listCandidadtes]);
 
   if (ListCandidatesFavorites.length > 0) {
     return (

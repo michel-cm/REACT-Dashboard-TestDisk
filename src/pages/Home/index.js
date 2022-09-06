@@ -12,6 +12,7 @@ import { useQtdPredominancias } from "../../hooks/useQtdPredominancias";
 import { useNavigate } from "react-router-dom";
 import { PieChart } from "../../components/PieChart";
 import { useState } from "react";
+import { ModalFeedback } from "../../components/ModalFeedback";
 
 const Home = () => {
   const { user } = useAuth();
@@ -20,8 +21,6 @@ const Home = () => {
 
   const { predominancias } = useQtdPredominancias();
 
-  const [chart, setChart] = useState(false);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,14 +28,6 @@ const Home = () => {
       navigate("/login");
     }
   }, []);
-
-  useEffect(() => {
-    if (listCandidadtes.length > 0) {
-      setChart(true);
-    } else {
-      setChart(false);
-    }
-  }, [listCandidadtes]);
 
   return (
     <C.Container>
@@ -47,28 +38,30 @@ const Home = () => {
           <Card
             title={"Dominantes"}
             color={"#FC5A5A"}
-            value={predominancias.dominantes}
+            value={predominancias && predominancias.dominantes}
             dominancia="D"
           />
           <Card
             title={"Influentes"}
             color={"#E2992B"}
-            value={predominancias.influentes}
+            value={predominancias && predominancias.influentes}
             dominancia="I"
           />
-          <Card title={"Estáveis"} color={"#3AB04D"} value={predominancias.estaveis} dominancia="S" />
+          <Card
+            title={"Estáveis"}
+            color={"#3AB04D"}
+            value={predominancias && predominancias.estaveis}
+            dominancia="S"
+          />
           <Card
             title={"Condescendentes"}
             color={"#2261BC"}
-            value={predominancias.condescendentes}
+            value={predominancias && predominancias.condescendentes}
             dominancia="C"
           />
         </C.AreaCardsResume>
-        {chart && <PieChart />}
-        <C.AreaSearchAndAdd>
-          {/** removido */}         
-        </C.AreaSearchAndAdd>
-
+        {listCandidadtes.length > 0 && <PieChart />}
+        <C.AreaSearchAndAdd>{/** removido */}</C.AreaSearchAndAdd>
         <TableAreaUsers candidates={listCandidadtes} />
       </C.MainContent>
     </C.Container>

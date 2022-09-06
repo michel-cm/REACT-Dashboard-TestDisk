@@ -15,13 +15,12 @@ export default createGlobalStyle`
     }
 
     .MainContentPadingAndMargin {
-      padding: 60px 25px 60px 25px;
+      padding: 60px 25px 100px 25px;
       margin-left: 150px;
     
     }
+
 `;
-
-
 
 export const AppContainer = styled.div`
   height: 100vh;
@@ -32,4 +31,3 @@ export const AppContainer = styled.div`
     flex-direction: column;
   }
 `;
-

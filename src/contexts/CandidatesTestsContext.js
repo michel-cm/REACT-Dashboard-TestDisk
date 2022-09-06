@@ -6,9 +6,14 @@ export const CandidatesTestsContext = createContext();
 export const CandidatesTestsContextProvider = ({ children }) => {
   const [listCandidadtes, setListCandidadtes] = useState([]);
 
+  const [ListCandidatesFavorites, setListCandidatesFavorites] =
+    useState(listCandidadtes.length > 0 &&  listCandidadtes.filter((candidate) => candidate.favorite === true));
+
   const getAllCandidatesAndTestes = useCallback(() => {
     Api.getAllCandidatesTests().then((data) => {
-      setListCandidadtes(data);
+      setListCandidadtes(data.filter((candidato) => 
+        candidato.predominancia !== ''
+      ));
     });
   }, []);
 
@@ -20,10 +25,20 @@ export const CandidatesTestsContextProvider = ({ children }) => {
 
   async function updateFavoriteCandidate(idUser, value) {
     await Api.updateFavoriteCandidate(idUser, value).then(async () => {
-      await Api.getAllCandidatesTests().then((data) => {
-        setListCandidadtes(data);
-      });
+      await getAllCandidatesAndTestes();
     });
+  }
+
+  useEffect(() => {
+    if (listCandidadtes.length > 0) {
+      setListCandidatesFavorites(
+        listCandidadtes.filter((candidate) => candidate.favorite === true)
+      );
+    }
+  }, [listCandidadtes]);
+
+  async function deleteUser() {
+    
   }
 
   return (
@@ -31,7 +46,9 @@ export const CandidatesTestsContextProvider = ({ children }) => {
       value={{
         listCandidadtes,
         getAllCandidatesAndTestes,
+
         updateFavoriteCandidate,
+        ListCandidatesFavorites
       }}
     >
       {children}

@@ -2,31 +2,32 @@ import React from "react";
 import { Chart } from "react-google-charts";
 import { useTheme } from "../../hooks/useTheme";
 
+import { useQtdPredominancias } from "../../hooks/useQtdPredominancias";
 
 export const PieChart = (props) => {
-
   const { isDarkTheme } = useTheme();
 
- const data = [
+  const { predominancias } = useQtdPredominancias();
+
+  const data = [
     ["Task", "Hours per Day"],
-    ["Dominantes", 11],
-    ["Influentes", 2],
-    ["Estáveis", 2],
-    ["Condescendentes", 2], 
+    ["Dominantes", predominancias && predominancias.dominantes],
+    ["Influentes", predominancias && predominancias.influentes],
+    ["Estáveis", predominancias && predominancias.estaveis],
+    ["Condescendentes", predominancias && predominancias.condescendentes],
   ];
-  
+
   const options = {
     title: "Predominancias",
-    titleColor:  isDarkTheme === 'dark' ? '#F0F2F5' : '#1C1C1C',
-    legend:{textStyle: { color: isDarkTheme === 'dark' ? '#F0F2F5' : '#1C1C1C'}},
+    titleColor: isDarkTheme === "dark" ? "#F0F2F5" : "#1C1C1C",
+    legend: {
+      textStyle: { color: isDarkTheme === "dark" ? "#F0F2F5" : "#1C1C1C" },
+    },
     is3D: true,
-    colors : ['#FC5A5A','#E2992B', '#3AB04D', '#2261BC'],
-    backgroundColor: isDarkTheme === 'dark' ? '#1C1C1C' : '#F0F2F5',    
-    vAxis: {textStyle: { color: 'F0F2F5'}}
-
+    colors: ["#FC5A5A", "#E2992B", "#3AB04D", "#2261BC"],
+    backgroundColor: isDarkTheme === "dark" ? "#1C1C1C" : "#F0F2F5",
+    vAxis: { textStyle: { color: "F0F2F5" } },
   };
-
- 
 
   return (
     <Chart
@@ -34,10 +35,10 @@ export const PieChart = (props) => {
       data={data}
       options={options}
       width={"80%"}
-      height={"400px"}  
+      height={"400px"}
       style={{
-       color: 'F0F2F5',
-      }}       
+        color: "F0F2F5",
+      }}
     />
   );
-}
+};

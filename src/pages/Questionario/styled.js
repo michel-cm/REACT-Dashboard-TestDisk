@@ -23,9 +23,10 @@ export const AreaCardsResume = styled.div`
 `;
 
 export const AreaSearchAndAdd = styled.div`
-  padding: 60px 0px;
+  padding-top:60px;
   display: flex;
   align-items: center;
+  gap: 50px;
 `;
 
 export const TestArea = styled.div``;
@@ -60,5 +61,33 @@ export const AreaTitle = styled.div`
 `;
 
 export const TestAreaQuestionsDisable = styled.div`
-  margin-top: 40px;
+  margin-top: 20px;
+`;
+
+export const AreaFiltered = styled.div`
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  padding-right: 8px;
+  width: 160px;
+  margin-bottom: 16px;
+  margin-top: 32px;
+  border-radius: 0px 50px 50px 0;
+  transition: all 0.1s ease 0s;
+  background-color: ${(props) => props.theme.colors.primary};
+  font-size: 12px;
+  border: none;
+  color: ${(props) => props.theme.colors.text};
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &&::before {
+    content: "";
+    width: 6px;
+    height: 40px;
+    background-color: #2261BC ;
+  }
 `;
