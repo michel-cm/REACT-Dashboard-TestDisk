@@ -8,7 +8,7 @@ export default {
     input: "#F8F8F8",
 
     background: "#F0F2F5",
-    backgroundAside: "rgb(237,50,55, 0.9)",
+    backgroundAside: "rgb(237,50,55, 1)",
     text: "#333",
     textAside: "#f8f8f8",
   },

@@ -15,7 +15,7 @@ export default createGlobalStyle`
     }
 
     .MainContentPadingAndMargin {
-      padding: 60px 25px 100px 25px;
+      padding: 100px 25px 100px 25px;
       margin-left: 150px;
       
       @media (max-width: 960px) {
