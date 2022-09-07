@@ -22,6 +22,10 @@ export const TitleBancoTalentos = styled.h1`
   margin-bottom: 48px;
 `;
 
+export const AreaSearch = styled.div`
+  margin-bottom: 32px;
+`;
+
 export const AreaNoUsersFavorites = styled.div`
   width: 100%;
   height: 100vh;

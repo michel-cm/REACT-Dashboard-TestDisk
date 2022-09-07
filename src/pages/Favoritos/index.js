@@ -28,11 +28,13 @@ export const Favoritos = () => {
         <Header />
         <C.MainContent className={"MainContentPadingAndMargin"}>
           <C.TitleBancoTalentos>Banco de Talentos</C.TitleBancoTalentos>
-          <Search
-            placeholder="Digite o nome do candidato"
-            state={search}
-            setSearch={setSearch}
-          />
+          <C.AreaSearch>
+            <Search
+              placeholder="Digite o nome do candidato"
+              state={search}
+              setSearch={setSearch}
+            />
+          </C.AreaSearch>
           {search.length === 0 ? (
             <TableAreaUsers candidates={ListCandidatesFavorites} />
           ) : (
