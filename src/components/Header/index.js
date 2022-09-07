@@ -1,11 +1,17 @@
-import ToggleTheme from "../ToggleTheme";
 import * as C from "./styled";
+import { BsList } from "react-icons/bs";
+import logo from '../../assets/Giro-Agro-logo.png'
+
 
 export const Header = () => {
   return (
     <C.Container>
-      <h5>Logo</h5>
-      <ToggleTheme />
+      <img src={logo} alt="logo giro agro" />      
+      < BsList style={{
+        width:"24px",
+        height:"24px",
+        cursor: "pointer",
+      }}/>
     </C.Container>
   );
 };

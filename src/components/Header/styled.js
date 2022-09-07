@@ -13,4 +13,8 @@ export const Container = styled.div`
     @media (min-width:961px) {
         display: none;
     }
+
+    img {
+        width: 40px;
+    }
 `;
