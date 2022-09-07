@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: fit-content;
 
   display: flex;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+  }
 `;
 
 export const MainContent = styled.div`
@@ -27,6 +31,11 @@ export const AreaSearchAndAdd = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const AreaAccordion = styled.div`

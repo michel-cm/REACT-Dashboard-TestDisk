@@ -11,6 +11,10 @@ export const Card = styled.div`
 
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 
+  @media (max-width: 790px) {
+    width: 260px;
+  }
+
   p {
     font-size: 14px;
   }

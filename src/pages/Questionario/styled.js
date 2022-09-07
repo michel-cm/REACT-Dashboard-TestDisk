@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: fit-content;
 
   display: flex;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+  }
 `;
 
 export const MainContent = styled.div`
@@ -27,11 +31,22 @@ export const AreaSearchAndAdd = styled.div`
   display: flex;
   align-items: center;
   gap: 50px;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+  }
 `;
 
-export const TestArea = styled.div``;
+export const TestArea = styled.div`
 
-export const TesteListQuestions = styled.div``;
+`;
+
+export const TesteListQuestions = styled.div`
+  
+`;
 
 export const CardQuestion = styled.div`
   margin: 24px 0px;
@@ -39,7 +54,7 @@ export const CardQuestion = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
 
   p {

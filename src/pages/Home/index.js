@@ -68,8 +68,8 @@ const Home = () => {
             dominancia="C"
           />
         </C.AreaCardsResume>
-        {showPieChart && <PieChart />}
-        <C.AreaSearchAndAdd>{/** removido */}</C.AreaSearchAndAdd>
+
+        <C.AreaChart>{showPieChart && <PieChart />}</C.AreaChart>
         <TableAreaUsers candidates={listCandidadtes} />
       </C.MainContent>
     </C.Container>

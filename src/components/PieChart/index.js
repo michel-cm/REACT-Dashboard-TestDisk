@@ -35,8 +35,8 @@ export const PieChart = (props) => {
       chartType="PieChart"
       data={data}
       options={options}
-      width={"80%"}
-      height={"400px"}
+      width={"100%"}
+      height={"100%"}
       style={{
         color: "F0F2F5",
       }}

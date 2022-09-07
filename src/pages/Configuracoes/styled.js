@@ -4,6 +4,10 @@ export const Container = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+  }
 `;
 
 export const MainContent = styled.div`

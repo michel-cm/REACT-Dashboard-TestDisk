@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: fit-content;
 
   display: flex;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+  }
 `;
 
 export const MainContent = styled.div`
@@ -23,8 +27,7 @@ export const AreaCardsResume = styled.div`
   margin-bottom: 34px;
 `;
 
-export const AreaSearchAndAdd = styled.div`
-  padding: -10px 0px 30px 0px;
-  display: flex;
-  align-items: center;
+export const AreaChart = styled.div`  
+  width: 100%;  
+  height: 500px;
 `;

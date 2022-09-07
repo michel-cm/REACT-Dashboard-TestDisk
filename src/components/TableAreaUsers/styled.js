@@ -162,7 +162,7 @@ export const Container = styled.div`
 
     .row .cell {
       font-size: 18px;
-      color: #555555;
+
       line-height: 1.2;
       font-weight: unset !important;
     }
