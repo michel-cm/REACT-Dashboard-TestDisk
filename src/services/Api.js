@@ -15,9 +15,6 @@ import { database, firebase } from "./firebase";
 
 const IDDOCCONFIGGIRO = "RR3QwMBMngLk66XUkNEX";
 
-const auth = getAuth();
-const user = auth.currentUser;
-
 export const Api = {
 
   getAllQuestions: async () => {
@@ -60,7 +57,6 @@ export const Api = {
   },
 
   updateQuestion: async (question, id) => {    
-    console.log('boraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
     const questionRef = doc(database, "questions", id);
     await updateDoc(questionRef, {
       title: question.title,

@@ -12,6 +12,7 @@ import { useState } from "react";
 
 import { ModalConfirm } from "../ModalConfirm";
 import { useTheme } from "../../hooks/useTheme";
+import { CandidateViewTeste } from "../CandidateViewTeste";
 
 export const TableAreaUsers = (props) => {
   const listCandidates = props.candidates;
@@ -21,6 +22,8 @@ export const TableAreaUsers = (props) => {
  
   const [modalConfirmDelet, setModalConfirmDelet] = useState(false);
 
+  const [modalCandidateView, setModalCandidateView] = useState(false);
+
   const [ id, setId] = useState('')
 
   function getIdUser(id) {
@@ -28,9 +31,14 @@ export const TableAreaUsers = (props) => {
     setModalConfirmDelet(true)  
   }
 
+  function showModalCandidateTestView() {
+    setModalCandidateView(true)
+  }
+
   return (
     <C.Container>
       {modalConfirmDelet && <ModalConfirm setModal={setModalConfirmDelet} id={id}/> }
+      {modalCandidateView && <CandidateViewTeste setModal={setModalCandidateView} id={id}/> }
       <div className="container-table100">
         <div className="wrap-table100">
           <div className="table">
@@ -56,7 +64,7 @@ export const TableAreaUsers = (props) => {
                     {formatDate(candidate.tempoStart.toDate())}
                   </div>
                   <div className="cell ">
-                    <C.AreaIcon>
+                    <C.AreaIcon onClick={() => showModalCandidateTestView()}>
                       <BsFillEyeFill
                         style={{
                           fontSize: "16px",

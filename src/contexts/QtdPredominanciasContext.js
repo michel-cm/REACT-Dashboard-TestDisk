@@ -4,7 +4,6 @@ import { useCandidatesTests } from "../hooks/useCandidatesTests";
 export const QtdPredominanciasContext = createContext();
 
 export const QtdPredominanciasContextProvider = ({ children }) => {
- 
   const [predominancias, setPredominancias] = useState(null);
 
   let dominantes = 0;
@@ -22,32 +21,30 @@ export const QtdPredominanciasContextProvider = ({ children }) => {
       if (candidate.predominancia == "Influente") {
         influentes = influentes + 1;
       }
-      if (candidate.predominancia == "Estavel") {
+      if (candidate.predominancia == "Estável") {
         estaveis = estaveis + 1;
       }
       if (candidate.predominancia == "Condescendente") {
         condescendentes = condescendentes + 1;
       }
-    }); 
+    });
   };
 
   useEffect(() => {
-    if ( listCandidadtes !== undefined) {
-        getPredominancias();
-        setPredominancias({
-          dominantes : dominantes,
-          estaveis : estaveis, 
-          influentes:influentes,
-          condescendentes : condescendentes
-        })
+    if (listCandidadtes.length > 0) {
+      getPredominancias();
+      setPredominancias({
+        dominantes: dominantes,
+        estaveis: estaveis,
+        influentes: influentes,
+        condescendentes: condescendentes,
+      });
     }
   }, [listCandidadtes]);
 
-
-
   return (
     <QtdPredominanciasContext.Provider
-      value={{      
+      value={{
         predominancias,
       }}
     >

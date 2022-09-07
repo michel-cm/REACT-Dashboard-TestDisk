@@ -10,7 +10,7 @@ export const PieChart = (props) => {
   const { predominancias } = useQtdPredominancias();
 
   const data = [
-    ["Task", "Hours per Day"],
+    ["Tipo", "Quantidade"],
     ["Dominantes", predominancias && predominancias.dominantes],
     ["Influentes", predominancias && predominancias.influentes],
     ["Estáveis", predominancias && predominancias.estaveis],

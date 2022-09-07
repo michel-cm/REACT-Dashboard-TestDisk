@@ -37,10 +37,6 @@ export const CandidatesTestsContextProvider = ({ children }) => {
     }
   }, [listCandidadtes]);
 
-  async function deleteUser() {
-    
-  }
-
   return (
     <CandidatesTestsContext.Provider
       value={{

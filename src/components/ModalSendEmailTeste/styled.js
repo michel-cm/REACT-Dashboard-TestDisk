@@ -47,7 +47,7 @@ export const Container = styled.div`
 `;
 
 export const Modal = styled.div`
-width: 320px;
+  width: 320px;
   background-color: ${(props) => props.theme.colors.background};
   padding: 24px 32px;
   border-radius: 10px;
