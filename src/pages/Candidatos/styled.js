@@ -59,8 +59,8 @@ export const ArrowIcon = styled.img`
 `;
 
 export const AreaFiltered = styled.div`
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
   padding-right: 8px;
@@ -82,6 +82,6 @@ export const AreaFiltered = styled.div`
     content: "";
     width: 6px;
     height: 40px;
-    background-color: #2261BC ;
+    background-color: #2261bc;
   }
 `;

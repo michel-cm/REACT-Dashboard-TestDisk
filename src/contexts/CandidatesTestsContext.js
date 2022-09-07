@@ -6,14 +6,16 @@ export const CandidatesTestsContext = createContext();
 export const CandidatesTestsContextProvider = ({ children }) => {
   const [listCandidadtes, setListCandidadtes] = useState([]);
 
-  const [ListCandidatesFavorites, setListCandidatesFavorites] =
-    useState(listCandidadtes.length > 0 &&  listCandidadtes.filter((candidate) => candidate.favorite === true));
+  const [ListCandidatesFavorites, setListCandidatesFavorites] = useState(
+    listCandidadtes.length > 0 &&
+      listCandidadtes.filter((candidate) => candidate.favorite === true)
+  );
 
   const getAllCandidatesAndTestes = useCallback(() => {
     Api.getAllCandidatesTests().then((data) => {
-      setListCandidadtes(data.filter((candidato) => 
-        candidato.predominancia !== ''
-      ));
+      setListCandidadtes(
+        data.filter((candidato) => candidato.predominancia !== "")
+      );
     });
   }, []);
 
@@ -37,14 +39,23 @@ export const CandidatesTestsContextProvider = ({ children }) => {
     }
   }, [listCandidadtes]);
 
+  const getCandidate = (idSearch) => {
+    const candidate = listCandidadtes.filter(
+      (candidate, i) => candidate.idUser == idSearch
+    );
+    return candidate[0];
+  };
+
   return (
     <CandidatesTestsContext.Provider
       value={{
         listCandidadtes,
         getAllCandidatesAndTestes,
 
+        getCandidate,
+
         updateFavoriteCandidate,
-        ListCandidatesFavorites
+        ListCandidatesFavorites,
       }}
     >
       {children}

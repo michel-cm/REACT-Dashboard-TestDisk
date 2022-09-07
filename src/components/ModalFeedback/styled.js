@@ -15,10 +15,9 @@ export const Container = styled.div`
   z-index: 99999;
 
   top: 50px;
-  right: ${(props) => props.modalClose ? '-275px' : '50px'};
+  right: ${(props) => (props.modalClose ? "-275px" : "50px")};
 
   transition: all 0.5s;
-
 
   &::before {
     content: "";

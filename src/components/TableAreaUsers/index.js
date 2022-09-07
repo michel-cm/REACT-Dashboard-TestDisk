@@ -3,7 +3,6 @@ import * as C from "./styled";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsFillStarFill } from "react-icons/bs";
-import { useEffect } from "react";
 
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 
@@ -11,7 +10,6 @@ import { formatDate } from "../../helpers/dateFilter";
 import { useState } from "react";
 
 import { ModalConfirm } from "../ModalConfirm";
-import { useTheme } from "../../hooks/useTheme";
 import { CandidateViewTeste } from "../CandidateViewTeste";
 
 export const TableAreaUsers = (props) => {
@@ -19,26 +17,30 @@ export const TableAreaUsers = (props) => {
 
   const { updateFavoriteCandidate } = useCandidatesTests();
 
- 
   const [modalConfirmDelet, setModalConfirmDelet] = useState(false);
 
   const [modalCandidateView, setModalCandidateView] = useState(false);
 
-  const [ id, setId] = useState('')
+  const [id, setId] = useState("");
 
-  function getIdUser(id) {
-    setId(id);
-    setModalConfirmDelet(true)  
+  function handleConfirmDelet(candidateId) {
+    setId(candidateId);
+    setModalConfirmDelet(true);
   }
 
-  function showModalCandidateTestView() {
-    setModalCandidateView(true)
+  function handleViewCandidate(candidateId) {
+    setId(candidateId);
+    setModalCandidateView(true);
   }
 
   return (
     <C.Container>
-      {modalConfirmDelet && <ModalConfirm setModal={setModalConfirmDelet} id={id}/> }
-      {modalCandidateView && <CandidateViewTeste setModal={setModalCandidateView} id={id}/> }
+      {modalConfirmDelet && (
+        <ModalConfirm setModal={setModalConfirmDelet} id={id} />
+      )}
+      {modalCandidateView && (
+        <CandidateViewTeste setModal={setModalCandidateView} id={id} />
+      )}
       <div className="container-table100">
         <div className="wrap-table100">
           <div className="table">
@@ -64,7 +66,9 @@ export const TableAreaUsers = (props) => {
                     {formatDate(candidate.tempoStart.toDate())}
                   </div>
                   <div className="cell ">
-                    <C.AreaIcon onClick={() => showModalCandidateTestView()}>
+                    <C.AreaIcon
+                      onClick={() => handleViewCandidate(candidate.idUser)}
+                    >
                       <BsFillEyeFill
                         style={{
                           fontSize: "16px",
@@ -75,8 +79,8 @@ export const TableAreaUsers = (props) => {
                     </C.AreaIcon>
                   </div>
                   <div className="cell iconsLista">
-                    <C.AreaIcon                        
-                        onClick={() => getIdUser(candidate.idUser)}
+                    <C.AreaIcon
+                      onClick={() => handleConfirmDelet(candidate.idUser)}
                     >
                       <BsFillTrashFill
                         style={{
@@ -98,11 +102,11 @@ export const TableAreaUsers = (props) => {
                     >
                       <BsFillStarFill
                         style={{
-                          fontSize: "16px",                          
+                          fontSize: "16px",
                           cursor: "pointer",
                           opacity: 0.75,
                           color: `${
-                            candidate.favorite ? "#E2992B" :"#a6a6a6"
+                            candidate.favorite ? "#E2992B" : "#a6a6a6"
                           }`,
                         }}
                       />

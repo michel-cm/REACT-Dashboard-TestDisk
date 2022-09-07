@@ -30,19 +30,19 @@ export const Container = styled.div`
 `;
 
 export const AreaMenuItems = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
 
-    p {        
-        padding: 16px;
-    }
+  p {
+    padding: 16px;
+  }
 `;
 
 export const MenuItem = styled.div`
   display: flex;
-  align-items: center; 
+  align-items: center;
   padding-left: 12px;
   margin-bottom: 8px;
   font-size: 12px;
@@ -52,11 +52,10 @@ export const MenuItem = styled.div`
   }
 
   &&:hover {
-    background-color: ${(props) => props.color}; 
+    background-color: ${(props) => props.color};
   }
-  
+
   img {
     width: 20px;
-    
   }
 `;

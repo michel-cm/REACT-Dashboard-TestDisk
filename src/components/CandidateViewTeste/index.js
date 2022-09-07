@@ -1,23 +1,29 @@
 import * as C from "./styled";
 
 import { useState } from "react";
-import { BsFillEyeFill, BsFillStarFill, BsFillTrashFill } from "react-icons/bs";
+import { BsFillStarFill } from "react-icons/bs";
 import { formatDate } from "../../helpers/dateFilter";
+import { useCandidatesTests } from "../../hooks/useCandidatesTests";
+import { useEffect } from "react";
 
-export const CandidateViewTeste = ({ setModal }) => {
+export const CandidateViewTeste = ({ setModal, id }) => {
   const handleCloseModal = () => {
     setModal(false);
   };
 
-  const [candidate, setCandidate] = useState({
-    name: "michel correa",
-    email: "michelcm13@gmail.com",
-    predominancia: "dominante",
-    favorite: false,
-    tempoStart: new Date(),
-  });
+  const { getCandidate } = useCandidatesTests();
 
-  console.log(candidate);
+  const [candidate, setCandidate] = useState({});
+
+  const { updateFavoriteCandidate } = useCandidatesTests();
+
+  useEffect(() => {
+    if (candidate.name) {
+      return;
+    }
+    const result = getCandidate(id);
+    setCandidate(result);
+  }, [candidate]);
 
   return (
     <C.Container>
@@ -37,8 +43,6 @@ export const CandidateViewTeste = ({ setModal }) => {
                   <div className="cell">Predominancia</div>
                   <div className="cell">Data </div>
                   <div className="cell"></div>
-                  <div className="cell"></div>
-                  <div className="cell"></div>
                 </div>
 
                 <div className="row">
@@ -47,31 +51,21 @@ export const CandidateViewTeste = ({ setModal }) => {
                   <div className="cell">
                     {candidate.predominancia ? candidate.predominancia : "-"}
                   </div>
-                  <div className="cell">20/08/2022</div>
-                  <div className="cell ">
-                    <C.AreaIcon>
-                      <BsFillEyeFill
-                        style={{
-                          fontSize: "16px",
-                          cursor: "pointer",
-                          opacity: 0.75,
-                        }}
-                      />
-                    </C.AreaIcon>
+                  <div className="cell">
+                    {" "}
+                    {candidate.name &&
+                      formatDate(candidate.tempoStart.toDate())}
                   </div>
+
                   <div className="cell iconsLista">
-                    <C.AreaIcon>
-                      <BsFillTrashFill
-                        style={{
-                          fontSize: "16px",
-                          cursor: "pointer",
-                          opacity: 0.75,
-                        }}
-                      />
-                    </C.AreaIcon>
-                  </div>
-                  <div className="cell iconsLista">
-                    <C.AreaIcon>
+                    <C.AreaIcon
+                      onClick={async () =>
+                        await updateFavoriteCandidate(
+                          candidate.idUser,
+                          !candidate.favorite
+                        ).then(() => setModal(false))
+                      }
+                    >
                       <BsFillStarFill
                         style={{
                           fontSize: "16px",
@@ -92,62 +86,48 @@ export const CandidateViewTeste = ({ setModal }) => {
 
         <C.AreaValues>
           <C.Values>
-            <div>A = 8</div>
-            <div>B = 6</div>
-            <div>C = 4</div>
-            <div>D = 2</div>
+            <div>A = {candidate.name && candidate.totalCadaLetra[0].a}</div>
+            <div>B = {candidate.name && candidate.totalCadaLetra[0].b}</div>
+            <div>C = {candidate.name && candidate.totalCadaLetra[0].c}</div>
+            <div>D = {candidate.name && candidate.totalCadaLetra[0].d}</div>
           </C.Values>
         </C.AreaValues>
 
         <C.AreaQuestions>
-          <C.Question>
-            <C.Header>
-              <C.Number>
-                <span>1</span>
-              </C.Number>
-              <C.Titulo>
-                <h3>
-                  Em um restaurante. Estou esperando uma mesa e o garçom me diz
-                  que em 10 minutos terei uma mesa, porém passam 20 minutos:
-                </h3>
-              </C.Titulo>
-            </C.Header>
-            <C.Table>
-              <C.AreaAnswer>
-                <C.TitleAnswer>
-                  Me aborreço e digo ao garçom que já se passou o dobro do
-                  tempo, e lhe informo que se demorar muito irei embora e eles
-                  perderão um cliente.
-                </C.TitleAnswer>
-                <C.AnswerValue>3</C.AnswerValue>
-              </C.AreaAnswer>
-              <C.AreaAnswer>
-                <C.TitleAnswer>
-                  Me aborreço e digo ao garçom que já se passou o dobro do
-                  tempo, e lhe informo que se demorar muito irei embora e eles
-                  perderão um cliente.
-                </C.TitleAnswer>
-                <C.AnswerValue>3</C.AnswerValue>
-              </C.AreaAnswer>
-              <C.AreaAnswer>
-                <C.TitleAnswer>
-                  Me aborreço e digo ao garçom que já se passou o dobro do
-                  tempo, e lhe informo que se demorar muito irei embora e eles
-                  perderão um cliente.
-                </C.TitleAnswer>
-                <C.AnswerValue>3</C.AnswerValue>
-              </C.AreaAnswer>
-              <C.AreaAnswer>
-                <C.TitleAnswer>
-                  Me aborreço e digo ao garçom que já se passou o dobro do
-                  tempo, e lhe informo que se demorar muito irei embora e eles
-                  perderão um cliente.
-                </C.TitleAnswer>
-                <C.AnswerValue>3</C.AnswerValue>
-              </C.AreaAnswer>
-            </C.Table>
-          </C.Question>
-
+          {candidate.name ? (
+            candidate.questionsList[0].map((question, index) => (
+              <C.Question key={index}>
+                <C.Header>
+                  <C.Number>
+                    <span>{index + 1}</span>
+                  </C.Number>
+                  <C.Titulo>
+                    <h3>{question.title}</h3>
+                  </C.Titulo>
+                </C.Header>
+                <C.Table>
+                  <C.AreaAnswer>
+                    <C.TitleAnswer>{question.a}</C.TitleAnswer>
+                    <C.AnswerValue>3</C.AnswerValue>
+                  </C.AreaAnswer>
+                  <C.AreaAnswer>
+                    <C.TitleAnswer>{question.b}</C.TitleAnswer>
+                    <C.AnswerValue>3</C.AnswerValue>
+                  </C.AreaAnswer>
+                  <C.AreaAnswer>
+                    <C.TitleAnswer>{question.c}</C.TitleAnswer>
+                    <C.AnswerValue>3</C.AnswerValue>
+                  </C.AreaAnswer>
+                  <C.AreaAnswer>
+                    <C.TitleAnswer>{question.d}</C.TitleAnswer>
+                    <C.AnswerValue>3</C.AnswerValue>
+                  </C.AreaAnswer>
+                </C.Table>
+              </C.Question>
+            ))
+          ) : (
+            <div>....</div>
+          )}
         </C.AreaQuestions>
       </C.Modal>
     </C.Container>

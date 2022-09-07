@@ -3,16 +3,11 @@ import { createContext, useEffect, useState } from "react";
 import { auth } from "../services/firebase";
 
 import {
-  getAuth,  
+  getAuth,
   signInWithEmailAndPassword,
   signOut,
-  setPersistence,  
-  browserLocalPersistence,
-  browserSessionPersistence,
   createUserWithEmailAndPassword,
-  
 } from "firebase/auth";
-
 
 export const AuthContext = createContext({});
 
@@ -25,7 +20,7 @@ export function AuthContextProvider(props) {
         const { uid, email } = user;
 
         setUser({
-          id: uid,          
+          id: uid,
           email: email,
         });
       }
@@ -67,7 +62,7 @@ export function AuthContextProvider(props) {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, senha)
       .then((userCredential) => {
-        const user = userCredential.user;        
+        const user = userCredential.user;
         setUser({
           id: user.uid,
           name: nome,
@@ -87,7 +82,7 @@ export function AuthContextProvider(props) {
         setUser,
         logoutAccount,
         loginWithEmail,
-        createAccount
+        createAccount,
       }}
     >
       {props.children}

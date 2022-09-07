@@ -8,7 +8,7 @@ export const CardTotalQuestions = styled.div`
   min-width: 190px;
   max-width: 300px;
   padding-right: 4px;
- 
+
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 
   div {
@@ -38,5 +38,5 @@ export const CardTotalQuestions = styled.div`
 export const LineCard2 = styled.div`
   height: 32px;
   width: 1px !important;
-  background-color:  ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.text};
 `;

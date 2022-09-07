@@ -42,8 +42,16 @@ export const Candidatos = () => {
       <Header />
       <C.MainContent className={"MainContentPadingAndMargin"}>
         <C.AreaCardsResume>
-          <Card title={"Total Candidatos"} color={"#2261BC"} value={listCandidadtes && listCandidadtes.length} />
-          <Card title={"Banco de Talentos"} color={"#E2992B"} value={ListCandidatesFavorites && ListCandidatesFavorites.length} />
+          <Card
+            title={"Total Candidatos"}
+            color={"#2261BC"}
+            value={listCandidadtes && listCandidadtes.length}
+          />
+          <Card
+            title={"Banco de Talentos"}
+            color={"#E2992B"}
+            value={ListCandidatesFavorites && ListCandidatesFavorites.length}
+          />
         </C.AreaCardsResume>
 
         <C.AreaSearchAndAdd>

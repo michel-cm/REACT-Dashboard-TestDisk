@@ -15,7 +15,7 @@ export const Container = styled.button`
   background-color: ${(props) => props.theme.colors.primary};
   font-size: 12px;
   border: none;
-  color:  ${(props) => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
 
   &:hover {
     opacity: 0.8;

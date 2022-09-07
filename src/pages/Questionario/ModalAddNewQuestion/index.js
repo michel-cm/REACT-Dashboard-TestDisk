@@ -15,7 +15,7 @@ export const ModalAddNewQuestion = ({ setModal, updateListQuestions }) => {
   const [alternativaActive, setAlternativaaActive] = useState(true);
 
   const [load, setLoad] = useState(false);
- 
+
   async function handleSubmitNewQuestion() {
     setLoad(true);
     if (
@@ -113,7 +113,7 @@ export const ModalAddNewQuestion = ({ setModal, updateListQuestions }) => {
         </form>
 
         <C.ButtonSubmit onClick={handleSubmitNewQuestion}>
-         {load ? 'Salvando ...' : 'Salvar Questão'} 
+          {load ? "Salvando ..." : "Salvar Questão"}
         </C.ButtonSubmit>
       </C.Modal>
     </C.Container>

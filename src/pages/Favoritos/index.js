@@ -15,10 +15,11 @@ export const Favoritos = () => {
 
   const [search, setSearch] = useState("");
   const filteredListCandidates =
-  search.length > 0
-    ? listCandidadtes.filter((candidate) => candidate.name.toLowerCase().includes(search))
-    : [];
-
+    search.length > 0
+      ? listCandidadtes.filter((candidate) =>
+          candidate.name.toLowerCase().includes(search)
+        )
+      : [];
 
   if (ListCandidatesFavorites.length > 0) {
     return (
@@ -27,14 +28,16 @@ export const Favoritos = () => {
         <Header />
         <C.MainContent className={"MainContentPadingAndMargin"}>
           <C.TitleBancoTalentos>Banco de Talentos</C.TitleBancoTalentos>
-          <Search 
-          placeholder="Digite o nome do candidato" 
-          state={search}
-          setSearch={setSearch}
+          <Search
+            placeholder="Digite o nome do candidato"
+            state={search}
+            setSearch={setSearch}
           />
           {search.length === 0 ? (
-          <TableAreaUsers candidates={ListCandidatesFavorites} />
-          ) : <TableAreaUsers candidates={filteredListCandidates} />}
+            <TableAreaUsers candidates={ListCandidatesFavorites} />
+          ) : (
+            <TableAreaUsers candidates={filteredListCandidates} />
+          )}
         </C.MainContent>
       </C.Container>
     );

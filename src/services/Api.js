@@ -16,13 +16,12 @@ import { database, firebase } from "./firebase";
 const IDDOCCONFIGGIRO = "RR3QwMBMngLk66XUkNEX";
 
 export const Api = {
-
   getAllQuestions: async () => {
     console.log("req: getAllQuestions()");
 
     const list = [];
 
-    let results = await getDocs(collection(database, 'questions'));
+    let results = await getDocs(collection(database, "questions"));
     results.forEach((result) => {
       let data = result.data();
       list.push({
@@ -38,43 +37,36 @@ export const Api = {
     return list;
   },
 
-  
-  addNewQuestion: async(question) => {
-    await database
-    .collection("questions")
-    .doc()
-    .set(
-      { 
+  addNewQuestion: async (question) => {
+    await database.collection("questions").doc().set(
+      {
         title: question.title,
-        a : question.a,
+        a: question.a,
         b: question.b,
         c: question.c,
         d: question.d,
-        active: question.active
+        active: question.active,
       },
       { merge: true }
     );
   },
 
-  updateQuestion: async (question, id) => {    
+  updateQuestion: async (question, id) => {
     const questionRef = doc(database, "questions", id);
     await updateDoc(questionRef, {
       title: question.title,
-      a : question.a,
+      a: question.a,
       b: question.b,
       c: question.c,
       d: question.d,
-      active: question.active
+      active: question.active,
     });
   },
-  
-  disableQuestion: async(id) => {
-    await database
-    .collection("questions")
-    .doc(id)
-    .set(
-      {        
-        active: false
+
+  disableQuestion: async (id) => {
+    await database.collection("questions").doc(id).set(
+      {
+        active: false,
       },
       { merge: true }
     );
@@ -82,8 +74,8 @@ export const Api = {
 
   deleteQuestion: async (id) => {
     await deleteDoc(doc(database, "questions", id)).catch(() => {
-      alert('eroor')
-    })
+      alert("eroor");
+    });
   },
 
   getAllCandidatesTests: async () => {
@@ -148,8 +140,7 @@ export const Api = {
 
   deletUser: async (id) => {
     await deleteDoc(doc(database, "testes", id)).catch(() => {
-      alert('eroor')
-    })
+      alert("eroor");
+    });
   },
-
 };

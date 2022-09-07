@@ -17,7 +17,7 @@ import { ModalFeedback } from "../../components/ModalFeedback";
 const Home = () => {
   const { user } = useAuth();
 
-  const [ showPieChart, setShowPieChart] = useState(false)
+  const [showPieChart, setShowPieChart] = useState(false);
 
   const { listCandidadtes } = useCandidatesTests();
 
@@ -33,9 +33,9 @@ const Home = () => {
 
   useEffect(() => {
     if (listCandidadtes.length > 0) {
-          setShowPieChart(true)
+      setShowPieChart(true);
     }
-  },[listCandidadtes])
+  }, [listCandidadtes]);
 
   return (
     <C.Container>

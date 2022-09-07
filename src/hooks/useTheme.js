@@ -19,6 +19,6 @@ export const useTheme = () => {
 
   return {
     changeTheme,
-    isDarkTheme
+    isDarkTheme,
   };
 };

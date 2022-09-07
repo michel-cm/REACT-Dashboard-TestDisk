@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-width: 100%;
-height: fit-content;
+  width: 100%;
+  height: fit-content;
 
-display: flex;
-`
+  display: flex;
+`;
 
 export const MainContent = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const AreaNoUsersFavorites = styled.div`
   align-items: center;
 `;
 
-export const ContentNoUsersFavorites = styled.div`  
+export const ContentNoUsersFavorites = styled.div`
   padding: 64px;
   display: flex;
   flex-direction: column;
@@ -36,9 +36,7 @@ export const ContentNoUsersFavorites = styled.div`
   gap: 16px;
 `;
 
-export const titleAreaNoUsers = styled.h1`
-
-`;
+export const titleAreaNoUsers = styled.h1``;
 
 export const descriptionAreaNoUsers = styled.p`
   font-size: 16px;

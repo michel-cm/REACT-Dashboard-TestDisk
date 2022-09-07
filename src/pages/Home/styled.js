@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: fit-content;
 
-  display: flex; 
+  display: flex;
 `;
 
 export const MainContent = styled.div`

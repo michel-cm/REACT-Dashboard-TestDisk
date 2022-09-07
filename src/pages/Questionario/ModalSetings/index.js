@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Api } from "../../../services/Api";
 import * as C from "./styled";
 
@@ -12,7 +11,7 @@ export const ModalSetings = ({
   setModal,
   idQuestion,
   fnUpdateListQuestion,
-  setModalUpdateQuestion
+  setModalUpdateQuestion,
 }) => {
   const handleCloseModal = () => {
     setModal(false);
@@ -26,8 +25,8 @@ export const ModalSetings = ({
   }
 
   async function disableQuestion() {
-    await Api.disableQuestion(idQuestion.id).then( async () => {
-     await fnUpdateListQuestion();
+    await Api.disableQuestion(idQuestion.id).then(async () => {
+      await fnUpdateListQuestion();
       setModal(false);
     });
   }
@@ -40,16 +39,18 @@ export const ModalSetings = ({
           <span onClick={handleCloseModal}>X</span>
         </C.AreaClose>
         <C.AreaMenu>
-          <C.Edit onClick={() => {             
-                setModal(false)
-                setModalUpdateQuestion(true);             
-            }}>
+          <C.Edit
+            onClick={() => {
+              setModal(false);
+              setModalUpdateQuestion(true);
+            }}
+          >
             <BsPencilSquare />
             <p>Editar</p>
           </C.Edit>
           <C.Block
-            onClick={() => {             
-                disableQuestion(idQuestion.id);              
+            onClick={() => {
+              disableQuestion(idQuestion.id);
             }}
           >
             <BsFillBagXFill />

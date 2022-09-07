@@ -25,8 +25,8 @@ export const AreaTimerTest = styled.div`
   input {
     width: 50px;
     height: 30px;
-    background-color:${(props) => props.theme.colors.background} ;
-    border: none;   
+    background-color: ${(props) => props.theme.colors.background};
+    border: none;
     color: ${(props) => props.theme.colors.text};
     text-align: center;
   }
@@ -35,20 +35,18 @@ export const AreaTimerTest = styled.div`
   }
 `;
 
-export const AreaMsgEmail = styled.div` 
+export const AreaMsgEmail = styled.div`
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-  width: 450px;  
+  width: 450px;
   padding: 32px;
   background-color: ${(props) => props.theme.colors.primary};
   margin: 32px 0px;
   font-size: 14px;
-  
+
   textarea {
-    margin-top: 16px;    
+    margin-top: 16px;
     padding: 4px;
   }
 `;
 
-export const ButtonArea = styled.div`
-     
-`;
+export const ButtonArea = styled.div``;

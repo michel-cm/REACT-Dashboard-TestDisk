@@ -6,10 +6,8 @@ import { Button } from "../../components/Button";
 
 import { useConfigs } from "../../hooks/useConfigs";
 
-
 export const Configuracoes = () => {
-
-  const { timer,setTimer, msg, setMsg, handleSaveConfig} = useConfigs();
+  const { timer, setTimer, msg, setMsg, handleSaveConfig } = useConfigs();
 
   return (
     <C.Container>
@@ -38,7 +36,7 @@ export const Configuracoes = () => {
           />
         </C.AreaMsgEmail>
         <C.ButtonArea>
-          <Button title="salvar" fn={handleSaveConfig}/>
+          <Button title="salvar" fn={handleSaveConfig} />
         </C.ButtonArea>
       </C.MainContent>
     </C.Container>

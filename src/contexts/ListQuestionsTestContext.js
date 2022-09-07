@@ -11,7 +11,7 @@ export const ListQuestionsTestContextProvider = ({ children }) => {
   const [testListQuestionsDisable, setTestListQuestionsDisable] = useState([]);
 
   const getAllQuestions = useCallback(async () => {
-   await Api.getAllQuestions().then((data) => {
+    await Api.getAllQuestions().then((data) => {
       setTestListQuestions(data);
     });
   }, []);
@@ -40,9 +40,7 @@ export const ListQuestionsTestContextProvider = ({ children }) => {
 
   function getQuestion(id) {
     let result = [];
-    result = testListQuestions.filter((question) => 
-      question.id == id
-    )
+    result = testListQuestions.filter((question) => question.id == id);
     return result;
   }
 
@@ -55,7 +53,7 @@ export const ListQuestionsTestContextProvider = ({ children }) => {
         getQuestion,
 
         testListQuestionsActive,
-        testListQuestionsDisable
+        testListQuestionsDisable,
       }}
     >
       {children}

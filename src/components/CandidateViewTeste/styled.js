@@ -50,7 +50,7 @@ export const AreaClose = styled.div`
   justify-content: end;
   position: fixed;
   right: 64px;
-  top: 32px;  
+  top: 32px;
 
   p {
     font-weight: bold;
@@ -242,7 +242,7 @@ export const AreaTableUser = styled.div`
 export const AreaIcon = styled.div`
   display: inline-block;
   cursor: pointer;
-  padding: 4px;
+  padding: 4px 12px 4px 4px;
 
   &:hover {
     opacity: 0.85;
@@ -282,6 +282,8 @@ export const Header = styled.div`
   border-radius: 6px 6px 0 0;
   background-color: #2261bc;
   width: 100%;
+  height: 60px;
+  align-items: center;
 `;
 
 export const Number = styled.div`
@@ -291,6 +293,7 @@ export const Number = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 5%;
+  height: 100%;
   background-color: #fff;
   color: #333;
   font-size: 20px;
@@ -312,7 +315,7 @@ export const Table = styled.div``;
 export const AreaAnswer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   border-bottom: 1px solid #ccc;
 
