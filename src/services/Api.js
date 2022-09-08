@@ -99,7 +99,7 @@ export const Api = {
         tempoStart: data.tempoStart,
         tempoEnd: data.tempoEnd,
         totalCadaLetra: [data.totalCadaLetra],
-        valoresQuestionsUser: [data.valoresQuestionsUser],
+        valoresQuestionsUser: data.valoresQuestionsUser,
       });
     });
 

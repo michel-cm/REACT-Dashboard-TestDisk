@@ -108,19 +108,19 @@ export const CandidateViewTeste = ({ setModal, id }) => {
                 <C.Table>
                   <C.AreaAnswer>
                     <C.TitleAnswer>{question.a}</C.TitleAnswer>
-                    <C.AnswerValue>3</C.AnswerValue>
+                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].a}</C.AnswerValue>
                   </C.AreaAnswer>
                   <C.AreaAnswer>
                     <C.TitleAnswer>{question.b}</C.TitleAnswer>
-                    <C.AnswerValue>3</C.AnswerValue>
+                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].b}</C.AnswerValue>
                   </C.AreaAnswer>
                   <C.AreaAnswer>
                     <C.TitleAnswer>{question.c}</C.TitleAnswer>
-                    <C.AnswerValue>3</C.AnswerValue>
+                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].c}</C.AnswerValue>
                   </C.AreaAnswer>
                   <C.AreaAnswer>
                     <C.TitleAnswer>{question.d}</C.TitleAnswer>
-                    <C.AnswerValue>3</C.AnswerValue>
+                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].d}</C.AnswerValue>
                   </C.AreaAnswer>
                 </C.Table>
               </C.Question>

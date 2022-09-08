@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 48px 0px;
+  padding: 48px 0px 60px 0px;
   z-index: 9;  
   top: 0px;
   left: ${props => props.showMenu ? "0px" : "-250px"};
@@ -29,7 +29,7 @@ export const Container = styled.div`
   }
 
   img {
-    width: 70px;
+    width: 40px;
   }
 `;
 

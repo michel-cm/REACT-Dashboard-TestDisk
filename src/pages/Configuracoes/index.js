@@ -30,7 +30,7 @@ export const Configuracoes = () => {
             id="story"
             name="story"
             rows="10"
-            cols="50"
+            cols="40"
             value={msg ? msg : ""}
             onChange={(e) => setMsg(e.target.value)}
           />

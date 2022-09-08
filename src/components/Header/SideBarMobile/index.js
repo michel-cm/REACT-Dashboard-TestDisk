@@ -30,8 +30,6 @@ export const SideBarMobile = ({showMenu}) => {
       : setColorHover(shade(0.4, "#ED3237"));
   }, [isDarkTheme]);
 
-  console.log(showMenu)
-
   return (
     <C.Container showMenu>
       <img src={logo} alt="logo" />

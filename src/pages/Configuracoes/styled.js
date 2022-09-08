@@ -41,7 +41,7 @@ export const AreaTimerTest = styled.div`
 
 export const AreaMsgEmail = styled.div`
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-  width: 450px;
+  width: 400px;
   padding: 32px;
   background-color: ${(props) => props.theme.colors.primary};
   margin: 32px 0px;
@@ -51,6 +51,11 @@ export const AreaMsgEmail = styled.div`
     margin-top: 16px;
     padding: 4px;
   }
+
+  @media (max-width: 960px) {
+    width: 390px;
+  }
+
 `;
 
 export const ButtonArea = styled.div``;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     min-height: 60px;
     width: 100%;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.backgroundAside};;
     color: #FFF;
     display: flex;
     z-index: 8;
@@ -17,9 +17,13 @@ export const Container = styled.div`
     position: fixed;
 
     img {
-        width: 40px;
+        width:40px;
     }
     @media (min-width: 961px) {
         display: none;
       }
+`;
+
+export const Logo = styled.img`
+    
 `;

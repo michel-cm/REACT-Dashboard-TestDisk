@@ -250,9 +250,13 @@ export const AreaIcon = styled.div`
 `;
 
 export const AreaValues = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 790px) {
+    width: 100%;
+  }
 `;
 
 export const Values = styled.div`
@@ -261,10 +265,18 @@ export const Values = styled.div`
 
   gap: 28px;
 
+  @media (max-width: 790px) {
+    gap: 16px;
+  }
+
   div {
     padding: 20px 32px;
     background-color: ${(props) => props.theme.colors.primary};
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 790px) {
+    padding: 32px 16px;
+  }
   }
 `;
 
@@ -281,33 +293,39 @@ export const Header = styled.div`
   display: flex;
   border-radius: 6px 6px 0 0;
   background-color: #2261bc;
-  width: 100%;
-  height: 60px;
+  width: 100%; 
+  
   align-items: center;
 `;
 
 export const Number = styled.div`
-  border-radius: 6px 0 0 0;
+  border-radius: 0px 5px 5px 0px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 5%;
-  height: 100%;
+  width: 7%;
+  padding: 4px;
   background-color: #fff;
   color: #333;
   font-size: 20px;
   font-weight: bold;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 790px) {
+      font-size: 24px;
+    }
 `;
 
 export const Titulo = styled.div`
   font-weight: bold;
-  padding: 4px 16px;
+  padding: 12px 16px;
 
   color: #f8f8f8;
 
-  font-size: 15px;
+  font-size: 14px;
+
+  
 `;
 
 export const Table = styled.div``;
