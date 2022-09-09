@@ -16,16 +16,16 @@ export const ModalSendEmailTeste = ({ setModal, msg }) => {
         </C.AreaClose>
         <C.Title>Enviar Questionário para:</C.Title>
 
-        <form action={`mailto:${email}`} method="POST" encType="text/plain">
+        <form action={`mailto:${email}`} method="POST" >
           <input
-            type="email"
-            name="email"
+            type="email"           
             required
             placeholder="Email do candidato"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
 
-          <input type="hidden" name="message" value={msg ? msg : ""} />
+          <input type="hidden" value={msg ? msg : ""} />
           <input
             className="buttonSubmit"
             type="submit"
