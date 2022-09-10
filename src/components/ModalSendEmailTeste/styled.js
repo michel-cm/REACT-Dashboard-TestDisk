@@ -22,7 +22,7 @@ export const Container = styled.div`
       opacity: 0.8;
     }
   }
-
+/*
   form {
     display: flex;
     flex-direction: column;
@@ -43,7 +43,13 @@ export const Container = styled.div`
 
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
     }
-  }
+  }*/
+
+  input {
+      margin: 8px 0px 24px 0px;
+      padding: 10px;
+    }
+
 `;
 
 export const Modal = styled.div`
@@ -56,9 +62,15 @@ export const Modal = styled.div`
 export const Title = styled.h3`
   font-size: 14px;
   font-weight: 400;
+  margin-bottom: 16px;
 `;
 
 export const AreaClose = styled.div`
   text-align: end;
   padding-bottom: 8px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

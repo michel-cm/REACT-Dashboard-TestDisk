@@ -1,5 +1,8 @@
+import React from "react";
+
 import { useState } from "react";
 import * as C from "./styled";
+import { ButtonMailto } from "./ButtonMailto";
 
 export const ModalSendEmailTeste = ({ setModal, msg }) => {
   const handleCloseModal = () => {
@@ -15,8 +18,9 @@ export const ModalSendEmailTeste = ({ setModal, msg }) => {
           <p onClick={handleCloseModal}>X</p>{" "}
         </C.AreaClose>
         <C.Title>Enviar Questionário para:</C.Title>
-
-        <form action={`mailto:${email}`} method="POST" >
+        {/**
+       * 
+         <form action={`mailto:${email}`} method="POST" >
           <input
             type="email"           
             required
@@ -32,6 +36,19 @@ export const ModalSendEmailTeste = ({ setModal, msg }) => {
             value="Enviar Questionário"
           />
         </form>
+        
+       */}
+        <C.Content>
+          <input
+            type="email"
+            required
+            placeholder="Email do candidato"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+
+          <ButtonMailto label="Enviar" mailto={`mailto:${email}? Subject=Assunto da msg&body=Conteúdo da mensagem`} />
+        </C.Content>
       </C.Modal>
     </C.Container>
   );
