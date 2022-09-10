@@ -46,9 +46,7 @@ export const ModalSendEmailTeste = ({ setModal, msg }) => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-
-          <ButtonMailto label="Enviar" mailto={`mailto:${email}? Subject=Assunto da msg&body=Conteúdo da mensagem`} />
-        </C.Content>
+          <ButtonMailto label="Enviar Teste" mailto={`mailto:${email}?subject=Giro Agro - Processo seletivo&body=${msg}`} /></C.Content>
       </C.Modal>
     </C.Container>
   );
