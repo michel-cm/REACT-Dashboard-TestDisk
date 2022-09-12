@@ -7,7 +7,17 @@ import { Button } from "../../components/Button";
 import { useConfigs } from "../../hooks/useConfigs";
 
 export const Configuracoes = () => {
-  const { timer, setTimer, msg, setMsg, handleSaveConfig } = useConfigs();
+  const {
+    timer,
+    setTimer,
+    msg,
+    setMsg,
+    handleSaveConfig,
+    emailRecebimentoTeste,
+    subject,
+    setEmailRecebimentoTeste,
+    setSubject
+  } = useConfigs();
 
   return (
     <C.Container>
@@ -33,6 +43,24 @@ export const Configuracoes = () => {
             cols="40"
             value={msg ? msg : ""}
             onChange={(e) => setMsg(e.target.value)}
+          />
+          <p
+            style={{
+              marginTop: "32px",
+              marginBottom:'8px'
+            }}
+          >
+            Assunto do email pré-definido
+          </p>
+          <input
+            style={{
+              padding: "16px",
+              width: "300px",
+              height: '80px'
+            }}
+            type="text"
+            value={subject ? subject : ""}
+            onChange={(e) => setSubject(e.target.value)}
           />
         </C.AreaMsgEmail>
         <C.ButtonArea>

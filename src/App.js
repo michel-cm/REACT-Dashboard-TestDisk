@@ -17,9 +17,9 @@ function App() {
   return (
     <>
       <AuthContextProvider>
-        <CandidatesTestsContextProvider>
-          <ListQuestionsTestContextProvider>
-            <ConfigsContextProvider>
+        <ConfigsContextProvider>
+          <CandidatesTestsContextProvider>
+            <ListQuestionsTestContextProvider>
               <QtdPredominanciasContextProvider>
                 <ThemeContextProvider>
                   <AppContainer>
@@ -28,9 +28,9 @@ function App() {
                   </AppContainer>
                 </ThemeContextProvider>
               </QtdPredominanciasContextProvider>
-            </ConfigsContextProvider>
-          </ListQuestionsTestContextProvider>
-        </CandidatesTestsContextProvider>
+            </ListQuestionsTestContextProvider>
+          </CandidatesTestsContextProvider>
+        </ConfigsContextProvider>
       </AuthContextProvider>
     </>
   );

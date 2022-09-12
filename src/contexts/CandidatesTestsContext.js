@@ -1,4 +1,5 @@
 import { createContext, useCallback, useEffect, useState } from "react";
+import { useConfigs } from "../hooks/useConfigs";
 import { Api } from "../services/Api";
 
 export const CandidatesTestsContext = createContext();
@@ -11,10 +12,14 @@ export const CandidatesTestsContextProvider = ({ children }) => {
       listCandidadtes.filter((candidate) => candidate.favorite === true)
   );
 
+  const { timer } = useConfigs();
+
+  
+
   const getAllCandidatesAndTestes = useCallback(() => {
     Api.getAllCandidatesTests().then((data) => {
       setListCandidadtes(
-        data.filter((candidato) => candidato.predominancia !== "")
+        data
       );
     });
   }, []);
@@ -46,6 +51,10 @@ export const CandidatesTestsContextProvider = ({ children }) => {
     return candidate[0];
   };
 
+  async function addNewCandidate(email, listQuestions) {
+    await Api.addNewCandidateForTest(email,listQuestions,timer).catch((err) => console.log(err))
+  }
+
   return (
     <CandidatesTestsContext.Provider
       value={{
@@ -56,6 +65,8 @@ export const CandidatesTestsContextProvider = ({ children }) => {
 
         updateFavoriteCandidate,
         ListCandidatesFavorites,
+
+        addNewCandidate
       }}
     >
       {children}

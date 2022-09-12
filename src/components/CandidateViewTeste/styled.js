@@ -259,6 +259,16 @@ export const AreaValues = styled.div`
   }
 `;
 
+export const AreaChart = styled.div`
+  margin-top: 36px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Values = styled.div`
   display: flex;
   justify-content: space-between;
@@ -275,8 +285,8 @@ export const Values = styled.div`
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 
     @media (max-width: 790px) {
-    padding: 32px 16px;
-  }
+      padding: 32px 16px;
+    }
   }
 `;
 
@@ -293,8 +303,8 @@ export const Header = styled.div`
   display: flex;
   border-radius: 6px 6px 0 0;
   background-color: #2261bc;
-  width: 100%; 
-  
+  width: 100%;
+
   align-items: center;
 `;
 
@@ -313,8 +323,8 @@ export const Number = styled.div`
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 
   @media (max-width: 790px) {
-      font-size: 24px;
-    }
+    font-size: 24px;
+  }
 `;
 
 export const Titulo = styled.div`
@@ -324,8 +334,6 @@ export const Titulo = styled.div`
   color: #f8f8f8;
 
   font-size: 14px;
-
-  
 `;
 
 export const Table = styled.div``;
@@ -347,9 +355,33 @@ export const TitleAnswer = styled.h4`
 
 export const AnswerValue = styled.h4`
   font-weight: 400;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) =>
+    props.value == 1
+      ? "red"
+      : props.value == 4
+      ? "green"
+      : props.theme.colors.primary};
   padding: 16px;
   border-radius: 5px;
 
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+`;
+
+export const AreaTimerTest = styled.div`
+  margin: 32px 0px;
+  padding: 16px;
+  background-color: ${(props) => props.theme.colors.primary};
+
+  p {
+    text-align: center;
+    margin-top: 12px;
+  }
+`;
+
+export const TitleAreaTimer = styled.div`
+  display: flex;
+
+  h4 {
+    margin-left: 8px;
+  }
 `;

@@ -48,7 +48,7 @@ export const TableAreaUsers = (props) => {
               <div className="cell">Nome</div>
               <div className="cell">E-mail</div>
               <div className="cell">Predominancia</div>
-              <div className="cell">Data </div>
+              <div className="cell">Data</div>
               <div className="cell"></div>
               <div className="cell"></div>
               <div className="cell"></div>
@@ -57,13 +57,17 @@ export const TableAreaUsers = (props) => {
             {listCandidates.length > 0 &&
               listCandidates.map((candidate, index) => (
                 <div className="row" key={index}>
-                  <div className="cell">{candidate.name}</div>
+                  <div className="cell">
+                    {candidate.name ? candidate.name : "---"}
+                  </div>
                   <div className="cell">{candidate.email}</div>
                   <div className="cell">
-                    {candidate.predominancia ? candidate.predominancia : "-"}
+                    {candidate.predominancia ? candidate.predominancia : "---"}
                   </div>
                   <div className="cell">
-                    {formatDate(candidate.tempoStart.toDate())}
+                    {candidate.tempoStart
+                      ? formatDate(candidate.tempoEnd.toDate())
+                      : "---"}
                   </div>
                   <div className="cell ">
                     <C.AreaIcon

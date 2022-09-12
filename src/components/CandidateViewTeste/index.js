@@ -1,10 +1,11 @@
 import * as C from "./styled";
 
 import { useState } from "react";
-import { BsFillStarFill } from "react-icons/bs";
+import { BsFillStarFill, BsClock } from "react-icons/bs";
 import { formatDate } from "../../helpers/dateFilter";
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 import { useEffect } from "react";
+import { PieChart } from "./PieChart";
 
 export const CandidateViewTeste = ({ setModal, id }) => {
   const handleCloseModal = () => {
@@ -15,7 +16,9 @@ export const CandidateViewTeste = ({ setModal, id }) => {
 
   const [candidate, setCandidate] = useState({});
 
-  const { updateFavoriteCandidate } = useCandidatesTests();
+  const { listCandidadtes, updateFavoriteCandidate } = useCandidatesTests();
+
+  const [showPieChart, setShowPieChart] = useState(false);
 
   useEffect(() => {
     if (candidate.name) {
@@ -24,6 +27,12 @@ export const CandidateViewTeste = ({ setModal, id }) => {
     const result = getCandidate(id);
     setCandidate(result);
   }, [candidate]);
+
+  useEffect(() => {
+    if (listCandidadtes.length > 0) {
+      setShowPieChart(true);
+    }
+  }, [listCandidadtes]);
 
   return (
     <C.Container>
@@ -53,8 +62,9 @@ export const CandidateViewTeste = ({ setModal, id }) => {
                   </div>
                   <div className="cell">
                     {" "}
-                    {candidate.name &&
-                      formatDate(candidate.tempoStart.toDate())}
+                    {candidate.tempoEnd
+                      ? formatDate(candidate.tempoEnd.toDate())
+                      : "---"}
                   </div>
 
                   <div className="cell iconsLista">
@@ -84,51 +94,92 @@ export const CandidateViewTeste = ({ setModal, id }) => {
           </div>
         </C.AreaTableUser>
 
-        <C.AreaValues>
-          <C.Values>
-            <div>A = {candidate.name && candidate.totalCadaLetra[0].a}</div>
-            <div>B = {candidate.name && candidate.totalCadaLetra[0].b}</div>
-            <div>C = {candidate.name && candidate.totalCadaLetra[0].c}</div>
-            <div>D = {candidate.name && candidate.totalCadaLetra[0].d}</div>
-          </C.Values>
-        </C.AreaValues>
+        {candidate.finalizado ? (
+          <>
+            <C.AreaValues>
+              <C.Values>
+                <div>A = {candidate.name && candidate.totalCadaLetra[0].a}</div>
+                <div>B = {candidate.name && candidate.totalCadaLetra[0].b}</div>
+                <div>C = {candidate.name && candidate.totalCadaLetra[0].c}</div>
+                <div>D = {candidate.name && candidate.totalCadaLetra[0].d}</div>
+              </C.Values>
+            </C.AreaValues>
 
-        <C.AreaQuestions>
-          {candidate.name ? (
-            candidate.questionsList[0].map((question, index) => (
-              <C.Question key={index}>
-                <C.Header>
-                  <C.Number>
-                    <span>{index + 1}</span>
-                  </C.Number>
-                  <C.Titulo>
-                    <h3>{question.title}</h3>
-                  </C.Titulo>
-                </C.Header>
-                <C.Table>
-                  <C.AreaAnswer>
-                    <C.TitleAnswer>{question.a}</C.TitleAnswer>
-                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].a}</C.AnswerValue>
-                  </C.AreaAnswer>
-                  <C.AreaAnswer>
-                    <C.TitleAnswer>{question.b}</C.TitleAnswer>
-                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].b}</C.AnswerValue>
-                  </C.AreaAnswer>
-                  <C.AreaAnswer>
-                    <C.TitleAnswer>{question.c}</C.TitleAnswer>
-                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].c}</C.AnswerValue>
-                  </C.AreaAnswer>
-                  <C.AreaAnswer>
-                    <C.TitleAnswer>{question.d}</C.TitleAnswer>
-                    <C.AnswerValue>{candidate && candidate.valoresQuestionsUser[index].d}</C.AnswerValue>
-                  </C.AreaAnswer>
-                </C.Table>
-              </C.Question>
-            ))
-          ) : (
-            <div>....</div>
-          )}
-        </C.AreaQuestions>
+            <C.AreaChart>
+              {showPieChart && <PieChart candidate={candidate} />}
+            </C.AreaChart>
+
+            <C.AreaTimerTest>
+              <C.TitleAreaTimer>
+                <BsClock /> <h4>Tempo usado no teste:</h4>
+              </C.TitleAreaTimer>
+              <p>{`${
+                candidate && (candidate.timerUsed / 60).toFixed(1)
+              } minutos`}</p>
+            </C.AreaTimerTest>
+
+            <C.AreaQuestions>
+              {candidate.name ? (
+                candidate.questionsList[0].map((question, index) => (
+                  <C.Question key={index}>
+                    <C.Header>
+                      <C.Number>
+                        <span>{index + 1}</span>
+                      </C.Number>
+                      <C.Titulo>
+                        <h3>{question.title}</h3>
+                      </C.Titulo>
+                    </C.Header>
+                    <C.Table>
+                      <C.AreaAnswer>
+                        <C.TitleAnswer>{question.a}</C.TitleAnswer>
+                        <C.AnswerValue
+                          value={candidate.valoresQuestionsUser[index].a}
+                        >
+                          {candidate && candidate.valoresQuestionsUser[index].a}
+                        </C.AnswerValue>
+                      </C.AreaAnswer>
+                      <C.AreaAnswer>
+                        <C.TitleAnswer>{question.b}</C.TitleAnswer>
+                        <C.AnswerValue
+                          value={candidate.valoresQuestionsUser[index].b}
+                        >
+                          {candidate && candidate.valoresQuestionsUser[index].b}
+                        </C.AnswerValue>
+                      </C.AreaAnswer>
+                      <C.AreaAnswer>
+                        <C.TitleAnswer>{question.c}</C.TitleAnswer>
+                        <C.AnswerValue
+                          value={candidate.valoresQuestionsUser[index].c}
+                        >
+                          {candidate && candidate.valoresQuestionsUser[index].c}
+                        </C.AnswerValue>
+                      </C.AreaAnswer>
+                      <C.AreaAnswer>
+                        <C.TitleAnswer>{question.d}</C.TitleAnswer>
+                        <C.AnswerValue
+                          value={candidate.valoresQuestionsUser[index].d}
+                        >
+                          {candidate && candidate.valoresQuestionsUser[index].d}
+                        </C.AnswerValue>
+                      </C.AreaAnswer>
+                    </C.Table>
+                  </C.Question>
+                ))
+              ) : (
+                <div>....</div>
+              )}
+            </C.AreaQuestions>
+          </>
+        ) : (
+          <div
+            style={{
+              color: "red",
+            }}
+          >
+            Teste não realizado
+          </div>
+        )}
       </C.Modal>
     </C.Container>
   );

@@ -41,8 +41,8 @@ export const AreaTimerTest = styled.div`
 
 export const AreaMsgEmail = styled.div`
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-  width: 400px;
-  padding: 32px;
+  width: 360px;
+  padding:18px;
   background-color: ${(props) => props.theme.colors.primary};
   margin: 32px 0px;
   font-size: 14px;

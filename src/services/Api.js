@@ -1,13 +1,9 @@
-import { deleteUser, getAuth } from "firebase/auth";
 import "firebase/compat/firestore";
 import {
   doc,
-  setDoc,
   collection,
   getDocs,
-  addDoc,
   updateDoc,
-  arrayUnion,
   deleteDoc,
 } from "firebase/firestore";
 
@@ -97,6 +93,7 @@ export const Api = {
         questionsList: [data.questionsList],
         tempoExcedido: data.tempoExcedido,
         tempoStart: data.tempoStart,
+        timerUsed : data.timerUsed,
         tempoEnd: data.tempoEnd,
         totalCadaLetra: [data.totalCadaLetra],
         valoresQuestionsUser: data.valoresQuestionsUser,
@@ -117,17 +114,21 @@ export const Api = {
       list.push({
         timer: data.timerTeste,
         msg: data.mensagemEmail,
+        emailRecebimentoTeste: data.emailRecebimentoTeste,
+        subject: data.subject,
       });
     });
     return list;
   },
 
-  updateConfig: async (timer, msg) => {
+  updateConfig: async (timer, msg, subject,emailRecebimentoTeste ) => {
     timer = timer * 60;
     const testRef = doc(database, "configuracaoGiro", IDDOCCONFIGGIRO);
     await updateDoc(testRef, {
       timerTeste: timer,
+      emailRecebimentoTeste: emailRecebimentoTeste,
       mensagemEmail: msg,
+      subject: subject,
     });
   },
 
@@ -142,5 +143,30 @@ export const Api = {
     await deleteDoc(doc(database, "testes", id)).catch(() => {
       alert("eroor");
     });
+  },
+
+  addNewCandidateForTest: async (email, listQuestions, timer) => {
+    const created = firebase.firestore.Timestamp.fromDate(new Date()).toDate();
+    timer = timer * 60;
+    await database.collection("testes").doc(email).set(
+      {
+        timer: timer,
+        timerUsed: 0,
+        name: "",
+        email: email,
+        currentQuestion: 0,
+        questionsList: listQuestions,
+        qtdQuestions: listQuestions.length,
+        valoresQuestionsUser: [],
+        totalCadaLetra: [],
+        idUser: "",
+        finalizado: false,
+        tempoExcedido: false,
+        predominancia: "",
+        dateCreatedCandidate: created,
+        favorite: false,
+      },
+      { merge: true }
+    );
   },
 };

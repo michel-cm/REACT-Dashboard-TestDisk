@@ -23,7 +23,7 @@ export const Candidatos = () => {
 
   const [search, setSearch] = useState("");
 
-  const { msg } = useConfigs();
+  const { msg, subject } = useConfigs();
 
   const filteredListCandidates =
     search.length > 0
@@ -88,7 +88,7 @@ export const Candidatos = () => {
           </>
         )}
       </C.MainContent>
-      {modal && <ModalSendEmailTeste setModal={setModal} msg={msg} />}
+      {modal && <ModalSendEmailTeste setModal={setModal} msg={msg} subject={subject}/>}
     </C.Container>
   );
 };
