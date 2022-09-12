@@ -51,6 +51,7 @@ export const AreaClose = styled.div`
   position: fixed;
   right: 64px;
   top: 32px;
+  z-index: 10;
 
   p {
     font-weight: bold;
@@ -369,9 +370,10 @@ export const AnswerValue = styled.h4`
 
 export const AreaTimerTest = styled.div`
   margin: 32px 0px;
-  padding: 16px;
+  padding: 32px;
   background-color: ${(props) => props.theme.colors.primary};
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  border-left: 6px solid ${(props) => props.theme.colors.text};
 
   p,
   h4 {
@@ -380,7 +382,7 @@ export const AreaTimerTest = styled.div`
   }
 `;
 export const TitleAreaTimerUsed = styled.div`
-  margin: 32px 0px 24px 0px;
+  margin: 32px 0px 0px 0px;
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
 `;
