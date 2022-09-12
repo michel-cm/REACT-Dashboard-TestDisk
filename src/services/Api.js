@@ -93,6 +93,7 @@ export const Api = {
         questionsList: [data.questionsList],
         tempoExcedido: data.tempoExcedido,
         tempoStart: data.tempoStart,
+        timer: data.timer,
         timerUsed : data.timerUsed,
         tempoEnd: data.tempoEnd,
         totalCadaLetra: [data.totalCadaLetra],

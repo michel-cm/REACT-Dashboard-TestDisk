@@ -291,7 +291,7 @@ export const Values = styled.div`
 `;
 
 export const AreaQuestions = styled.div`
-  margin-top: 48px;
+  margin-top: 24px;
 `;
 
 export const Question = styled.div`
@@ -371,17 +371,20 @@ export const AreaTimerTest = styled.div`
   margin: 32px 0px;
   padding: 16px;
   background-color: ${(props) => props.theme.colors.primary};
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 
-  p {
+  p,
+  h4 {
     text-align: center;
-    margin-top: 12px;
+    margin-left: 8px;
   }
+`;
+export const TitleAreaTimerUsed = styled.div`
+  margin: 32px 0px 24px 0px;
+  background-color: ${(props) => props.theme.colors.primary};
+  display: flex;
 `;
 
 export const TitleAreaTimer = styled.div`
   display: flex;
-
-  h4 {
-    margin-left: 8px;
-  }
 `;

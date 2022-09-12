@@ -12,15 +12,21 @@ export const CandidatesTestsContextProvider = ({ children }) => {
       listCandidadtes.filter((candidate) => candidate.favorite === true)
   );
 
-  const { timer } = useConfigs();
 
-  
+  function getCandidatesFinallyCount() {
+    if (listCandidadtes.length > 0) {
+      const list = listCandidadtes.filter((candidate) => {
+        return candidate.finalizado == true;
+      });
+      return list.length;
+    }
+  }
+
+  const { timer } = useConfigs();
 
   const getAllCandidatesAndTestes = useCallback(() => {
     Api.getAllCandidatesTests().then((data) => {
-      setListCandidadtes(
-        data
-      );
+      setListCandidadtes(data);
     });
   }, []);
 
@@ -52,7 +58,9 @@ export const CandidatesTestsContextProvider = ({ children }) => {
   };
 
   async function addNewCandidate(email, listQuestions) {
-    await Api.addNewCandidateForTest(email,listQuestions,timer).catch((err) => console.log(err))
+    await Api.addNewCandidateForTest(email, listQuestions, timer).catch((err) =>
+      console.log(err)
+    );
   }
 
   return (
@@ -66,7 +74,9 @@ export const CandidatesTestsContextProvider = ({ children }) => {
         updateFavoriteCandidate,
         ListCandidatesFavorites,
 
-        addNewCandidate
+        addNewCandidate,
+
+        getCandidatesFinallyCount,
       }}
     >
       {children}

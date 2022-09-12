@@ -1,7 +1,7 @@
 import * as C from "./styled";
 
 import { useState } from "react";
-import { BsFillStarFill, BsClock } from "react-icons/bs";
+import { BsFillStarFill, BsClock, BsHourglassBottom } from "react-icons/bs";
 import { formatDate } from "../../helpers/dateFilter";
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 import { useEffect } from "react";
@@ -111,11 +111,15 @@ export const CandidateViewTeste = ({ setModal, id }) => {
 
             <C.AreaTimerTest>
               <C.TitleAreaTimer>
-                <BsClock /> <h4>Tempo usado no teste:</h4>
+                <BsClock /> <h4>Tempo do teste:</h4>
+                <p>{`${candidate && candidate.timer / 60} minutos`}</p>
               </C.TitleAreaTimer>
-              <p>{`${
-                candidate && (candidate.timerUsed / 60).toFixed(1)
-              } minutos`}</p>
+              <C.TitleAreaTimerUsed>
+                <BsHourglassBottom /> <h4>Tempo usado no teste:</h4>
+                <p>{`${
+                  candidate && (candidate.timerUsed / 60).toFixed(1)
+                } minutos`}</p>
+              </C.TitleAreaTimerUsed>
             </C.AreaTimerTest>
 
             <C.AreaQuestions>

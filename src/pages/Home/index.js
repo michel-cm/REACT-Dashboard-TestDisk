@@ -19,7 +19,7 @@ const Home = () => {
 
   const [showPieChart, setShowPieChart] = useState(false);
 
-  const { listCandidadtes } = useCandidatesTests();
+  const { listCandidadtes, getCandidatesFinallyCount } = useCandidatesTests();
 
   const { predominancias } = useQtdPredominancias();
 
@@ -69,7 +69,26 @@ const Home = () => {
           />
         </C.AreaCardsResume>
 
-        <C.AreaChart>{showPieChart && <PieChart />}</C.AreaChart>
+        <C.AreaInfos>
+          <C.AreaChart>{showPieChart && <PieChart />}</C.AreaChart>
+          <C.AreaMediaTimersTests>
+            <C.TimerMedia>
+              Média Tempo usado no Teste:
+              <C.Timer>
+                <p>
+                  {listCandidadtes.length > 0 &&
+                    listCandidadtes
+                      .filter((candidate) => {
+                        return candidate.finalizado == true;
+                      })
+                      .map((candidate) => candidate.timerUsed)
+                      .reduce((prev, current) => (((prev + current) / 60) / getCandidatesFinallyCount()).toFixed(1))}{" "}
+                  minutos
+                </p>
+              </C.Timer>
+            </C.TimerMedia>
+          </C.AreaMediaTimersTests>
+        </C.AreaInfos>
         <TableAreaUsers candidates={listCandidadtes} />
       </C.MainContent>
     </C.Container>
