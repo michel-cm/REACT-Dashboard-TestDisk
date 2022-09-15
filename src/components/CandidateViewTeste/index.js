@@ -71,7 +71,7 @@ export const CandidateViewTeste = ({ setModal, id }) => {
                     <C.AreaIcon
                       onClick={async () =>
                         await updateFavoriteCandidate(
-                          candidate.idUser,
+                          candidate.email,
                           !candidate.favorite
                         ).then(() => setModal(false))
                       }
