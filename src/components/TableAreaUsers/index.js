@@ -65,7 +65,7 @@ export const TableAreaUsers = (props) => {
                     {candidate.predominancia ? candidate.predominancia : "---"}
                   </div>
                   <div className="cell">
-                    {candidate.tempoStart
+                    {candidate.tempoEnd
                       ? formatDate(candidate.tempoEnd.toDate())
                       : "---"}
                   </div>
