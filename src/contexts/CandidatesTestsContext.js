@@ -12,13 +12,26 @@ export const CandidatesTestsContextProvider = ({ children }) => {
       listCandidadtes.filter((candidate) => candidate.favorite === true)
   );
 
-
-  function getCandidatesFinallyCount() {
+  function getCandidatesFinally() {
     if (listCandidadtes.length > 0) {
       const list = listCandidadtes.filter((candidate) => {
         return candidate.finalizado == true;
       });
-      return list.length;
+      return list;
+    }
+  }
+
+  function getTimerMediaUsed() {
+    if (listCandidadtes.length > 0) {
+      const listCandidadtesFinally = getCandidatesFinally()
+      const result = listCandidadtesFinally
+        .map((item) => {
+          return item.timerUsed / 60;
+        })
+        .reduce((ac, value) => {
+          return ac + value;
+        });
+      return (result/listCandidadtesFinally.length).toFixed(1);
     }
   }
 
@@ -33,11 +46,12 @@ export const CandidatesTestsContextProvider = ({ children }) => {
   useEffect(() => {
     if (listCandidadtes.length === 0) {
       getAllCandidatesAndTestes();
+      getTimerMediaUsed();
     }
   }, []);
 
-  async function updateFavoriteCandidate(idUser, value) {
-    await Api.updateFavoriteCandidate(idUser, value).then(async () => {
+  async function updateFavoriteCandidate(emailUser, value) {
+    await Api.updateFavoriteCandidate(emailUser, value).then(async () => {
       await getAllCandidatesAndTestes();
     });
   }
@@ -76,7 +90,7 @@ export const CandidatesTestsContextProvider = ({ children }) => {
 
         addNewCandidate,
 
-        getCandidatesFinallyCount,
+        getTimerMediaUsed,
       }}
     >
       {children}

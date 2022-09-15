@@ -19,7 +19,7 @@ const Home = () => {
 
   const [showPieChart, setShowPieChart] = useState(false);
 
-  const { listCandidadtes, getCandidatesFinallyCount } = useCandidatesTests();
+  const { listCandidadtes, getTimerMediaUsed } = useCandidatesTests();
 
   const { predominancias } = useQtdPredominancias();
 
@@ -76,14 +76,7 @@ const Home = () => {
               Média Tempo usado no Teste:
               <C.Timer>
                 <p>
-                  {listCandidadtes.length > 0 &&
-                    listCandidadtes
-                      .filter((candidate) => {
-                        return candidate.finalizado == true;
-                      })
-                      .map((candidate) => candidate.timerUsed)
-                      .reduce((prev, current) => (((prev + current) / 60) / getCandidatesFinallyCount()).toFixed(1))}{" "}
-                  minutos
+                  {listCandidadtes.length > 0 && getTimerMediaUsed()} minutos
                 </p>
               </C.Timer>
             </C.TimerMedia>

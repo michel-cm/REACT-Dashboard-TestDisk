@@ -133,15 +133,15 @@ export const Api = {
     });
   },
 
-  updateFavoriteCandidate: async (idUser, value) => {
-    const candidateRef = doc(database, "testes", idUser);
+  updateFavoriteCandidate: async (emailUser, value) => {
+    const candidateRef = doc(database, "testes", emailUser);
     await updateDoc(candidateRef, {
       favorite: value,
     });
   },
 
-  deletUser: async (id) => {
-    await deleteDoc(doc(database, "testes", id)).catch(() => {
+  deletUser: async (emailUser) => {
+    await deleteDoc(doc(database, "testes", emailUser)).catch(() => {
       alert("eroor");
     });
   },

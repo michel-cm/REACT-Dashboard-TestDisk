@@ -84,7 +84,7 @@ export const TableAreaUsers = (props) => {
                   </div>
                   <div className="cell iconsLista">
                     <C.AreaIcon
-                      onClick={() => handleConfirmDelet(candidate.idUser)}
+                      onClick={() => handleConfirmDelet(candidate.email)}
                     >
                       <BsFillTrashFill
                         style={{
@@ -99,7 +99,7 @@ export const TableAreaUsers = (props) => {
                     <C.AreaIcon
                       onClick={async () =>
                         await updateFavoriteCandidate(
-                          candidate.idUser,
+                          candidate.email,
                           !candidate.favorite
                         )
                       }
