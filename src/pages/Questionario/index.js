@@ -16,6 +16,9 @@ import { Header } from "../../components/Header";
 import { ModalAddNewQuestion } from "./ModalAddNewQuestion";
 import { ModalSetings } from "./ModalSetings";
 import { ModalUpdateQuestion } from "./ModalUpdateQuestion";
+import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 export const Questionario = () => {
   const {
@@ -36,6 +39,16 @@ export const Questionario = () => {
   const [search, setSearch] = useState("");
 
   const [idQuestion, setIdQuestion] = useState("");
+
+  const { user } = useAuth();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   function handleModalNewQuestion() {
     setModalNewQuestion(true);
@@ -123,11 +136,7 @@ export const Questionario = () => {
                   return (
                     <C.CardQuestion key={index}>
                       <C.AreaTitle>
-                        <h3
-                          style={{
-                            color: question.active ? "#F8F8F8" : "#D04E4E",
-                          }}
-                        >
+                        <h3>
                           {index + 1} - {question.title}
                         </h3>
                       </C.AreaTitle>

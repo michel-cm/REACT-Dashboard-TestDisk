@@ -42,7 +42,7 @@ export const AreaTimerTest = styled.div`
 export const AreaMsgEmail = styled.div`
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
   width: 360px;
-  padding:18px;
+  padding: 18px;
   background-color: ${(props) => props.theme.colors.primary};
   margin: 32px 0px;
   font-size: 14px;
@@ -55,7 +55,27 @@ export const AreaMsgEmail = styled.div`
   @media (max-width: 960px) {
     width: 390px;
   }
-
 `;
 
-export const ButtonArea = styled.div``;
+export const ButtonArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+`;
+
+export const Logout = styled.div`
+  cursor: pointer;
+  width: 180px;
+  margin-top: 48px;
+  border: 1px solid #2261bc;
+  padding: 8px 24px;
+  color: #2261bc;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+
+  &:hover {
+    background-color: #2261bc;
+    color: #f8f8f8;
+  }
+`;

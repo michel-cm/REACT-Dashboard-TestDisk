@@ -9,6 +9,9 @@ import { Header } from "../../components/Header";
 
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Favoritos = () => {
   const { listCandidadtes, ListCandidatesFavorites } = useCandidatesTests();
@@ -20,6 +23,16 @@ export const Favoritos = () => {
           candidate.name.toLowerCase().includes(search)
         )
       : [];
+
+  const { user } = useAuth();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   if (ListCandidatesFavorites.length > 0) {
     return (

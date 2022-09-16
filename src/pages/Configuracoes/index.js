@@ -5,6 +5,9 @@ import { SideBar } from "../../components/SideBar";
 import { Button } from "../../components/Button";
 
 import { useConfigs } from "../../hooks/useConfigs";
+import { useAuth } from "../../hooks/useAuth";
+import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Configuracoes = () => {
   const {
@@ -13,11 +16,19 @@ export const Configuracoes = () => {
     msg,
     setMsg,
     handleSaveConfig,
-    emailRecebimentoTeste,
     subject,
-    setEmailRecebimentoTeste,
-    setSubject
+    setSubject,
   } = useConfigs();
+
+  const { user, logoutAccount } = useAuth();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   return (
     <C.Container>
@@ -47,7 +58,7 @@ export const Configuracoes = () => {
           <p
             style={{
               marginTop: "32px",
-              marginBottom:'8px'
+              marginBottom: "8px",
             }}
           >
             Assunto do email pré-definido
@@ -56,7 +67,7 @@ export const Configuracoes = () => {
             style={{
               padding: "16px",
               width: "300px",
-              height: '80px'
+              height: "80px",
             }}
             type="text"
             value={subject ? subject : ""}
@@ -66,6 +77,9 @@ export const Configuracoes = () => {
         <C.ButtonArea>
           <Button title="salvar" fn={handleSaveConfig} />
         </C.ButtonArea>
+        <C.Logout onClick={logoutAccount}>
+          <p>Desconectar</p>
+        </C.Logout>
       </C.MainContent>
     </C.Container>
   );

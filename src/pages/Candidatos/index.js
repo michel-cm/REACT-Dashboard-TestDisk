@@ -13,6 +13,9 @@ import { ModalSendEmailTeste } from "../../components/ModalSendEmailTeste";
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 
 import { useConfigs } from "../../hooks/useConfigs";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Candidatos = () => {
   const [areaAllCandidates, setAreaAllCandidates] = useState(true);
@@ -35,6 +38,16 @@ export const Candidatos = () => {
   function handleModalSendEmail() {
     setModal(true);
   }
+
+  const { user } = useAuth();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   return (
     <C.Container>
@@ -88,7 +101,9 @@ export const Candidatos = () => {
           </>
         )}
       </C.MainContent>
-      {modal && <ModalSendEmailTeste setModal={setModal} msg={msg} subject={subject}/>}
+      {modal && (
+        <ModalSendEmailTeste setModal={setModal} msg={msg} subject={subject} />
+      )}
     </C.Container>
   );
 };
