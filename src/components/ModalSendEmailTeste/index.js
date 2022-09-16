@@ -13,7 +13,7 @@ export const ModalSendEmailTeste = ({ setModal, msg,subject }) => {
 
   const [email, setEmail] = useState("");
 
-  const { addNewCandidate } = useCandidatesTests();
+  const { addNewCandidate,getAllCandidatesAndTestes } = useCandidatesTests();
 
   const { testListQuestionsActive } = useListQuestionsTest();
 
@@ -34,12 +34,14 @@ export const ModalSendEmailTeste = ({ setModal, msg,subject }) => {
             value={email}
           />
 
-          <ButtonMailto 
+          <ButtonMailto           
           mailto={`mailto:${email}?subject=${subject}&body=${msg}`}
           label="Enviar"
           email={email}
           testListQuestionsActive={testListQuestionsActive}
           addNewCandidate={addNewCandidate} 
+          setModal={setModal}
+          getAllCandidatesAndTestes={getAllCandidatesAndTestes}
            />
         </C.Content>
       </C.Modal>
