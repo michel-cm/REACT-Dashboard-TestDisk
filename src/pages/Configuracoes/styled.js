@@ -21,7 +21,7 @@ export const AreaTimerTest = styled.div`
   gap: 20px;
   align-items: center;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 330px;
   padding: 32px;
   background-color: ${(props) => props.theme.colors.primary};
   font-size: 14px;

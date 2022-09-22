@@ -47,6 +47,7 @@ export const TableAreaUsers = (props) => {
             <div className="row header">
               <div className="cell">Nome</div>
               <div className="cell">E-mail</div>
+              <div className="cell">Cel</div>
               <div className="cell">Predominancia</div>
               <div className="cell">Data</div>
               <div className="cell"></div>
@@ -62,7 +63,14 @@ export const TableAreaUsers = (props) => {
                   </div>
                   <div className="cell">{candidate.email}</div>
                   <div className="cell">
-                    {candidate.predominancia ? candidate.predominancia : "---"}
+                    {candidate.cel ? candidate.cel : "---"}
+                  </div>
+                  <div className="cell">
+                    <C.Candidate predo={candidate.predominancia}>
+                      {candidate.predominancia
+                        ? candidate.predominancia
+                        : "---"}
+                    </C.Candidate>
                   </div>
                   <div className="cell">
                     {candidate.tempoEnd
@@ -71,7 +79,7 @@ export const TableAreaUsers = (props) => {
                   </div>
                   <div className="cell ">
                     <C.AreaIcon
-                      onClick={() => handleViewCandidate(candidate.idUser)}
+                      onClick={() => handleViewCandidate(candidate.email)}
                     >
                       <BsFillEyeFill
                         style={{

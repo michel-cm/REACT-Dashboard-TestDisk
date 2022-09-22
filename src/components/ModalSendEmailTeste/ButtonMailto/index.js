@@ -5,6 +5,7 @@ export const ButtonMailto = ({
   mailto,
   label,
   email,
+  name,
   testListQuestionsActive,
   addNewCandidate,
   setModal,
@@ -15,7 +16,7 @@ export const ButtonMailto = ({
       className={"Link"}
       to="#"
       onClick={async (e) => {
-        await addNewCandidate(email, testListQuestionsActive).then(async () => {
+        await addNewCandidate(email, name,testListQuestionsActive).then(async () => {
           await getAllCandidatesAndTestes();
           setModal(false);
         });

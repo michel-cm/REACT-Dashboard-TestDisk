@@ -38,10 +38,14 @@ export const Configuracoes = () => {
         <C.AreaTimerTest>
           <p>Tempo do questionário:</p>
           <input
-            type="number"
+            name="points"
+            type="range"
+            min="1"
+            max="20"
             value={timer ? timer : ""}
             onChange={(e) => setTimer(e.target.value)}
           />
+          <label for="points">{timer ? timer : ""}:</label>
         </C.AreaTimerTest>
 
         <C.AreaMsgEmail>

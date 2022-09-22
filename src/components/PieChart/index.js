@@ -18,7 +18,7 @@ export const PieChart = (props) => {
   ];
 
   const options = {
-    title: "Predominancias",
+    title: "Quadro Geral de Predominancias",
     titleColor: isDarkTheme === "dark" ? "#F0F2F5" : "#1C1C1C",
     legend: {
       textStyle: { color: isDarkTheme === "dark" ? "#F0F2F5" : "#1C1C1C" },
@@ -37,9 +37,7 @@ export const PieChart = (props) => {
       options={options}
       width={"100%"}
       height={"400px"}
-      style={{
-        color: "F0F2F5",
-      }}
+     
     />
   );
 };

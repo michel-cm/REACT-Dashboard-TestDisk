@@ -66,6 +66,28 @@ export const Candidatos = () => {
             value={ListCandidatesFavorites && ListCandidatesFavorites.length}
           />
         </C.AreaCardsResume>
+        <C.AreaCardsResume>
+          <Card
+            title={"Testes Finalizados"}
+            color={"green"}
+            value={
+              listCandidadtes &&
+              listCandidadtes.filter(
+                (candidate) => candidate.finalizado == true
+              ).length
+            }
+          />
+          <Card
+            title={"Testes Restantes"}
+            color={"red"}
+            value={
+              listCandidadtes &&
+              listCandidadtes.filter(
+                (candidate) => candidate.finalizado == false
+              ).length
+            }
+          />
+        </C.AreaCardsResume>
 
         <C.AreaSearchAndAdd>
           <Button title="Enviar novo Teste" fn={handleModalSendEmail} />

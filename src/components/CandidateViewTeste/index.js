@@ -48,7 +48,9 @@ export const CandidateViewTeste = ({ setModal, id }) => {
               <div className="table">
                 <div className="row header">
                   <div className="cell">Nome</div>
+                  <div className="cell">Cidade</div>
                   <div className="cell">E-mail</div>
+                  <div className="cell">Cel</div>
                   <div className="cell">Predominancia</div>
                   <div className="cell">Data </div>
                   <div className="cell"></div>
@@ -56,7 +58,13 @@ export const CandidateViewTeste = ({ setModal, id }) => {
 
                 <div className="row">
                   <div className="cell">{candidate && candidate.name}</div>
+                  <div className="cell">
+                    {candidate.city ? candidate.city : "-"}
+                  </div>
                   <div className="cell">{candidate && candidate.email}</div>
+                  <div className="cell">
+                    {candidate.cel ? candidate.cel : "-"}
+                  </div>
                   <div className="cell">
                     {candidate.predominancia ? candidate.predominancia : "-"}
                   </div>
@@ -98,10 +106,35 @@ export const CandidateViewTeste = ({ setModal, id }) => {
           <>
             <C.AreaValues>
               <C.Values>
-                <div>A = {candidate.name && candidate.totalCadaLetra[0].a}</div>
-                <div>B = {candidate.name && candidate.totalCadaLetra[0].b}</div>
-                <div>C = {candidate.name && candidate.totalCadaLetra[0].c}</div>
-                <div>D = {candidate.name && candidate.totalCadaLetra[0].d}</div>
+                <div
+                  style={{
+                    backgroundColor: "#FC5A5A",
+                  }}
+                >
+                  Dominante: {candidate.name && candidate.totalCadaLetra[0].a}
+                </div>
+                <div
+                  style={{
+                    backgroundColor: "#E2992B",
+                  }}
+                >
+                  Influente: {candidate.name && candidate.totalCadaLetra[0].b}
+                </div>
+                <div
+                  style={{
+                    backgroundColor: "#3AB04D",
+                  }}
+                >
+                  Estável: {candidate.name && candidate.totalCadaLetra[0].c}
+                </div>
+                <div
+                  style={{
+                    backgroundColor: "#2261BC",
+                  }}
+                >
+                  Condescendente:{" "}
+                  {candidate.name && candidate.totalCadaLetra[0].d}
+                </div>
               </C.Values>
             </C.AreaValues>
 

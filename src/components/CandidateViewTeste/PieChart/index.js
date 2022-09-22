@@ -4,44 +4,47 @@ import { useTheme } from "../../../hooks/useTheme";
 
 import { useQtdPredominancias } from "../../../hooks/useQtdPredominancias";
 
-export const PieChart = ({candidate}) => {
+export const PieChart = ({ candidate }) => {
   const { isDarkTheme } = useTheme();
 
   const { predominancias } = useQtdPredominancias();
 
   const data = [
-    ["Tipo", "Quantidade"],
-    ["Dominante", candidate && candidate.totalCadaLetra[0].a],
-    ["Influente", candidate && candidate.totalCadaLetra[0].b],
-    ["Estávei", candidate && candidate.totalCadaLetra[0].c],
-    ["Condescendente", candidate && candidate.totalCadaLetra[0].d],
+    [
+      "Predominancia",
+      "Valor",
+      { role: "style" },
+      {
+        sourceColumn: 0,
+        role: "annotation",
+        type: "string",
+        calc: "stringify",
+      },
+    ],
+    ["Dominante", candidate && candidate.totalCadaLetra[0].a, "#FC5A5A", null],
+    ["Influente", candidate && candidate.totalCadaLetra[0].b, "#E2992B", null],
+    ["Estável", candidate && candidate.totalCadaLetra[0].c, "#3AB04D", null],
+    [
+      "Condescendente",
+      candidate && candidate.totalCadaLetra[0].d,
+      "#2261BC",
+      null,
+    ],
   ];
 
-
-
   const options = {
-    title: candidate && "Predominancias do " + candidate.name,
-    titleColor: isDarkTheme === "dark" ? "#F0F2F5" : "#1C1C1C",
     legend: {
-      textStyle: { color: isDarkTheme === "dark" ? "#F0F2F5" : "#1C1C1C" },
-      position: "bottom",
+      position: "none",
     },
-    is3D: true,
-    colors: ["#FC5A5A", "#E2992B", "#3AB04D", "#2261BC"],
-    backgroundColor: isDarkTheme === "dark" ? "#1C1C1C" : "#F0F2F5",
-    vAxis: { textStyle: { color: "F0F2F5" } },
   };
 
   return (
     <Chart
-      chartType="PieChart"
+      chartType="BarChart"
       data={data}
       options={options}
-      width={"100%"}
-      height={"400px"}
-      style={{
-        color: "F0F2F5",
-      }}
+      width="100%"
+      height="350px"
     />
   );
 };

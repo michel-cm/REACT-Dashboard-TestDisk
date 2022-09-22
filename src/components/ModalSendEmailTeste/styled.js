@@ -22,7 +22,7 @@ export const Container = styled.div`
       opacity: 0.8;
     }
   }
-/*
+  /*
   form {
     display: flex;
     flex-direction: column;
@@ -44,12 +44,6 @@ export const Container = styled.div`
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
     }
   }*/
-
-  input {
-      margin: 8px 0px 24px 0px;
-      padding: 10px;
-    }
-
 `;
 
 export const Modal = styled.div`
@@ -73,4 +67,11 @@ export const AreaClose = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+
+  gap: 24px;
+
+  input {
+    margin: -8px 0px;
+    padding: 10px;
+  }
 `;

@@ -113,10 +113,10 @@ export const Questionario = () => {
         {/* ---------------------------------------- */}
 
         <C.AreaSearchAndAdd>
-          <Button
+          {/*<Button
             title={"Adicionar nova questão"}
             fn={handleModalNewQuestion}
-          />
+        />*/}
           <Search
             placeholder="Digite alguma questão"
             state={search}

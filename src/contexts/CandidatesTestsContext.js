@@ -23,15 +23,17 @@ export const CandidatesTestsContextProvider = ({ children }) => {
 
   function getTimerMediaUsed() {
     if (listCandidadtes.length > 0) {
-      const listCandidadtesFinally = getCandidatesFinally()
-      const result = listCandidadtesFinally
-        .map((item) => {
-          return item.timerUsed / 60;
-        })
-        .reduce((ac, value) => {
-          return ac + value;
-        });
-      return (result/listCandidadtesFinally.length).toFixed(1);
+      const listCandidadtesFinally = getCandidatesFinally();
+      if (listCandidadtesFinally.length > 0) {
+        const result = listCandidadtesFinally
+          .map((item) => {
+            return item.timerUsed / 60;
+          })
+          .reduce((ac, value) => {
+            return ac + value;
+          });
+        return (result / listCandidadtesFinally.length).toFixed(1);
+      }
     }
   }
 
@@ -66,14 +68,14 @@ export const CandidatesTestsContextProvider = ({ children }) => {
 
   const getCandidate = (idSearch) => {
     const candidate = listCandidadtes.filter(
-      (candidate, i) => candidate.idUser == idSearch
+      (candidate, i) => candidate.email == idSearch
     );
     return candidate[0];
   };
 
-  async function addNewCandidate(email, listQuestions) {
-    await Api.addNewCandidateForTest(email, listQuestions, timer).catch((err) =>
-      console.log(err)
+  async function addNewCandidate(email, name, listQuestions) {
+    await Api.addNewCandidateForTest(email, name, listQuestions, timer).catch(
+      (err) => console.log(err)
     );
   }
 

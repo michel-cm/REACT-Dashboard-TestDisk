@@ -85,6 +85,8 @@ export const Api = {
       candidates.push({
         name: data.name,
         email: data.email,
+        city: data.city,
+        cel: data.cel,
         favorite: data.favorite,
         finalizado: data.finalizado,
         idUser: data.idUser,
@@ -146,15 +148,17 @@ export const Api = {
     });
   },
 
-  addNewCandidateForTest: async (email, listQuestions, timer) => {
+  addNewCandidateForTest: async (email,name, listQuestions, timer) => {
     const created = firebase.firestore.Timestamp.fromDate(new Date()).toDate();
     timer = timer * 60;
     await database.collection("testes").doc(email).set(
       {
         timer: timer,
         timerUsed: 0,
-        name: "",
+        name: name,
         email: email,
+        cel:'',
+        city: '',
         currentQuestion: 0,
         questionsList: listQuestions,
         qtdQuestions: listQuestions.length,

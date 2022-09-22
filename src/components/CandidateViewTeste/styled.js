@@ -167,20 +167,29 @@ export const AreaTableUser = styled.div`
   }
 
   .row .cell:nth-child(1) {
-    width: 280px;
-    padding-left: 40px;
+    width: 340px;
+    padding-left: 20px;
   }
 
   .row .cell:nth-child(2) {
-    width: 260px;
+    width: 200px;
   }
 
   .row .cell:nth-child(3) {
-    width: 250px;
+    width: 320px;
   }
 
   .row .cell:nth-child(4) {
-    width: 190px;
+    width: 140px;
+  }
+  .row .cell:nth-child(5) {
+    width: 160px;
+  }
+  .row .cell:nth-child(6) {
+    width: 100px;
+  }
+  .row .cell:nth-child(7) {
+    width: 40px;
   }
 
   .table,
@@ -261,30 +270,28 @@ export const AreaValues = styled.div`
 `;
 
 export const AreaChart = styled.div`
-  margin-top: 36px;
-  width: 100%;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 36px 0px;
+  width: 80%;
+  @media (max-width: 790px) {
+    width: 100%;
+  }
 `;
 
 export const Values = styled.div`
   display: flex;
   justify-content: space-between;
-
+  font-size: 14px;
   gap: 28px;
 
   @media (max-width: 790px) {
     gap: 16px;
+    flex-direction: column;
   }
 
   div {
     padding: 20px 32px;
-    background-color: ${(props) => props.theme.colors.primary};
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-
+    color: #f8f8f8;
     @media (max-width: 790px) {
       padding: 32px 16px;
     }

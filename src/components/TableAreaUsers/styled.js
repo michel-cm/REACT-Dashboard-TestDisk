@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   & {
     @media screen and (min-width: 1300px) {
-      width: 80%;
+      width: 100%;
       margin: 0 0;
     }
   }
@@ -102,7 +102,7 @@ export const Container = styled.div`
   }
 
   .row.header .cell {
-    font-size: 15px;
+    font-size: 14px;
     color: #fff;
     line-height: 1.2;
     font-weight: unset !important;
@@ -112,20 +112,32 @@ export const Container = styled.div`
   }
 
   .row .cell:nth-child(1) {
-    width: 280px;
-    padding-left: 40px;
+    width: 320px;
+    padding-left: 20px;
   }
 
   .row .cell:nth-child(2) {
-    width: 260px;
+    width: 280px;
   }
 
   .row .cell:nth-child(3) {
-    width: 250px;
+    width: 160px;
   }
 
   .row .cell:nth-child(4) {
-    width: 190px;
+    width: 160px;
+  }
+  .row .cell:nth-child(5) {
+    width: 140px;
+  }
+  .row .cell:nth-child(6) {
+    width: 80px;
+  }
+  .row .cell:nth-child(7) {
+    width: 60px;
+  }
+  .row .cell:nth-child(8) {
+    width: 60px;
   }
 
   .table,
@@ -193,4 +205,17 @@ export const AreaIcon = styled.div`
   &:hover {
     opacity: 0.85;
   }
+`;
+
+export const Candidate = styled.p`
+  color: ${(props) =>
+    props.predo == "Dominante"
+      ? "#FC5A5A"
+      : props.predo == "Influente"
+      ? "#E2992B"
+      : props.predo == "Estavel"
+      ? "#3AB04D"
+      : props.predo == "Condescendente"
+      ? "#2261BC"
+      : "#F8F8F8"};
 `;

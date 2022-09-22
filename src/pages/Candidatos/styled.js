@@ -22,12 +22,13 @@ export const AreaCardsResume = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px 20px;
+  gap: 32px;
   width: 100%;
+  margin-bottom: 32px;
 `;
 
 export const AreaSearchAndAdd = styled.div`
-  padding: 80px 0px 0px 0px;
+  padding: 50px 0px 0px 0px;
   display: flex;
   align-items: center;
   gap: 20px;

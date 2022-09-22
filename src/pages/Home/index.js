@@ -68,21 +68,39 @@ const Home = () => {
             dominancia="C"
           />
         </C.AreaCardsResume>
-
-        <C.AreaInfos>
-          <C.AreaChart>{showPieChart && <PieChart />}</C.AreaChart>
-          <C.AreaMediaTimersTests>
-            <C.TimerMedia>
-              Média Tempo usado no Teste:
-              <C.Timer>
-                <p>
-                  {listCandidadtes.length > 0 && getTimerMediaUsed()} minutos
-                </p>
-              </C.Timer>
-            </C.TimerMedia>
-          </C.AreaMediaTimersTests>
-        </C.AreaInfos>
-        <TableAreaUsers candidates={listCandidadtes} />
+        {listCandidadtes.length > 0 ? (
+          getTimerMediaUsed() ? (
+            <>
+              <C.AreaInfos>
+                <C.AreaChart>{showPieChart && <PieChart />}</C.AreaChart>
+                <C.AreaMediaTimersTests>
+                  <C.TimerMedia>
+                    Média do tempo usado no Teste:
+                    <C.Timer>
+                      <p>
+                        {listCandidadtes.length > 0 && getTimerMediaUsed()}{" "}
+                        minutos
+                      </p>
+                    </C.Timer>
+                  </C.TimerMedia>
+                </C.AreaMediaTimersTests>
+              </C.AreaInfos>
+              <TableAreaUsers candidates={listCandidadtes} />
+            </>
+          ) : (
+            <TableAreaUsers candidates={listCandidadtes} />
+          )
+        ) : (
+          <div
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "22px",
+            }}
+          >
+            ...
+          </div>
+        )}
       </C.MainContent>
     </C.Container>
   );
