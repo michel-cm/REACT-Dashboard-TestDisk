@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 
 import { useNavigate } from "react-router-dom";
-
-const ADM = "admin@giroagro.com";
+import { useConfigs } from "../../hooks/useConfigs";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,8 +13,14 @@ export const Login = () => {
   const { user, loginWithEmail } = useAuth();
   const navigate = useNavigate();
 
+  const { emailAdmin } = useConfigs();
+
   const handleLoginEmail = async (e) => {
     e.preventDefault();
+    if (emailAdmin != email) {
+      alert("Acesso Negado!");
+      return;
+    }
     if (!user) {
       await loginWithEmail(email, password).then(() => navigate("/"));
     }

@@ -16,8 +16,8 @@ import { QtdPredominanciasContextProvider } from "./contexts/QtdPredominanciasCo
 function App() {
   return (
     <>
-      <AuthContextProvider>
-        <ConfigsContextProvider>
+      <ConfigsContextProvider>
+        <AuthContextProvider>
           <CandidatesTestsContextProvider>
             <ListQuestionsTestContextProvider>
               <QtdPredominanciasContextProvider>
@@ -30,8 +30,8 @@ function App() {
               </QtdPredominanciasContextProvider>
             </ListQuestionsTestContextProvider>
           </CandidatesTestsContextProvider>
-        </ConfigsContextProvider>
-      </AuthContextProvider>
+        </AuthContextProvider>
+      </ConfigsContextProvider>
     </>
   );
 }

@@ -8,16 +8,18 @@ export const ConfigsContextProvider = ({ children }) => {
   const [msg, setMsg] = useState();
   const [emailRecebimentoTeste, setEmailRecebimentoTeste] = useState();
   const [subject, setSubject] = useState();
+  const [emailAdmin, setEmailAdmin] = useState();
 
   useEffect(() => {
-    if (!timer || !msg)
+    if (!timer || !msg || !emailAdmin)
       Api.getConfigs().then((data) => {
         setTimer(data[0].timer / 60);
         setMsg(data[0].msg);
         setEmailRecebimentoTeste(data[0].emailRecebimentoTeste);
         setSubject(data[0].subject);
+        setEmailAdmin(data[0].emailAdminAcesso);
       });
-  }, [timer, msg]);
+  }, [timer, msg, emailAdmin]);
 
   async function handleSaveConfig() {
     await Api.updateConfig(timer, msg, subject, emailRecebimentoTeste)
@@ -40,6 +42,7 @@ export const ConfigsContextProvider = ({ children }) => {
         setEmailRecebimentoTeste,
         subject,
         setSubject,
+        emailAdmin,
 
         handleSaveConfig,
       }}

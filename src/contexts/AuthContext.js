@@ -9,27 +9,34 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 
+import { useConfigs } from "../hooks/useConfigs";
+
 export const AuthContext = createContext({});
 
 export function AuthContextProvider(props) {
   const [user, setUser] = useState();
 
+  const { emailAdmin } = useConfigs();
+
+  console.log(emailAdmin);
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
+      if (user && emailAdmin) {
         const { uid, email } = user;
-
-        setUser({
-          id: uid,
-          email: email,
-        });
+        if (email == emailAdmin) {
+          setUser({
+            id: uid,
+            email: email,
+          });
+        }
       }
     });
 
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [emailAdmin]);
 
   async function logoutAccount() {
     const auth = getAuth();

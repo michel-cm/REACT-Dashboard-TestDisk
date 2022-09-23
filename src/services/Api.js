@@ -96,7 +96,7 @@ export const Api = {
         tempoExcedido: data.tempoExcedido,
         tempoStart: data.tempoStart,
         timer: data.timer,
-        timerUsed : data.timerUsed,
+        timerUsed: data.timerUsed,
         tempoEnd: data.tempoEnd,
         totalCadaLetra: [data.totalCadaLetra],
         valoresQuestionsUser: data.valoresQuestionsUser,
@@ -114,17 +114,19 @@ export const Api = {
     let results = await database.collection("configuracaoGiro").get();
     results.forEach((result) => {
       let data = result.data();
+
       list.push({
         timer: data.timerTeste,
         msg: data.mensagemEmail,
         emailRecebimentoTeste: data.emailRecebimentoTeste,
         subject: data.subject,
+        emailAdminAcesso: data.emailAdminAcesso,
       });
     });
     return list;
   },
 
-  updateConfig: async (timer, msg, subject,emailRecebimentoTeste ) => {
+  updateConfig: async (timer, msg, subject, emailRecebimentoTeste) => {
     timer = timer * 60;
     const testRef = doc(database, "configuracaoGiro", IDDOCCONFIGGIRO);
     await updateDoc(testRef, {
@@ -148,7 +150,7 @@ export const Api = {
     });
   },
 
-  addNewCandidateForTest: async (email,name, listQuestions, timer) => {
+  addNewCandidateForTest: async (email, name, listQuestions, timer) => {
     const created = firebase.firestore.Timestamp.fromDate(new Date()).toDate();
     timer = timer * 60;
     await database.collection("testes").doc(email).set(
@@ -157,8 +159,8 @@ export const Api = {
         timerUsed: 0,
         name: name,
         email: email,
-        cel:'',
-        city: '',
+        cel: "",
+        city: "",
         currentQuestion: 0,
         questionsList: listQuestions,
         qtdQuestions: listQuestions.length,
