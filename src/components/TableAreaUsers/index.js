@@ -61,9 +61,30 @@ export const TableAreaUsers = (props) => {
                   <div className="cell">
                     {candidate.name ? candidate.name : "---"}
                   </div>
-                  <div className="cell">{candidate.email}</div>
                   <div className="cell">
-                    {candidate.cel ? candidate.cel : "---"}
+                    {" "}
+                    {candidate.email ? (
+                      <a
+                        href={`mailto:${candidate.email}?body=${candidate.name}`}
+                        target={"blank"}
+                      >
+                        {candidate.email}
+                      </a>
+                    ) : (
+                      "---"
+                    )}
+                  </div>
+                  <div className="cell">
+                    {candidate.cel ? (
+                      <a
+                        href={`https://api.whatsapp.com/send?1=pt_br&phone=55${candidate.cel}`}
+                        target={"blank"}
+                      >
+                        {candidate.cel}
+                      </a>
+                    ) : (
+                      "---"
+                    )}
                   </div>
                   <div className="cell">
                     <C.Candidate predo={candidate.predominancia}>

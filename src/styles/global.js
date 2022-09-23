@@ -7,6 +7,15 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
+    a{
+      text-decoration: none;
+      color: ${(props) => props.theme.colors.text};
+
+      &:hover {
+        color: #000
+      }
+    }
+
     body {
         background-color: ${(props) => props.theme.colors.background};        
         color: ${(props) => props.theme.colors.text};

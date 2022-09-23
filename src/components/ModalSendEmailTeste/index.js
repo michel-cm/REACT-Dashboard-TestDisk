@@ -43,7 +43,9 @@ export const ModalSendEmailTeste = ({ setModal, msg, subject }) => {
           />
 
           <ButtonMailto
-            mailto={`mailto:${email}?subject=${subject}&body=${'Olá ' + name+ ' '+msg}`}
+            mailto={`mailto:${email}?subject=${subject}&body=${
+              "Olá " + name + " " + msg
+            }`}
             label="Enviar"
             email={email}
             name={name}

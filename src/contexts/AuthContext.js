@@ -18,8 +18,6 @@ export function AuthContextProvider(props) {
 
   const { emailAdmin } = useConfigs();
 
-  console.log(emailAdmin);
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user && emailAdmin) {

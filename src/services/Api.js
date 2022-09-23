@@ -13,8 +13,6 @@ const IDDOCCONFIGGIRO = "RR3QwMBMngLk66XUkNEX";
 
 export const Api = {
   getAllQuestions: async () => {
-    console.log("req: getAllQuestions()");
-
     const list = [];
 
     let results = await getDocs(collection(database, "questions"));
@@ -75,7 +73,6 @@ export const Api = {
   },
 
   getAllCandidatesTests: async () => {
-    console.log("req: getAllCandidatesTests()");
     const candidates = [];
 
     let testes = await database.collection("testes").get();
@@ -107,8 +104,6 @@ export const Api = {
   },
 
   getConfigs: async () => {
-    console.log("req: getConfigs()");
-
     const list = [];
 
     let results = await database.collection("configuracaoGiro").get();
