@@ -61,9 +61,30 @@ export const CandidateViewTeste = ({ setModal, id }) => {
                   <div className="cell">
                     {candidate.city ? candidate.city : "-"}
                   </div>
-                  <div className="cell">{candidate && candidate.email}</div>
                   <div className="cell">
-                    {candidate.cel ? candidate.cel : "-"}
+                    {" "}
+                    {candidate.email ? (
+                      <a
+                        href={`mailto:${candidate.email}?body=${candidate.name}`}
+                        target={"blank"}
+                      >
+                        {candidate.email}
+                      </a>
+                    ) : (
+                      "---"
+                    )}
+                  </div>
+                  <div className="cell">
+                    {candidate.cel ? (
+                      <a
+                        href={`https://api.whatsapp.com/send?1=pt_br&phone=55${candidate.cel}`}
+                        target={"blank"}
+                      >
+                        {candidate.cel}
+                      </a>
+                    ) : (
+                      "---"
+                    )}
                   </div>
                   <div className="cell">
                     {candidate.predominancia ? candidate.predominancia : "-"}
