@@ -412,6 +412,13 @@ export const AnswerValue = styled.h4`
       ? "#FFF"
       : `${(props) => props.theme.colors.text}`};
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+
+  @media print {
+    background-color: ${(props) =>
+      props.value == 1 ? "red" : props.value == 4 ? "green" : "#F7F7F7"};
+    color: ${(props) =>
+      props.value == 1 ? "#FFF" : props.value == 4 ? "#FFF" : "#000"};
+  }
 `;
 
 export const AreaTimerTest = styled.div`

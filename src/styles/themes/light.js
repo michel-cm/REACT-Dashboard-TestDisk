@@ -3,7 +3,7 @@ export default {
 
   colors: {
     solid: "#FFF",
-    primary: "#F7F7F7",
+    primary: "#FFF",
     secundary: "#D63AF9",
     input: "#F8F8F8",
 
