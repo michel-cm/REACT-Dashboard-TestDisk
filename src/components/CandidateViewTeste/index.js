@@ -1,13 +1,21 @@
 import * as C from "./styled";
 
+import ReactToPrint from "react-to-print";
 import { useState } from "react";
 import { BsFillStarFill, BsClock, BsHourglassBottom } from "react-icons/bs";
 import { formatDate } from "../../helpers/dateFilter";
 import { useCandidatesTests } from "../../hooks/useCandidatesTests";
 import { useEffect } from "react";
 import { PieChart } from "./PieChart";
+import { useRef } from "react";
 
 export const CandidateViewTeste = ({ setModal, id }) => {
+  const componentRef = useRef();
+
+  const getPageMargins = () => {
+    return `@page { margin: ${"24px"} ${"0px"} ${"24px"} ${"0px"} !important; }`;
+  };
+
   const handleCloseModal = () => {
     setModal(false);
   };
@@ -36,11 +44,11 @@ export const CandidateViewTeste = ({ setModal, id }) => {
 
   return (
     <C.Container>
-      <C.Modal>
-        <C.AreaClose>
-          <p onClick={handleCloseModal}>X</p>{" "}
-        </C.AreaClose>
-        <C.Title></C.Title>
+      <C.AreaClose>
+        <p onClick={handleCloseModal}>X</p>{" "}
+      </C.AreaClose>
+      <C.Modal ref={componentRef}>
+        <style> {getPageMargins()} </style>
 
         <C.AreaTableUser>
           <div className="container-table100">
@@ -163,7 +171,7 @@ export const CandidateViewTeste = ({ setModal, id }) => {
               {showPieChart && <PieChart candidate={candidate} />}
             </C.AreaChart>
 
-            <C.AreaTimerTest>
+            <C.AreaTimerTest className="pagebreak">
               <C.TitleAreaTimer>
                 <BsClock /> <h4>Tempo do teste:</h4>
                 <p>{`${candidate && candidate.timer / 60} minutos`}</p>
@@ -175,8 +183,21 @@ export const CandidateViewTeste = ({ setModal, id }) => {
                 } minutos`}</p>
               </C.TitleAreaTimerUsed>
             </C.AreaTimerTest>
-
-            <C.AreaQuestions>
+            <div className="pagebreakDisplayNone">
+              <ReactToPrint
+                trigger={() => (
+                  <button
+                    style={{
+                      padding: "4px",
+                    }}
+                  >
+                    Print test
+                  </button>
+                )}
+                content={() => componentRef.current}
+              />
+            </div>
+            <C.AreaQuestions className="pageQuestionsWrap">
               {candidate.name ? (
                 candidate.questionsList[0].map((question, index) => (
                   <C.Question key={index}>
@@ -192,33 +213,61 @@ export const CandidateViewTeste = ({ setModal, id }) => {
                       <C.AreaAnswer>
                         <C.TitleAnswer>{question.a}</C.TitleAnswer>
                         <C.AnswerValue
-                          value={candidate.valoresQuestionsUser[index].a}
+                          value={
+                            candidate &&
+                            candidate.valoresQuestionsUser[index]?.a
+                              ? candidate.valoresQuestionsUser[index].a
+                              : 0
+                          }
                         >
-                          {candidate && candidate.valoresQuestionsUser[index].a}
+                          {candidate && candidate.valoresQuestionsUser[index]?.a
+                            ? candidate.valoresQuestionsUser[index].a
+                            : "-"}
                         </C.AnswerValue>
                       </C.AreaAnswer>
                       <C.AreaAnswer>
                         <C.TitleAnswer>{question.b}</C.TitleAnswer>
                         <C.AnswerValue
-                          value={candidate.valoresQuestionsUser[index].b}
+                          value={
+                            candidate &&
+                            candidate.valoresQuestionsUser[index]?.b
+                              ? candidate.valoresQuestionsUser[index].b
+                              : 0
+                          }
                         >
-                          {candidate && candidate.valoresQuestionsUser[index].b}
+                          {candidate && candidate.valoresQuestionsUser[index]?.b
+                            ? candidate.valoresQuestionsUser[index].b
+                            : "-"}
                         </C.AnswerValue>
                       </C.AreaAnswer>
                       <C.AreaAnswer>
                         <C.TitleAnswer>{question.c}</C.TitleAnswer>
                         <C.AnswerValue
-                          value={candidate.valoresQuestionsUser[index].c}
+                          value={
+                            candidate &&
+                            candidate.valoresQuestionsUser[index]?.c
+                              ? candidate.valoresQuestionsUser[index].c
+                              : 0
+                          }
                         >
-                          {candidate && candidate.valoresQuestionsUser[index].c}
+                          {candidate && candidate.valoresQuestionsUser[index]?.c
+                            ? candidate.valoresQuestionsUser[index].c
+                            : "-"}
                         </C.AnswerValue>
                       </C.AreaAnswer>
                       <C.AreaAnswer>
                         <C.TitleAnswer>{question.d}</C.TitleAnswer>
                         <C.AnswerValue
-                          value={candidate.valoresQuestionsUser[index].d}
+                          value={
+                            candidate &&
+                            candidate.valoresQuestionsUser[index]?.d
+                              ? candidate.valoresQuestionsUser[index].d
+                              : 0
+                          }
                         >
-                          {candidate && candidate.valoresQuestionsUser[index].d}
+                          {candidate && candidate.valoresQuestionsUser[index]?.d
+                            ? candidate.valoresQuestionsUser[index].d
+                            : "-"}
                         </C.AnswerValue>
                       </C.AreaAnswer>
                     </C.Table>

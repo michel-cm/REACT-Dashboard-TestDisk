@@ -27,8 +27,8 @@ export const Container = styled.div`
 export const Modal = styled.div`
   width: 95%;
   height: 95%;
-  background-color: ${(props) => props.theme.colors.background};
-  padding: 64px 32px;
+  background-color: ${(props) => props.theme.colors.primary};
+  padding: 48px 32px;
   border-radius: 10px;
 
   display: flex;
@@ -36,6 +36,34 @@ export const Modal = styled.div`
   align-items: center;
 
   overflow: auto;
+
+  @media print {
+    & {
+      padding: 0px 32px;
+
+      @page {
+        size: landscape;
+      }
+
+      background-color: #fff;
+      color: #000;
+    }
+    a {
+      color: #000;
+    }
+  }
+
+  @media print {
+    .pagebreak {
+      margin-top: -48px;
+    }
+  }
+
+  @media print {
+    .pagebreakDisplayNone {
+      display: none;
+    }
+  }
 `;
 
 export const Title = styled.h3`
@@ -101,6 +129,13 @@ export const AreaTableUser = styled.div`
   .row {
     display: table-row;
     background: ${(props) => props.theme.colors.primary};
+
+    @media print {
+      & {
+        color: #000 !important;
+        background-color: #fff;
+      }
+    }
   }
 
   .row.header {
@@ -270,7 +305,7 @@ export const AreaValues = styled.div`
 `;
 
 export const AreaChart = styled.div`
-  margin: 36px 0px;
+  margin: 16px 0px;
   width: 80%;
   @media (max-width: 790px) {
     width: 100%;
@@ -285,7 +320,6 @@ export const Values = styled.div`
 
   @media (max-width: 790px) {
     gap: 16px;
-    flex-direction: column;
   }
 
   div {
@@ -371,7 +405,12 @@ export const AnswerValue = styled.h4`
       : props.theme.colors.primary};
   padding: 16px;
   border-radius: 5px;
-
+  color: ${(props) =>
+    props.value == 1
+      ? "#FFF"
+      : props.value == 4
+      ? "#FFF"
+      : `${(props) => props.theme.colors.text}`};
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 `;
 
@@ -387,11 +426,26 @@ export const AreaTimerTest = styled.div`
     text-align: center;
     margin-left: 8px;
   }
+
+  @media print {
+    & {
+      color: #000 !important;
+      background-color: #fff;
+    }
+  }
 `;
 export const TitleAreaTimerUsed = styled.div`
   margin: 32px 0px 0px 0px;
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
+
+  @media print {
+    & {
+      color: #000 !important;
+      background-color: #fff;
+      box-shadow: none;
+    }
+  }
 `;
 
 export const TitleAreaTimer = styled.div`
