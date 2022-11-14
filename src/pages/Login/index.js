@@ -17,7 +17,7 @@ export const Login = () => {
 
   const handleLoginEmail = async (e) => {
     e.preventDefault();
-    if (emailAdmin != email) {
+    if (!emailAdmin.includes(email)) {
       alert("Acesso Negado!");
       return;
     }

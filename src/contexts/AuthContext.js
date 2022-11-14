@@ -21,8 +21,8 @@ export function AuthContextProvider(props) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user && emailAdmin) {
-        const { uid, email } = user;
-        if (email == emailAdmin) {
+        const { uid, email } = user;       
+        if (emailAdmin.includes(email)) {
           setUser({
             id: uid,
             email: email,

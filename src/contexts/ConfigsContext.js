@@ -43,7 +43,6 @@ export const ConfigsContextProvider = ({ children }) => {
         subject,
         setSubject,
         emailAdmin,
-
         handleSaveConfig,
       }}
     >

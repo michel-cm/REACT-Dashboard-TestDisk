@@ -9,7 +9,7 @@ import {
 
 import { database, firebase } from "./firebase";
 
-const IDDOCCONFIGGIRO = "RR3QwMBMngLk66XUkNEX";
+const IDDOCCONFIGGIRO = "B0KkrHMC4m8PfbCq28Tw";
 
 export const Api = {
   getAllQuestions: async () => {
@@ -143,6 +143,23 @@ export const Api = {
     await deleteDoc(doc(database, "testes", emailUser)).catch(() => {
       alert("eroor");
     });
+  },
+
+  updatePassword: async (email) => {
+    //redefinir Senha
+    await firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        alert("Verifique sua caixa de e-mail.");       
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        alert("Email Inválido")
+      });
   },
 
   addNewCandidateForTest: async (email, name, listQuestions, timer) => {

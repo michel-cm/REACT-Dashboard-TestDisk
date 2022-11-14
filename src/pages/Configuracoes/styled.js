@@ -57,6 +57,36 @@ export const AreaMsgEmail = styled.div`
   }
 `;
 
+export const AreaUpdatePassword = styled.div`
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  width: 360px;
+  padding: 18px;
+  background-color: ${(props) => props.theme.colors.primary};
+  margin: 0px 0px 32px 0;
+  font-size: 14px;
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  input {
+    padding: 8px;
+    width: 100%;
+  }
+
+  button {
+    padding: 8px;
+    margin-top: 8px;
+    cursor: pointer;   
+    font-weight: bold;
+    width: 100px;
+  }
+
+  @media (max-width: 960px) {
+    width: 390px;
+  }
+`;
+
 export const ButtonArea = styled.div`
   display: flex;
   flex-direction: column;

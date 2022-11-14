@@ -8,6 +8,8 @@ import { useConfigs } from "../../hooks/useConfigs";
 import { useAuth } from "../../hooks/useAuth";
 import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Api } from "../../services/Api";
+import { useState } from "react";
 
 export const Configuracoes = () => {
   const {
@@ -20,6 +22,8 @@ export const Configuracoes = () => {
     setSubject,
   } = useConfigs();
 
+  const [emailForUpdate, setEmailForUpdate] = useState("");
+
   const { user, logoutAccount } = useAuth();
 
   const navigate = useNavigate();
@@ -29,6 +33,10 @@ export const Configuracoes = () => {
       navigate("/login");
     }
   }, [user]);
+
+  async function handleUpdatePassowrd(email) {
+    await Api.updatePassword(email);
+  }
 
   return (
     <C.Container>
@@ -45,7 +53,7 @@ export const Configuracoes = () => {
             value={timer ? timer : ""}
             onChange={(e) => setTimer(e.target.value)}
           />
-          <label for="points">{timer ? timer : ""}:</label>
+          <label htmlFor="points">{timer ? timer : ""}:</label>
         </C.AreaTimerTest>
 
         <C.AreaMsgEmail>
@@ -78,6 +86,21 @@ export const Configuracoes = () => {
             onChange={(e) => setSubject(e.target.value)}
           />
         </C.AreaMsgEmail>
+
+        <C.AreaUpdatePassword>
+          <p>Alterar senha:</p>
+
+          <input
+            type="email"
+            placeholder="Digite o email"
+            required
+            onChange={(e) => setEmailForUpdate(e.target.value)}
+          />
+          <button onClick={(e) => handleUpdatePassowrd(emailForUpdate)}>
+            Enviar
+          </button>
+        </C.AreaUpdatePassword>
+
         <C.ButtonArea>
           <Button title="salvar" fn={handleSaveConfig} />
         </C.ButtonArea>
